@@ -1,0 +1,319 @@
+{
+ "exp": "Exp37_adaptive_optimism",
+ "motive": "B-M1: 测试段自适应复用的乐观偏差从未申报——模型族搜索空间被测试段诊断塑造且已无独立 holdout; 方案二把披露句升级为可审计量化（登记表+K_eff+Deflated IGPE+PBO/CSCV）",
+ "preregistered": {
+  "A1": "试验登记表: 测试段事件级比较全清点（JSON 点值+逐事件 margin npy）; 格点面/验证段/train 内另列",
+  "A2": "K_eff=PCA(90% 方差) 与 lag-1 调和界两口径（ρ̄ 引 exp14 在案, 不重测）",
+  "A3": "Deflated IGPE 非参迁移: correlated max（联合块 bootstrap 零假设化）+independent max（边缘池）→ deflation 区间两口径",
+  "A4": "PBO/CSCV: 143 事件 block≈6 对称切分×2000, IS 最优比较的 OOS 排名; 限定=比较族非互斥模型集",
+  "P1": "deflated 下界>0 → 「+5.874 获定量防御」; 下界≤0 → 「降格为带校正量的 prequential 一致性证据, 不作无偏前瞻验证引用」——跑前预写, 不预设方向"
+ },
+ "migration_note": "非参迁移声明: ①不搬 DSR/Sharpe 解析式（正态情形专用）, 用块 bootstrap 边缘/联合零假设分布替代; ②试验表含预登记外探索性比较; ③CSCV 分割为连续事件流 6 事件粒度, 与金融 bar 级加权不同; ④比较族含重叠对, K≠独立模型数",
+ "registry": {
+  "n_margin_gains_npy": 24,
+  "npy": [
+   {
+    "file": "exp4_gains_model_vs_edgecount.npy",
+    "pair": "edgecount",
+    "source": "exp4/exp4b",
+    "n": 143,
+    "kind": "gains(事件级)",
+    "role": "hop1 旗舰 vs 参照×8"
+   },
+   {
+    "file": "exp4_gains_model_vs_hod_pop.npy",
+    "pair": "hod_pop",
+    "source": "exp4/exp4b",
+    "n": 143,
+    "kind": "gains(事件级)",
+    "role": "hop1 旗舰 vs 参照×8"
+   },
+   {
+    "file": "exp4_gains_model_vs_iw.npy",
+    "pair": "iw",
+    "source": "exp4/exp4b",
+    "n": 143,
+    "kind": "gains(事件级)",
+    "role": "hop1 旗舰 vs 参照×8"
+   },
+   {
+    "file": "exp4_gains_model_vs_knox_rule.npy",
+    "pair": "knox_rule",
+    "source": "exp4/exp4b",
+    "n": 143,
+    "kind": "gains(事件级)",
+    "role": "hop1 旗舰 vs 参照×8"
+   },
+   {
+    "file": "exp4_gains_model_vs_pop.npy",
+    "pair": "pop",
+    "source": "exp4/exp4b",
+    "n": 143,
+    "kind": "gains(事件级)",
+    "role": "hop1 旗舰 vs 参照×8"
+   },
+   {
+    "file": "exp4_gains_model_vs_recency1.npy",
+    "pair": "recency1",
+    "source": "exp4/exp4b",
+    "n": 143,
+    "kind": "gains(事件级)",
+    "role": "hop1 旗舰 vs 参照×8"
+   },
+   {
+    "file": "exp4_gains_model_vs_recency24.npy",
+    "pair": "recency24",
+    "source": "exp4/exp4b",
+    "n": 143,
+    "kind": "gains(事件级)",
+    "role": "hop1 旗舰 vs 参照×8"
+   },
+   {
+    "file": "exp4_gains_model_vs_uniform.npy",
+    "pair": "uniform",
+    "source": "exp4/exp4b",
+    "n": 143,
+    "kind": "gains(事件级)",
+    "role": "hop1 旗舰 vs 参照×8"
+   },
+   {
+    "file": "exp12_margin_M_boost_W24_c_gt_M_boost_W24.npy",
+    "pair": "M_boost_W24_c > M_boost_W24",
+    "source": "exp12",
+    "n": 143,
+    "kind": "margin(事件级)",
+    "role": "族内+vs flag/hop1 成对比较（预登记族内九对）"
+   },
+   {
+    "file": "exp12_margin_M_boost_W24_c_gt_M_flag.npy",
+    "pair": "M_boost_W24_c > M_flag",
+    "source": "exp12",
+    "n": 143,
+    "kind": "margin(事件级)",
+    "role": "族内+vs flag/hop1 成对比较（预登记族内九对）"
+   },
+   {
+    "file": "exp12_margin_M_boost_W24_c_gt_M_hop1_frozen.npy",
+    "pair": "M_boost_W24_c > M_hop1_frozen",
+    "source": "exp12",
+    "n": 143,
+    "kind": "margin(事件级)",
+    "role": "族内+vs flag/hop1 成对比较（预登记族内九对）"
+   },
+   {
+    "file": "exp12_margin_M_hybrid_W24_c_gt_M_boost_W24_c.npy",
+    "pair": "M_hybrid_W24_c > M_boost_W24_c",
+    "source": "exp12",
+    "n": 143,
+    "kind": "margin(事件级)",
+    "role": "族内+vs flag/hop1 成对比较（预登记族内九对）"
+   },
+   {
+    "file": "exp12_margin_M_hybrid_W24_c_gt_M_flag.npy",
+    "pair": "M_hybrid_W24_c > M_flag",
+    "source": "exp12",
+    "n": 143,
+    "kind": "margin(事件级)",
+    "role": "族内+vs flag/hop1 成对比较（预登记族内九对）"
+   },
+   {
+    "file": "exp12_margin_M_hybrid_W24_c_gt_M_hop1_frozen.npy",
+    "pair": "M_hybrid_W24_c > M_hop1_frozen",
+    "source": "exp12",
+    "n": 143,
+    "kind": "margin(事件级)",
+    "role": "族内+vs flag/hop1 成对比较（预登记族内九对）"
+   },
+   {
+    "file": "exp12_margin_M_hybrid_W24_c_gt_M_hybrid_W24.npy",
+    "pair": "M_hybrid_W24_c > M_hybrid_W24",
+    "source": "exp12",
+    "n": 143,
+    "kind": "margin(事件级)",
+    "role": "族内+vs flag/hop1 成对比较（预登记族内九对）"
+   },
+   {
+    "file": "exp12_margin_M_hybrid_W24_gt_M_boost_W24.npy",
+    "pair": "M_hybrid_W24 > M_boost_W24",
+    "source": "exp12",
+    "n": 143,
+    "kind": "margin(事件级)",
+    "role": "族内+vs flag/hop1 成对比较（预登记族内九对）"
+   },
+   {
+    "file": "exp12_margin_M_hybrid_W24_gt_M_flag.npy",
+    "pair": "M_hybrid_W24 > M_flag",
+    "source": "exp12",
+    "n": 143,
+    "kind": "margin(事件级)",
+    "role": "族内+vs flag/hop1 成对比较（预登记族内九对）"
+   },
+   {
+    "file": "exp16_margin_hybrid_fr_gt_M_flag.npy",
+    "pair": "hybrid_fr > M_flag",
+    "source": "exp16",
+    "n": 143,
+    "kind": "margin(事件级)",
+    "role": "frailty 升级后测试面复核（含验证网格胜者测试面评估=探索性）"
+   },
+   {
+    "file": "exp16_margin_hybrid_fr_gt_M_hybrid_W24_c.npy",
+    "pair": "hybrid_fr > M_hybrid_W24_c",
+    "source": "exp16",
+    "n": 143,
+    "kind": "margin(事件级)",
+    "role": "frailty 升级后测试面复核（含验证网格胜者测试面评估=探索性）"
+   },
+   {
+    "file": "exp16_margin_hybrid_fr_gt_boost_fr.npy",
+    "pair": "hybrid_fr > boost_fr",
+    "source": "exp16",
+    "n": 143,
+    "kind": "margin(事件级)",
+    "role": "frailty 升级后测试面复核（含验证网格胜者测试面评估=探索性）"
+   },
+   {
+    "file": "exp16_margin_hybrid_fr_gt_flag_fr.npy",
+    "pair": "hybrid_fr > flag_fr",
+    "source": "exp16",
+    "n": 143,
+    "kind": "margin(事件级)",
+    "role": "frailty 升级后测试面复核（含验证网格胜者测试面评估=探索性）"
+   },
+   {
+    "file": "exp16_margin_hybrid_mle_omori_gt_M_hybrid_W24_c.npy",
+    "pair": "hybrid_mle_omori > M_hybrid_W24_c",
+    "source": "exp16",
+    "n": 143,
+    "kind": "margin(事件级)",
+    "role": "frailty 升级后测试面复核（含验证网格胜者测试面评估=探索性）"
+   },
+   {
+    "file": "exp16_margin_hybrid_mom_ts_gt_M_hybrid_W24_c.npy",
+    "pair": "hybrid_mom_ts > M_hybrid_W24_c",
+    "source": "exp16",
+    "n": 143,
+    "kind": "margin(事件级)",
+    "role": "frailty 升级后测试面复核（含验证网格胜者测试面评估=探索性）"
+   },
+   {
+    "file": "exp21_margin_mle_deg_gt_M_hybrid_W24_c.npy",
+    "pair": "mle_deg > M_hybrid_W24_c",
+    "source": "exp21",
+    "n": 143,
+    "kind": "margin(事件级)",
+    "role": "mle_deg 测试面一次性评估（预登记, 测试集只碰一次）"
+   }
+  ],
+  "reported_point_values": {
+   "exp4b_hop1_vs_8ref": 8,
+   "exp11_P3_constrained_forward": {
+    "configs": 5,
+    "refs": 2,
+    "note": "vs_uniform+vs_pop 点值; 部分配置与 exp12 家族重叠"
+   },
+   "exp12_test_IGPE": {
+    "configs": 10,
+    "refs": 3,
+    "note": "vs_uniform/vs_pop/vs_hod_pop ×10 配置"
+   },
+   "exp16_test_IGPE": {
+    "configs": 8,
+    "refs": 1,
+    "note": "vs_uniform ×8（含 hybrid_mle_omori/hybrid_mom_ts 验证网格测试面复核=探索性）"
+   },
+   "exp21_testface": 1,
+   "grid_face_not_counted": "exp13/15/18/20 格点面（τ×格 IGN/PR-AUC）与 exp16 validation/exp22 train 内比较不计入事件级 K——评估面不同不可混族, 另列备考"
+  },
+  "K_npy": 24,
+  "K_reported_eventlevel": 57
+ },
+ "audit_timeline": [
+  {
+   "step": 1,
+   "item": "exp4b seen/unseen 分层诊断",
+   "evidence": "results/exp4b_rescored.json",
+   "role": "测试段诊断塑造后续族设计（double-dipping 链起点）"
+  },
+  {
+   "step": 2,
+   "item": "图核降级裁决（hop1 降为格点面参考实现）",
+   "evidence": "RESEARCH_LOG R1 B-C1 段+exp13",
+   "role": "同一测试段证据决定 hybrid/hop1 分工"
+  },
+  {
+   "step": 3,
+   "item": "exp12 九配置族内比较+旗舰 vs_uniform +5.8737",
+   "evidence": "results/exp12_boost_flag.json",
+   "role": "搜索空间由 1-2 步塑造后, 在同一 143 事件上报告旗舰数字"
+  },
+  {
+   "step": 4,
+   "item": "exp15/16/18/20/21 依次累积评估",
+   "evidence": "results/exp15..exp21*.json",
+   "role": "同一测试段重复评估（exp21 一臂除外——其「测试集只碰一次」只约束 mle_deg 臂）"
+  },
+  {
+   "step": 5,
+   "item": "结论: 参数级 prequential 诚实, 但模型族搜索空间被测试诊断塑造",
+   "evidence": "本表",
+   "role": "成文披露句骨架（A5 模板）"
+  }
+ ],
+ "keff": {
+  "K_npy": 24,
+  "pca90_components": 3,
+  "pca_cumvar90": 0.9152496759959666,
+  "harmonization_bound": 3.1711204522985277,
+  "rho_bar": 0.28557838537457836,
+  "rho_bar_source": "exp14_inference_stab.json lag1_acf 0.235–0.336",
+  "K_eff_used": 3,
+  "note": "K_eff 取 PCA 90% 方差口径（保守）; 调和界只作敏感性参考"
+ },
+ "deflation": {
+  "IGPE_flag": 5.873700271172389,
+  "block": 10,
+  "B_joint": 20000,
+  "max_null_correlated": {
+   "mean": 0.517887698481655,
+   "q95": 1.1568438612322924
+  },
+  "max_null_independent": {
+   "mean": 0.28482234015392144,
+   "q95": 0.9267389697304449
+  },
+  "deflated_interval": [
+   4.716856409940096,
+   5.588877931018468
+  ],
+  "deflated_point_conservative": 5.355812572690734,
+  "P1_branch": "deflated_下界>0: 定量防御",
+  "deflated_lower_bound": 4.716856409940096,
+  "note": "区间=[IGPE_flag−q95(max_corr), IGPE_flag−mean(max_indep)]: 左端保守（相关 max 偏大→扣得多）, 右端乐观（K_eff 独立抽取）; 两口径并报不择一"
+ },
+ "pbo_cscv": {
+  "n_configurations": 24,
+  "cscv_block": 6,
+  "n_blocks": 23,
+  "n_trials": 2000,
+  "PBO": 0.0,
+  "rank_quantiles": {
+   "q50": 0.0,
+   "q90": 0.0,
+   "q95": 0.0
+  },
+  "tail_note": "余 5 事件不进切分（143=23×6+5）",
+  "interpretation": "IS 最优比较在 OOS 落入下半区的概率 PBO=0.000——若高则家族内排名不稳定, 与 deflation 区间并读",
+  "limitation": "对象=24 对比较族（含重叠对）, 非互斥模型选择集; CSCV 结论限定于「比较族排名稳定性」"
+ },
+ "writing_assets": {
+  "disclosure_template": "hybrid 族的搜索空间由测试段诊断迭代塑造（exp4b seen/unseen 分层→图核降级裁决→exp12 九配置族内比较）, +5.874 bits 为 prequential 一致性证据而非无偏前瞻验证; 事件级测试段累计报告 K=57 项比较（在盘逐事件序列 24 条）, 有效试验数 K_eff(PCA90)=3; deflation 分析给出校正区间 [4.72, 5.59] bits——按预登记分支「定量防御」。",
+  "double_dipping_map": "Kriegeskorte et al. 2009 Nat Neurosci 12:535-40: 同一数据先选择后选择性分析→统计量与选择准则非独立。映射: 测试段诊断塑造模型族（选择）→同段报 +5.87（选择性分析）; 处方=非选择性分析（不可得, 无 holdout）/零假设下独立性（不成立）/披露+校正（本实验 A3/A4）——取第三处方",
+  "dp_not_migrated": {
+   "refs": "Dwork et al. 2015 Science 349:636-8 reusable holdout/Thresholdout; 保证至多约 n^2 个过拟合函数内有效, 最坏情形样本复杂度悲观需极大样本",
+   "ruling": "n=143 事件、K_eff=3 下 DP 路不可落地（143^2≈2e4 个函数的预算在本项目轮次结构下不适用且实现不可行）→ 作有出处的不迁移判定, DP 仅入 Limitation 讨论"
+  },
+  "prequential_restatement": "参数级 prequential 诚实（无参数级 peeking, exp14 稳定性在案）与族级自适应乐观（本实验量化）两层须分开表述, 禁止混写"
+ },
+ "runtime_min": 0.15427783330281575
+}

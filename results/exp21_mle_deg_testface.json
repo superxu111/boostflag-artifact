@@ -1,0 +1,121 @@
+{
+ "exp": "Exp21_mle_deg_testface",
+ "preregistered": {
+  "E1_contract": "mle_deg=层级 Gamma-Poisson EB: 先验 r~Gamma(α,β) 与暴露无关, 暴露 e_v=deg+1 仅进 Poisson 似然（offset 语义）, 边际似然精确; NB 语境与 precision-weights/frequency-weights 契约不等价（Poisson 下等价）, 采用精确边际版=exp16 已落盘实现",
+  "E2_verdict_branches": "G1-mdeg: IGPE(hybrid_mle_deg − M_hybrid_W24_c) 块bootstrap(block=10,B=5000,seed=13) CI 下界>0→显著优翻案; 上界<0→有害; 含0→无显著差维持现版。成文=TOST 语义「方向+CI+等价不可确立」(n=143 半宽≫0.05), 禁裸写「无增量」",
+  "E3_tie_sensitivity": "0.05 bits 阈值=exp16 验证集选 mom; 阈值 0 则 mle_deg 入选——两阈值分支差异并报",
+  "E4_one_touch": "全 train 拟合与前置检查先于测试段评分; 测试段 143 事件评分执行恰一次",
+  "power_note": "n_train=570/n_test=143; MDE≈1.10 bits（exp4b D3）≫0.05 平手阈值"
+ },
+ "correctness_checks": {
+  "eb_alpha_beta_vs_exp16": {
+   "mine": {
+    "alpha": 0.02523390153737632,
+    "beta": 7.715175033787704
+   },
+   "exp16": {
+    "alpha": 0.02523390153737632,
+    "beta": 7.715175033787704
+   },
+   "pass_": true
+  }
+ },
+ "tie_threshold_bits": 0.05,
+ "fit_full_train": {
+  "ll": -7234.207999652879,
+  "branch_a": 0.4237544173164204,
+  "kappa": 0.47416533236096176,
+  "mu0": 0.0003292182925000891,
+  "c": 46.31720643838331,
+  "p": 1.308838959882315,
+  "degenerate": false,
+  "note": "同 exp16 fit_constrained(n_restarts=6, seed=23, a_max=0.95)",
+  "log_c": 3.8355135213938416,
+  "log_p": 0.2691404540595414
+ },
+ "reference_fits_exp12": {
+  "M_hybrid_W24h_c": {
+   "mu0": 0.00035532255078601736,
+   "kappa": 2.0426731757147043,
+   "c": 72.78230577492053,
+   "p": 1.5355143144962828
+  },
+  "M_boost_W24h_c": {
+   "mu0": 0.0003099001463804151,
+   "kappa": 0.280346530887298,
+   "c": 38.44330948610113,
+   "p": 1.2221845880006592
+  }
+ },
+ "test_face": {
+  "n": 143,
+  "IGPE_vs_uniform": {
+   "bits": 4.822468033704827,
+   "p": 1.5816945228302884e-15,
+   "t_ar1": 8.09469965735313,
+   "p_ar1": 6.525693060046629e-13
+  },
+  "margin_vs_M_hybrid_W24_c": {
+   "IGPE_bits": -1.051232237467562,
+   "boot_ci": [
+    -1.6262528079989866,
+    -0.5099068844260113
+   ],
+   "p_boot": 0.00039999999999995595,
+   "median": -0.08341590488950015,
+   "n_pos": 59,
+   "n_neg": 84,
+   "p_wilcoxon": 0.0007103937267299477,
+   "n": 143
+  }
+ },
+ "D_stratified": {
+  "seen": {
+   "n": 94,
+   "vs_uniform": 5.679693239313833,
+   "p": 9.046291752344041e-17
+  },
+  "unseen": {
+   "n": 49,
+   "vs_uniform": 3.1779951902916252,
+   "p": 0.006558305717046566
+  }
+ },
+ "verdict_G1_mdeg": {
+  "branch": "harmful",
+  "text": "mle_deg 有害（CI 上界<0）→ 维持现版 hybrid 并报告有害方向",
+  "tie_threshold_disclosure": {
+   "threshold_005": "exp16 验证集 gap=0.0422<0.05 → 简约规则选 mom（现版 hybrid）; 本测试面 CI 判定见上",
+   "threshold_000": "阈值取 0 则 exp16 验证集选 mle_deg; 本测试面 CI 为其实际前瞻效果——两阈值下选模分支不同, 成文必并报",
+   "equivalence_note": "n=143 CI 半宽≫0.05 bits, TOST 语义下等价不可确立"
+  }
+ },
+ "exp16_mle_equal_exposure_reference": {
+  "test_IGPE_vs_uniform": {
+   "vs_uniform": 5.908263294354187,
+   "p": 2.7844074348519432e-24
+  },
+  "margin": {
+   "IGPE_bits": 0.03456302318179858,
+   "boot_ci": [
+    -0.022836960543325964,
+    0.08581848366674431
+   ],
+   "p_boot": 0.262,
+   "t_ar1": 1.5182820444723963,
+   "p_ar1": 0.132953248358876,
+   "p_hac": 0.13330773124611633,
+   "median": -0.008193136212507817,
+   "n_pos": 56,
+   "n_neg": 87,
+   "p_wilcoxon": 0.5710263374681934,
+   "n_floor": 1,
+   "top10_share": 0.7929336528741616,
+   "n": 143
+  },
+  "note": "等暴露 MLE 版=exp16 已测面变体; 本实验为暴露加权 mle_deg 版补测面（V1 清欠）"
+ },
+ "R4_correction_20261021": {
+  "fit_full_train_cp_log_values": "A-m1→第二轮双席 m1/m3 更正（三轮携带项）: 本块 c/p 现值 3.8355/0.2691 系 log 参数原值（exp21_mle_deg_testface.py:103 直接写 th[idx['log_c']]/th[idx['log_p']] 未取 exp）, 非真值。2026-10-21 R4 注记收口轮修复: c/p 改 exp 运算还原真值（c≈46.3172 s, p≈1.3088——与同块 exp12 参考 fit c=72.8/38.4 量级自洽）, log 原值保留至新增字段 log_c/log_p; 该修复由 scripts/r4_closeout_fixes.py 归档执行（exp 运算可由 log_c/log_p 逐位复得, 幂等可重跑）。遗漏申报: R4 复审轮修复清单 14 项（RESEARCH_LOG §15 零计算批修批）不含本项——A-m1 静默遗漏, 与 BL-b 三轮携带同型的「清单项静默遗漏」模式第二次复发; 本键即修复与遗漏申报双落盘（机械终截）。该字段不进任何判定、不入 golden master（SPEC 无 fit_full_train 路径, 已核）。"
+ }
+}

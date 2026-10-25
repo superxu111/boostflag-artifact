@@ -1,0 +1,827 @@
+{
+ "exp": "Exp36_family_multiplicity",
+ "motive": "A-M2/B-M2 双席同题: 12/12 排零校准面头条无族校正（最弱格 p=0.008 ×12=0.096 不过项目自身 Bonferroni 标准）→ 方案一「显式定族+相关性稳健组合检验」收口",
+ "preregistered": {
+  "F1": "显式定族 primary 12=pop_xH6+hod_true6（调和表第 3 行格集）+expanded 18（+BLa6）, post-hoc 申报",
+  "F2": "格级三口径: raw p（B=1000 原版+B=5000 高分辨率）+BH+Bonferroni",
+  "F3": "主检验 CCT（Liu&Xie 2020 JASA, vanilla 非精确有效警示必报; p 下限 (r+1)/(B+1)）",
+  "F4": "经验校准轨道: 联合块重抽 B_cal=5000, 逐格中心化零假设, T* 经验零分布+经验组合 p",
+  "F5": "敏感性: Stouffer 相关校正（单侧）+HMP（争议注, 不进判定）",
+  "hard_gate": "exp20 管线零改动复用, 重建 18 格 obs/ci/p_two 逐位对表失败即终止"
+ },
+ "post_hoc_declaration": "事后定族: 12 格/18 格族在本实验前未预登记, 格 p 值已于 exp18/exp20 可见; 本实验将头条判定词从单一格 CI 排零升级为「显式族+组合检验」口径, 成文不得称预登记",
+ "correctness_checks": {
+  "targets_1h": {
+   "hybrid_ap_vs_exp15": true,
+   "hop1_ap_vs_exp13": true
+  },
+  "targets_3h": {
+   "hybrid_ap_vs_exp15": true,
+   "hop1_ap_vs_exp13": true
+  },
+  "targets_6h": {
+   "hybrid_ap_vs_exp15": true,
+   "hop1_ap_vs_exp13": true
+  },
+  "targets_train_1h": {
+   "hybrid_ap_vs_exp15": true,
+   "hop1_ap_vs_exp13": true
+  },
+  "targets_train_3h": {
+   "hybrid_ap_vs_exp15": true,
+   "hop1_ap_vs_exp13": true
+  },
+  "targets_train_6h": {
+   "hybrid_ap_vs_exp15": true,
+   "hop1_ap_vs_exp13": true
+  },
+  "exp20_bitwise_regression": {
+   "pass_": true,
+   "failed_cells": [],
+   "note": "18 格 mean/ci/p_two 与 exp20_hod_true_integral.json 落盘值逐位相等（同 seed=31 RNG 流同调用序）"
+  },
+  "vec_reimpl_equivalence": {
+   "pass_": true,
+   "rows": [
+    {
+     "cell": "targets/1h/pop_xH",
+     "max_abs_diff": 1.3010426069826053e-18,
+     "pass_": true
+    },
+    {
+     "cell": "targets/6h/hod_xH_true",
+     "max_abs_diff": 1.0408340855860843e-17,
+     "pass_": true
+    },
+    {
+     "cell": "targets_train/3h/BLa_true",
+     "max_abs_diff": 3.469446951953614e-18,
+     "pass_": true
+    }
+   ],
+   "note": "同一 starts 序列下向量化 τ-均值版与 exp20 逐格 gather 版逐元素同 diffs（<1e-12, 浮点求和顺序差）; 两种子下 p_two 的差异属 MC 噪声（二项计数 sd≈sqrt(p(1−p)/B)）, 不作硬闸——数据管线一致性已由 exp20_bitwise_regression 逐位硬闸证明"
+  }
+ },
+ "universes": {
+  "targets": {
+   "1h": {
+    "skill_scaled": {
+     "pop_xH": {
+      "mean": -0.0031211400424388785,
+      "ci": [
+       -0.00483676397325975,
+       -0.001966218905001705
+      ],
+      "p_two": 0.0,
+      "B": 1000,
+      "block": 6,
+      "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+     },
+     "hod_xH_true": {
+      "mean": -0.002579881697991378,
+      "ci": [
+       -0.0042772713047238954,
+       -0.0011932487437296682
+      ],
+      "p_two": 0.008,
+      "B": 1000,
+      "block": 6,
+      "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+     },
+     "BLa_true": {
+      "mean": -0.000738363220208279,
+      "ci": [
+       -0.001867612259569917,
+       0.0003287643311309371
+      ],
+      "p_two": 0.168,
+      "B": 1000,
+      "block": 6,
+      "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+     }
+    },
+    "hop1_ran": true
+   },
+   "3h": {
+    "skill_scaled": {
+     "pop_xH": {
+      "mean": -0.008774836698155574,
+      "ci": [
+       -0.013971899903907075,
+       -0.005683213276558067
+      ],
+      "p_two": 0.0,
+      "B": 1000,
+      "block": 6,
+      "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+     },
+     "hod_xH_true": {
+      "mean": -0.0075011447341833196,
+      "ci": [
+       -0.012650013391263783,
+       -0.004350506054273809
+      ],
+      "p_two": 0.002,
+      "B": 1000,
+      "block": 6,
+      "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+     },
+     "BLa_true": {
+      "mean": 0.002889422463633974,
+      "ci": [
+       -0.0021466908208625946,
+       0.007197733750121312
+      ],
+      "p_two": 0.214,
+      "B": 1000,
+      "block": 6,
+      "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+     }
+    },
+    "hop1_ran": true
+   },
+   "6h": {
+    "skill_scaled": {
+     "pop_xH": {
+      "mean": -0.018648426988242737,
+      "ci": [
+       -0.027028005793038115,
+       -0.012340126503230558
+      ],
+      "p_two": 0.0,
+      "B": 1000,
+      "block": 6,
+      "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+     },
+     "hod_xH_true": {
+      "mean": -0.016830977637936555,
+      "ci": [
+       -0.024409570335676277,
+       -0.011086632629584354
+      ],
+      "p_two": 0.0,
+      "B": 1000,
+      "block": 6,
+      "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+     },
+     "BLa_true": {
+      "mean": 0.0074858940934646985,
+      "ci": [
+       -0.0029787827412547205,
+       0.017218344824864427
+      ],
+      "p_two": 0.132,
+      "B": 1000,
+      "block": 6,
+      "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+     }
+    },
+    "hop1_ran": true
+   }
+  },
+  "targets_train": {
+   "1h": {
+    "skill_scaled": {
+     "pop_xH": {
+      "mean": -0.005087042679592829,
+      "ci": [
+       -0.0060190849102803355,
+       -0.004281217498914685
+      ],
+      "p_two": 0.0,
+      "B": 1000,
+      "block": 6,
+      "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+     },
+     "hod_xH_true": {
+      "mean": -0.00464794002555275,
+      "ci": [
+       -0.005477021042827109,
+       -0.0038094309934916786
+      ],
+      "p_two": 0.0,
+      "B": 1000,
+      "block": 6,
+      "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+     },
+     "BLa_true": {
+      "mean": -0.001752820473443178,
+      "ci": [
+       -0.002737412705465687,
+       -0.00037554213902611194
+      ],
+      "p_two": 0.0,
+      "B": 1000,
+      "block": 6,
+      "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+     }
+    },
+    "hop1_ran": true
+   },
+   "3h": {
+    "skill_scaled": {
+     "pop_xH": {
+      "mean": -0.014836439677035093,
+      "ci": [
+       -0.017702266123241814,
+       -0.0124062145255139
+      ],
+      "p_two": 0.0,
+      "B": 1000,
+      "block": 6,
+      "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+     },
+     "hod_xH_true": {
+      "mean": -0.013857056784377203,
+      "ci": [
+       -0.016391392444739986,
+       -0.011372532829954684
+      ],
+      "p_two": 0.0,
+      "B": 1000,
+      "block": 6,
+      "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+     },
+     "BLa_true": {
+      "mean": 0.0022020743301618176,
+      "ci": [
+       -0.0018040170853762482,
+       0.0077411598349669914
+      ],
+      "p_two": 0.224,
+      "B": 1000,
+      "block": 6,
+      "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+     }
+    },
+    "hop1_ran": true
+   },
+   "6h": {
+    "skill_scaled": {
+     "pop_xH": {
+      "mean": -0.029430569422903546,
+      "ci": [
+       -0.0345352689018063,
+       -0.025234747700543184
+      ],
+      "p_two": 0.0,
+      "B": 1000,
+      "block": 6,
+      "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+     },
+     "hod_xH_true": {
+      "mean": -0.027956011010842722,
+      "ci": [
+       -0.032096485230541504,
+       -0.023620517887512026
+      ],
+      "p_two": 0.0,
+      "B": 1000,
+      "block": 6,
+      "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+     },
+     "BLa_true": {
+      "mean": 0.00813918331415439,
+      "ci": [
+       -0.0013057583675794356,
+       0.018240271723068392
+      ],
+      "p_two": 0.09,
+      "B": 1000,
+      "block": 6,
+      "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+     }
+    },
+    "hop1_ran": true
+   }
+  }
+ },
+ "family_correction": {
+  "primary12": {
+   "n_cells": 12,
+   "definition": "model−pop_xH 6 格 + model−hod_xH_true 6 格",
+   "cells": {
+    "targets/1h/pop_xH": {
+     "family": "primary12",
+     "mean": -0.0031211400424388785,
+     "ci_hi_res": [
+      -0.004750644904816178,
+      -0.0018096396708055765
+     ],
+     "p_raw_B1000": 0.0,
+     "p_raw_B5000": 0.0,
+     "p_two_dh_B5000": 0.0003999200159968006,
+     "B_hi": 5000,
+     "bonferroni_x12_B1000": 0.0,
+     "BH_FDR_B1000": 0.0,
+     "bonferroni_x12_B5000": 0.0,
+     "BH_FDR_B5000": 0.0
+    },
+    "targets/1h/hod_xH_true": {
+     "family": "primary12",
+     "mean": -0.002579881697991378,
+     "ci_hi_res": [
+      -0.004283288403668149,
+      -0.0012389354888767395
+     ],
+     "p_raw_B1000": 0.008,
+     "p_raw_B5000": 0.0024,
+     "p_two_dh_B5000": 0.0027994401119776045,
+     "B_hi": 5000,
+     "bonferroni_x12_B1000": 0.096,
+     "BH_FDR_B1000": 0.008,
+     "bonferroni_x12_B5000": 0.0288,
+     "BH_FDR_B5000": 0.0024
+    },
+    "targets/3h/pop_xH": {
+     "family": "primary12",
+     "mean": -0.008774836698155574,
+     "ci_hi_res": [
+      -0.013941762048274223,
+      -0.005410628215790935
+     ],
+     "p_raw_B1000": 0.0,
+     "p_raw_B5000": 0.0,
+     "p_two_dh_B5000": 0.0003999200159968006,
+     "B_hi": 5000,
+     "bonferroni_x12_B1000": 0.0,
+     "BH_FDR_B1000": 0.0,
+     "bonferroni_x12_B5000": 0.0,
+     "BH_FDR_B5000": 0.0
+    },
+    "targets/3h/hod_xH_true": {
+     "family": "primary12",
+     "mean": -0.0075011447341833196,
+     "ci_hi_res": [
+      -0.01264857625998707,
+      -0.004135259742549398
+     ],
+     "p_raw_B1000": 0.002,
+     "p_raw_B5000": 0.0008,
+     "p_two_dh_B5000": 0.0011997600479904018,
+     "B_hi": 5000,
+     "bonferroni_x12_B1000": 0.024,
+     "BH_FDR_B1000": 0.002181818181818182,
+     "bonferroni_x12_B5000": 0.009600000000000001,
+     "BH_FDR_B5000": 0.0008727272727272728
+    },
+    "targets/6h/pop_xH": {
+     "family": "primary12",
+     "mean": -0.018648426988242737,
+     "ci_hi_res": [
+      -0.02704355762988292,
+      -0.01238852523210149
+     ],
+     "p_raw_B1000": 0.0,
+     "p_raw_B5000": 0.0,
+     "p_two_dh_B5000": 0.0003999200159968006,
+     "B_hi": 5000,
+     "bonferroni_x12_B1000": 0.0,
+     "BH_FDR_B1000": 0.0,
+     "bonferroni_x12_B5000": 0.0,
+     "BH_FDR_B5000": 0.0
+    },
+    "targets/6h/hod_xH_true": {
+     "family": "primary12",
+     "mean": -0.016830977637936555,
+     "ci_hi_res": [
+      -0.024702570939093407,
+      -0.011061702936048372
+     ],
+     "p_raw_B1000": 0.0,
+     "p_raw_B5000": 0.0,
+     "p_two_dh_B5000": 0.0003999200159968006,
+     "B_hi": 5000,
+     "bonferroni_x12_B1000": 0.0,
+     "BH_FDR_B1000": 0.0,
+     "bonferroni_x12_B5000": 0.0,
+     "BH_FDR_B5000": 0.0
+    },
+    "targets_train/1h/pop_xH": {
+     "family": "primary12",
+     "mean": -0.005087042679592829,
+     "ci_hi_res": [
+      -0.006033466678272549,
+      -0.004253396525191295
+     ],
+     "p_raw_B1000": 0.0,
+     "p_raw_B5000": 0.0,
+     "p_two_dh_B5000": 0.0003999200159968006,
+     "B_hi": 5000,
+     "bonferroni_x12_B1000": 0.0,
+     "BH_FDR_B1000": 0.0,
+     "bonferroni_x12_B5000": 0.0,
+     "BH_FDR_B5000": 0.0
+    },
+    "targets_train/1h/hod_xH_true": {
+     "family": "primary12",
+     "mean": -0.00464794002555275,
+     "ci_hi_res": [
+      -0.0055171076834722435,
+      -0.00379458590611384
+     ],
+     "p_raw_B1000": 0.0,
+     "p_raw_B5000": 0.0,
+     "p_two_dh_B5000": 0.0003999200159968006,
+     "B_hi": 5000,
+     "bonferroni_x12_B1000": 0.0,
+     "BH_FDR_B1000": 0.0,
+     "bonferroni_x12_B5000": 0.0,
+     "BH_FDR_B5000": 0.0
+    },
+    "targets_train/3h/pop_xH": {
+     "family": "primary12",
+     "mean": -0.014836439677035093,
+     "ci_hi_res": [
+      -0.017619030393812386,
+      -0.012496069171100263
+     ],
+     "p_raw_B1000": 0.0,
+     "p_raw_B5000": 0.0,
+     "p_two_dh_B5000": 0.0003999200159968006,
+     "B_hi": 5000,
+     "bonferroni_x12_B1000": 0.0,
+     "BH_FDR_B1000": 0.0,
+     "bonferroni_x12_B5000": 0.0,
+     "BH_FDR_B5000": 0.0
+    },
+    "targets_train/3h/hod_xH_true": {
+     "family": "primary12",
+     "mean": -0.013857056784377203,
+     "ci_hi_res": [
+      -0.016352842145291823,
+      -0.011432205267324646
+     ],
+     "p_raw_B1000": 0.0,
+     "p_raw_B5000": 0.0,
+     "p_two_dh_B5000": 0.0003999200159968006,
+     "B_hi": 5000,
+     "bonferroni_x12_B1000": 0.0,
+     "BH_FDR_B1000": 0.0,
+     "bonferroni_x12_B5000": 0.0,
+     "BH_FDR_B5000": 0.0
+    },
+    "targets_train/6h/pop_xH": {
+     "family": "primary12",
+     "mean": -0.029430569422903546,
+     "ci_hi_res": [
+      -0.03428611559642545,
+      -0.02513990716484131
+     ],
+     "p_raw_B1000": 0.0,
+     "p_raw_B5000": 0.0,
+     "p_two_dh_B5000": 0.0003999200159968006,
+     "B_hi": 5000,
+     "bonferroni_x12_B1000": 0.0,
+     "BH_FDR_B1000": 0.0,
+     "bonferroni_x12_B5000": 0.0,
+     "BH_FDR_B5000": 0.0
+    },
+    "targets_train/6h/hod_xH_true": {
+     "family": "primary12",
+     "mean": -0.027956011010842722,
+     "ci_hi_res": [
+      -0.03226027894168207,
+      -0.023608353283768424
+     ],
+     "p_raw_B1000": 0.0,
+     "p_raw_B5000": 0.0,
+     "p_two_dh_B5000": 0.0003999200159968006,
+     "B_hi": 5000,
+     "bonferroni_x12_B1000": 0.0,
+     "BH_FDR_B1000": 0.0,
+     "bonferroni_x12_B5000": 0.0,
+     "BH_FDR_B5000": 0.0
+    }
+   },
+   "worst_cell": "targets/1h/hod_xH_true",
+   "note": "primary12=§12.4 调和表第 3 行判定词格集; expanded18=Q5 收口后同族 hod 型参考全集; 两族均 post-hoc（见 post_hoc_declaration）"
+  },
+  "expanded18": {
+   "n_cells": 18,
+   "definition": "primary12 + model−BLa_true 6 格",
+   "cells": {
+    "targets/1h/BLa_true": {
+     "family": "expanded18",
+     "mean": -0.000738363220208279,
+     "ci_hi_res": [
+      -0.0018875613350223513,
+      0.0002781697394159987
+     ],
+     "p_raw_B1000": 0.168,
+     "p_raw_B5000": 0.1848,
+     "p_two_dh_B5000": 0.1851629674065187,
+     "B_hi": 5000,
+     "bonferroni_x18_B1000": 1.0,
+     "BH_FDR_B1000": 0.224,
+     "bonferroni_x18_B5000": 1.0,
+     "BH_FDR_B5000": 0.216
+    },
+    "targets/3h/BLa_true": {
+     "family": "expanded18",
+     "mean": 0.002889422463633974,
+     "ci_hi_res": [
+      -0.0020520240542917013,
+      0.007347833893419672
+     ],
+     "p_raw_B1000": 0.214,
+     "p_raw_B5000": 0.2068,
+     "p_two_dh_B5000": 0.20715856828634274,
+     "B_hi": 5000,
+     "bonferroni_x18_B1000": 1.0,
+     "BH_FDR_B1000": 0.224,
+     "bonferroni_x18_B5000": 1.0,
+     "BH_FDR_B5000": 0.216
+    },
+    "targets/6h/BLa_true": {
+     "family": "expanded18",
+     "mean": 0.0074858940934646985,
+     "ci_hi_res": [
+      -0.00254253997817315,
+      0.016984271546605152
+     ],
+     "p_raw_B1000": 0.132,
+     "p_raw_B5000": 0.132,
+     "p_two_dh_B5000": 0.132373525294941,
+     "B_hi": 5000,
+     "bonferroni_x18_B1000": 1.0,
+     "BH_FDR_B1000": 0.224,
+     "bonferroni_x18_B5000": 1.0,
+     "BH_FDR_B5000": 0.216
+    },
+    "targets_train/1h/BLa_true": {
+     "family": "expanded18",
+     "mean": -0.001752820473443178,
+     "ci_hi_res": [
+      -0.0028080673920836676,
+      -0.00037648540869839075
+     ],
+     "p_raw_B1000": 0.0,
+     "p_raw_B5000": 0.002,
+     "p_two_dh_B5000": 0.0023995200959808036,
+     "B_hi": 5000,
+     "bonferroni_x18_B1000": 0.0,
+     "BH_FDR_B1000": 0.0,
+     "bonferroni_x18_B5000": 0.036000000000000004,
+     "BH_FDR_B5000": 0.012
+    },
+    "targets_train/3h/BLa_true": {
+     "family": "expanded18",
+     "mean": 0.0022020743301618176,
+     "ci_hi_res": [
+      -0.0025005434316221864,
+      0.007711455399978097
+     ],
+     "p_raw_B1000": 0.224,
+     "p_raw_B5000": 0.216,
+     "p_two_dh_B5000": 0.21635672865426914,
+     "B_hi": 5000,
+     "bonferroni_x18_B1000": 1.0,
+     "BH_FDR_B1000": 0.224,
+     "bonferroni_x18_B5000": 1.0,
+     "BH_FDR_B5000": 0.216
+    },
+    "targets_train/6h/BLa_true": {
+     "family": "expanded18",
+     "mean": 0.00813918331415439,
+     "ci_hi_res": [
+      -0.0013890527791700618,
+      0.018560864779523956
+     ],
+     "p_raw_B1000": 0.09,
+     "p_raw_B5000": 0.0944,
+     "p_two_dh_B5000": 0.09478104379124175,
+     "B_hi": 5000,
+     "bonferroni_x18_B1000": 1.0,
+     "BH_FDR_B1000": 0.224,
+     "bonferroni_x18_B5000": 1.0,
+     "BH_FDR_B5000": 0.216
+    }
+   },
+   "worst_cell": "targets_train/3h/BLa_true",
+   "note": "primary12=§12.4 调和表第 3 行判定词格集; expanded18=Q5 收口后同族 hod 型参考全集; 两族均 post-hoc（见 post_hoc_declaration）"
+  }
+ },
+ "combined_tests": {
+  "primary12": {
+   "CCT_B1000": {
+    "T_stat": 282.1003921424875,
+    "p_combined": 0.0011283520398392977,
+    "n": 12,
+    "weights": "equal",
+    "p_floor_applied": "Davison-Hinkley (r+1)/(B+1)",
+    "n_cells_at_floor": 10
+   },
+   "CCT_B5000": {
+    "T_stat": 1370.765703333878,
+    "p_combined": 0.00023221315571414491,
+    "n": 12,
+    "weights": "equal",
+    "p_floor_applied": "Davison-Hinkley (r+1)/(B+1)",
+    "n_cells_at_floor": 10
+   },
+   "empirical_calibration": {
+    "B_cal": 5000,
+    "T_obs_B5000": 1370.765703333878,
+    "empirical_p_combined": 0.0001999600079984003,
+    "empirical_Tstar_quantiles": {
+     "q50": -795.8279007276736,
+     "q90": -265.7295783378393,
+     "q95": -133.2034436708449,
+     "q99": 0.14912953651757
+    },
+    "cauchy_theory_quantiles": {
+     "0.5": 0.0,
+     "0.9": 3.077683537175253,
+     "0.95": 6.313751514775055,
+     "0.99": 31.82051595377389,
+     "0.999": 318.3088398945627
+    },
+    "analytic_p_B5000": 0.00023221315571414491,
+    "zero_hypothesis": "逐格中心化 dll（dll−mean）经同一 τ 索引联合块重抽→格间相关自然保留",
+    "pstar_note": "格内经验双侧 p 用批内对称参照（(r+1)/(B+1) 近似, 上限 2B/(B+1) 截断至 1）",
+    "emp_over_analytic_ratio": 0.8611054243823795,
+    "calibration_verdict": "经验组合 p/解析组合 p=0.86（0.5~2 内）→ vanilla CCT 上尾校准可接受; 经验 p 并报为稳健口径",
+    "qq_note": "T* 分位数表基于对称截断 p*（下尾发散系经验 p 边界效应, 与上尾校准无关）; 校准主判据=经验/解析组合 p 比值"
+   },
+   "sensitivity": {
+    "stouffer_corr": {
+     "Z": 6.502803752301528,
+     "p_one_sided_model_better": 3.941835746701372e-11,
+     "sigma_corr_note": "Σ̂=联合重抽均值差 12×12 样本相关（B_cal 联合）",
+     "side_check": {
+      "all_cells_model_better": true,
+      "means_obs": [
+       -0.003121140042438878,
+       -0.0025798816979913804,
+       -0.008774836698155574,
+       -0.007501144734183318,
+       -0.018648426988242737,
+       -0.01683097763793655,
+       -0.005087042679592824,
+       -0.004647940025552747,
+       -0.01483643967703511,
+       -0.013857056784377217,
+       -0.029430569422903584,
+       -0.027956011010842736
+      ]
+     }
+    },
+    "HMP": {
+     "value": 0.0002322131200412823,
+     "equal_weight": true,
+     "ruling": "敏感性数值并报, 不进判定——Goeman & Solari 2019 PNAS 116(47):23383-23384（信件）: 非单点集无强 FWER 控制、中度正相关下 I 类膨胀; Wilson 2019 PNAS 回应争议在案【题录更正 2026-10-21 R4 注记收口轮: 原注「Goeman et al. 2019 PNAS 116(21):10354」卷页系无关论文（pnas.1903535116）, B 席元数据核验更正; 批评内容转述不变; scripts/r4_closeout_fixes.py 归档执行】"
+    },
+    "note": "Stouffer 相关校正=Brown(1975) 单侧合成的经验方差校正实现; 两敏感性轨道均不改变主判定"
+   },
+   "CCT_B5000_two_sided_floor": {
+    "T_stat": 694.8622047388438,
+    "p_combined": 0.0004580903440450923,
+    "n": 12,
+    "weights": "equal",
+    "p_floor_applied": "格级双侧 Davison-Hinkley 2(r+1)/(B+1)（=cells.p_two_dh_B5000 在案值, 与格级呈报同口径; 2026-10-21 R4 注记收口轮补算）",
+    "n_cells_at_floor": 10,
+    "note": "审稿复算对照（review2A-m3）: T≈694.9→p≈4.6e-4——本重算 T=694.9→p=4.58e-04 与之同带; 较单侧下限版（2.322e-04）约 2.0×, 方向保守; 判定不变（两版均 ≪0.05）"
+   },
+   "cct_input_floor_declaration": "CCT 输入下限口径声明（2026-10-21 R4 注记收口轮, review2A-m3）: 下方 CCT_B1000/CCT_B5000 的格 p 输入用单侧 Davison-Hinkley 下限 (r+1)/(B+1)（p_floor_applied 字段在案）, 与格级呈报的双侧口径 2(r+1)/(B+1) 不一致; 按双侧口径重算的组合 p 见 CCT_B5000_two_sided_floor（T=694.9, p=4.58e-04, 约为单侧版 2.32e-04 的 2×、保守方向）——双口径并报, 判定不变（两版均 ≪0.05）。经验校准轨道（empirical_p_combined=2.0e-4, 联合块重抽）独立于该输入下限选择、独立成立。emp_over_analytic_ratio=0.86 系单侧版比值（自报 0.5~2 校准带内）; 若按双侧版解析 p 折算, 经验/解析比=0.44 出该带下缘——「0.5~2 带判读」只适用单侧版, 引用组合 p 时须注明所引口径。"
+  },
+  "expanded18": {
+   "CCT_BLa6_B1000": {
+    "T_stat": 54.74846390428047,
+    "p_combined": 0.0058133958847378375,
+    "n": 6,
+    "weights": "equal",
+    "p_floor_applied": "Davison-Hinkley (r+1)/(B+1)",
+    "n_cells_at_floor": 1
+   },
+   "CCT_BLa6_B5000": {
+    "T_stat": 28.129646498036347,
+    "p_combined": 0.011311052080838824,
+    "n": 6,
+    "weights": "equal",
+    "p_floor_applied": "Davison-Hinkley (r+1)/(B+1)",
+    "n_cells_at_floor": 0
+   },
+   "key_note": "键名更正 2026-10-21 R4 注记收口轮（双席 m1/m6）: 原 CCT_B1000/CCT_B5000 键名读作「18 格联合检验」, 实际只合并 expanded18 相对 primary12 的增量 BLa 6 格（n=6 字段在案, B 席手算 T=28.130/p=0.01131 与 6 格输入吻合）——键名更正为 CCT_BLa6_B1000/CCT_BLa6_B5000, 数值零改动（备考用途, 未入 golden master, 未被 exp_summary 引用, 不按 18 格重算）; scripts/r4_closeout_fixes.py 归档执行"
+  }
+ },
+ "runtime_min": 0.8098013520240783,
+ "narrowing_audit": {
+  "source": "results/exp20_hod_true_integral.json: universes.{u}.{h}.approx_vs_true.hod_xH.diff_boot_{approx,true}.ci, {u}∈{targets,targets_train}, {h}∈{1h,3h,6h}（只读重算, 六格; 层级补全 2026-10-21 R4 注记收口轮, B-m7——原指针缺 universes 层, 照抄会 KeyError; 由 r4_annotation_fixes.py 修复）",
+  "rows": {
+   "targets/1h": {
+    "ci_approx": [
+     -0.004375330509094027,
+     -0.0013829342446575884
+    ],
+    "ci_true": [
+     -0.004181661304504967,
+     -0.0012119195415896762
+    ],
+    "width_approx": 0.0029923962644364385,
+    "width_true": 0.0029697417629152905,
+    "width_narrow_pct": 0.7570689012811771,
+    "mid_approx": -0.0028791323768758074,
+    "mid_true": -0.0026967904230473217,
+    "mid_narrow_pct": 6.333225776382944
+   },
+   "targets/3h": {
+    "ci_approx": [
+     -0.014018937316427992,
+     -0.005920241866427967
+    ],
+    "ci_true": [
+     -0.012549534362301627,
+     -0.0042439964974824
+    ],
+    "width_approx": 0.008098695450000025,
+    "width_true": 0.008305537864819228,
+    "width_narrow_pct": -2.5540213988316296,
+    "mid_approx": -0.00996958959142798,
+    "mid_true": -0.008396765429892013,
+    "mid_narrow_pct": 15.776217738073273
+   },
+   "targets/6h": {
+    "ci_approx": [
+     -0.03129372947837061,
+     -0.01564307932264752
+    ],
+    "ci_true": [
+     -0.024729221657581287,
+     -0.01173709612551545
+    ],
+    "width_approx": 0.015650650155723093,
+    "width_true": 0.012992125532065838,
+    "width_narrow_pct": 16.986672101191225,
+    "mid_approx": -0.02346840440050907,
+    "mid_true": -0.01823315889154837,
+    "mid_narrow_pct": 22.307632933268952
+   },
+   "targets_train/1h": {
+    "ci_approx": [
+     -0.005601113911010836,
+     -0.0038318663406933825
+    ],
+    "ci_true": [
+     -0.0054684282835985205,
+     -0.0038066310838033015
+    ],
+    "width_approx": 0.0017692475703174533,
+    "width_true": 0.001661797199795219,
+    "width_narrow_pct": 6.073224139172028,
+    "mid_approx": -0.004716490125852109,
+    "mid_true": -0.0046375296837009115,
+    "mid_narrow_pct": 1.6741356399411988
+   },
+   "targets_train/3h": {
+    "ci_approx": [
+     -0.01836184608068808,
+     -0.012317940019925111
+    ],
+    "ci_true": [
+     -0.016430324678000468,
+     -0.01132898052874248
+    ],
+    "width_approx": 0.0060439060607629675,
+    "width_true": 0.005101344149257989,
+    "width_narrow_pct": 15.595244234917715,
+    "mid_approx": -0.015339893050306596,
+    "mid_true": -0.013879652603371474,
+    "mid_narrow_pct": 9.519234861327385
+   },
+   "targets_train/6h": {
+    "ci_approx": [
+     -0.03971735444984848,
+     -0.024158782985142326
+    ],
+    "ci_true": [
+     -0.032133404286767864,
+     -0.023457584229491728
+    ],
+    "width_approx": 0.015558571464706156,
+    "width_true": 0.008675820057276136,
+    "width_narrow_pct": 44.23768225150489,
+    "mid_approx": -0.0319380687174954,
+    "mid_true": -0.027795494258129796,
+    "mid_narrow_pct": 12.970647962493553
+   }
+  },
+  "summary": {
+   "mid_narrow_range_pct": [
+    1.6741356399411988,
+    22.307632933268952
+   ],
+   "width_change_range_pct": [
+    -2.5540213988316296,
+    44.23768225150489
+   ],
+   "ruling": "「收窄约 10–25%」撤（A-m2①/B-m1）: CI 中点收窄逐格 +1.7%~+22.3%（1h 两格 <7%）, CI 宽度变化 −2.6%~+44.2%（targets/3h 宽度微增; 1h 两格几乎不变）——成文逐格口径或引「中点收窄 +1.7%~+22.3%」; 近似版系统性放大优势总体成立（6 格中点全正）"
+  },
+  "s_rel_diff_6h_ruling": "A-m2②: 均值 +8.108 系分母趋零病态均值（median=+0.0130, absmax=+72.26）——成文引 median 或加病态注"
+ },
+ "R4_correction_20261021": {
+  "goeman_citation_fix": "题录更正（B 席 m2）: sensitivity.HMP.ruling 的争议注题录「Goeman et al. 2019 PNAS 116(21):10354」系无关论文（pnas.1903535116）——正确出处=Goeman & Solari 2019 PNAS 116(47):23383-23384（信件）; 已就地更正, 成文引用链（exp_summary §13.1）同步。",
+  "cct_two_sided_floor": "口径批（review2A-m3）: 新增 CCT_B5000_two_sided_floor（格级双侧 2(r+1)/(B+1) 输入口径, T=694.9, p=4.58e-04）+cct_input_floor_declaration 口径声明句——双口径并报, 判定不变; 现行 CCT_B1000/CCT_B5000 数值零改动（其单侧输入口径由声明句披露）。",
+  "expanded18_key_rename": "键名批（双席 m1/m6）: combined_tests.expanded18 下 CCT_B1000/CCT_B5000 更名 CCT_BLa6_B1000/CCT_BLa6_B5000（实况 n=6, 只合并 BLa 增量 6 格）——数值零改动, key_note 注记在案。"
+ }
+}

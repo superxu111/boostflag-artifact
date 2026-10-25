@@ -1,0 +1,96 @@
+{
+ "exp": "Exp19_ts_kernel_fulltrain_provenance",
+ "motive": "exp16 ts_full_train_supplement 运行后手工补丁无溯源（审稿A-M4）——以归档代码重算",
+ "preregistered": {
+  "H1": "twostage 三档 ll 全部劣于 omori → 双时间尺度核被数据拒绝（脚本留痕版）",
+  "H2": "w_short≈1 → 长尾由 flag 静态项承担（F2/F3）",
+  "tolerance": "与补丁数字 |Δll|≤0.05 视为复现; 超容差以本脚本为准并申报差异"
+ },
+ "omori_reference": {
+  "ll": -6960.356626404788,
+  "branch_a": 0.37512663539071034,
+  "W": 86400.0,
+  "k": 5,
+  "BIC": 13952.44,
+  "exp16_hybrid_fr_ll": -6960.356626404788,
+  "pipeline_validated": true,
+  "note": "omori+mom 全 train 拟合须逐位复现 exp16 hybrid_fr（同 seed/重启数）——管线自证后 twostage 结果才可信"
+ },
+ "twostage": {
+  "ts24h": {
+   "ll": -6996.729860454103,
+   "BIC": 14025.19,
+   "branch_a": 0.3359078196265747,
+   "w_short": 0.9995189226158372,
+   "mass_long": 0.0004810773841628091,
+   "k": 5,
+   "W": 86400.0,
+   "tau_stage": [
+    300.0,
+    86400.0
+   ],
+   "patch_ref": {
+    "train_ll": -6996.73,
+    "BIC": 14025.19,
+    "branch_a": 0.3359,
+    "w_short": 0.9995
+   },
+   "ll_vs_patch": 0.00013954589667264372,
+   "w_short_dof_note": "有效自由度注记（R3 清单8⑤原文有误, R4 更正 2026-10-21: 原注记称「三档 w_short 逐位相同」且自嵌 bitwise identical=False 同句矛盾、w 引离群档 ts24h 值——三档实测仅 ts72h/ts7d 两档逐位相同（=0.9996646498695336）, ts24h=0.9995189226158372 与其差 -1.46e-04; 机制不变: 第二分量质量 <0.05% 时 logit_w1 饱和于同一边界/梯度平台, 三档 w 互差 ≤1.5e-4、并非 3 个独立估计, ts 网格的有效自由度≈1（exp16 R2_correction「验证网格 12 配置有效自由度≈6」同源）; 「双时间尺度核被数据拒绝」结论不受影响（拒绝依据=三档 ll 全劣于 omori, 非 w 的档间差异）"
+  },
+  "ts72h": {
+   "ll": -7007.9140297482,
+   "BIC": 14047.56,
+   "branch_a": 0.34373868186336454,
+   "w_short": 0.9996646498695336,
+   "mass_long": 0.00033535013046637197,
+   "k": 5,
+   "W": 259200.0,
+   "tau_stage": [
+    300.0,
+    259200.0
+   ],
+   "patch_ref": {
+    "train_ll": -7007.91,
+    "BIC": 14047.56,
+    "branch_a": 0.3437,
+    "w_short": 0.9997
+   },
+   "ll_vs_patch": -0.004029748200082395,
+   "w_short_dof_note": "有效自由度注记（R3 清单8⑤原文有误, R4 更正 2026-10-21: 原注记称「三档 w_short 逐位相同」且自嵌 bitwise identical=False 同句矛盾、w 引离群档 ts24h 值——三档实测仅 ts72h/ts7d 两档逐位相同（=0.9996646498695336）, ts24h=0.9995189226158372 与其差 -1.46e-04; 机制不变: 第二分量质量 <0.05% 时 logit_w1 饱和于同一边界/梯度平台, 三档 w 互差 ≤1.5e-4、并非 3 个独立估计, ts 网格的有效自由度≈1（exp16 R2_correction「验证网格 12 配置有效自由度≈6」同源）; 「双时间尺度核被数据拒绝」结论不受影响（拒绝依据=三档 ll 全劣于 omori, 非 w 的档间差异）"
+  },
+  "ts7d": {
+   "ll": -7019.538370160892,
+   "BIC": 14070.8,
+   "branch_a": 0.38683578611039676,
+   "w_short": 0.9996646498695336,
+   "mass_long": 0.00033535013046637197,
+   "k": 5,
+   "W": 604800.0,
+   "tau_stage": [
+    300.0,
+    604800.0
+   ],
+   "patch_ref": {
+    "train_ll": -7019.54,
+    "BIC": 14070.8,
+    "branch_a": 0.3868,
+    "w_short": 0.9997
+   },
+   "ll_vs_patch": 0.001629839108318265,
+   "w_short_dof_note": "有效自由度注记（R3 清单8⑤原文有误, R4 更正 2026-10-21: 原注记称「三档 w_short 逐位相同」且自嵌 bitwise identical=False 同句矛盾、w 引离群档 ts24h 值——三档实测仅 ts72h/ts7d 两档逐位相同（=0.9996646498695336）, ts24h=0.9995189226158372 与其差 -1.46e-04; 机制不变: 第二分量质量 <0.05% 时 logit_w1 饱和于同一边界/梯度平台, 三档 w 互差 ≤1.5e-4、并非 3 个独立估计, ts 网格的有效自由度≈1（exp16 R2_correction「验证网格 12 配置有效自由度≈6」同源）; 「双时间尺度核被数据拒绝」结论不受影响（拒绝依据=三档 ll 全劣于 omori, 非 w 的档间差异）"
+  }
+ },
+ "verdict": {
+  "H1": true,
+  "H2": true,
+  "reproduced_within_tolerance": true,
+  "note": "H1/H2 成立→双时间尺度核被数据拒绝在脚本留痕下成立; reproduced_within_tolerance=False 时以本脚本为准并申报与补丁差异"
+ },
+ "R3_correction_20261021": {
+  "exp5_branch_incident": "exp5_knox_grid.json 的 note（δ 分解指针）首写出自未归档 smoke 轮、直写权威 JSON 未走零改动断言（exp19 日志 grep exp5 零行+exp5 mtime 12:24:45 早于 exp19_full.log 12:26:29 在案）——事故留痕见 exp5 note 追加段; 本轮起该类 标注一律并入本断言管线（patch_r3_corrections.py 为首个归档执行者）"
+ },
+ "R4_correction_20261021": {
+  "w_short_dof_note_factual": "A-M1 更正: R3 清单8⑤写入的 dof_note 断言「三档逐位相同」与事实不符（实测仅两档同, 原注记自嵌布尔值 False 而文字断言全部相同——同句矛盾, 且引用离群档 ts24h 之值）, 三处 dof_note 本轮改事实版（w_short 数值零改动）; 扩散点 RESEARCH_LOG.md:312 与 exp_summary.md §13.3 清单 8 行同步更正; patch_r3_corrections.py 模板同步修正防重跑复发; golden master 注记布尔自检扩展防此类自相矛盾注记再入（注: 更正性描述避免内嵌原样「bitwise identical=X」串以免触发自检的模式匹配——自检抓自身矛盾, 不区分描述性引用, 该局限已在校验器注释记录）"
+ }
+}

@@ -1,0 +1,847 @@
+{
+ "exp": "Exp15_hybrid_causal_forecast",
+ "model": "M-hybrid (q_flag EB × hop0 Omori, exp12_th_M_hybrid_W24h_c 主版; W12/W48 敏感性)",
+ "preregistered": {
+  "J1": "主判定=model−persistence ×6 Bonferroni 存活格数 vs exp13 hop1 版(仅 targets_train 6h)",
+  "J2": "1h 反超 persistence 双向成文",
+  "J3": "BL-a 吃掉显著性→赢在背景; 不吃掉→衰减形状有独立贡献"
+ },
+ "protocol": "严格因果在线历史; 块bootstrap 6h×1000(主)/500(敏感性窗); BL-a=persistence×hod, BL-b=persistence×q_flag, BL-c=Markov一阶转移(λ=1 pop平滑)",
+ "correctness_check": {
+  "fn_replication_maxdiff": 0.0,
+  "ap_model_vs_json": {
+   "mine": 0.019143194262762314,
+   "json": 0.019143194262762314
+  },
+  "ap_persist_vs_json": {
+   "mine": 0.009455943315597987,
+   "json": 0.009455943315597987
+  },
+  "pass": true
+ },
+ "universes": {
+  "targets": {
+   "12h_1h": {
+    "n_pred_points": 386,
+    "n_pos": 112,
+    "base_rate": 0.0009639715628388962,
+    "PR_AUC_model": 0.030431041203527447,
+    "PR_AUC_persistence": 0.022089417881499745,
+    "PR_AUC_persist_x_hod": 0.01922897481944941,
+    "PR_AUC_persist_x_qflag": 0.01446085335536643,
+    "PR_AUC_markov_dst1": 0.001977246025736533,
+    "PR_AUC_pop_climatology": 0.0013131540005273177,
+    "PR_AUC_uniform": 0.0009639715628388962,
+    "model_minus_persistence": {
+     "diff": 0.008341623322027703,
+     "ci": [
+      -0.014090770976145285,
+      0.030149027931671908
+     ],
+     "p_two": 0.464,
+     "n_valid": 500
+    }
+   },
+   "12h_3h": {
+    "n_pred_points": 386,
+    "n_pos": 306,
+    "base_rate": 0.0026337080198991273,
+    "PR_AUC_model": 0.015257141535526004,
+    "PR_AUC_persistence": 0.00835515165670548,
+    "PR_AUC_persist_x_hod": 0.008218282625096676,
+    "PR_AUC_persist_x_qflag": 0.0073608157846566085,
+    "PR_AUC_markov_dst1": 0.007604763356576536,
+    "PR_AUC_pop_climatology": 0.003298128790148559,
+    "PR_AUC_uniform": 0.0026337080198991273,
+    "model_minus_persistence": {
+     "diff": 0.006901989878820524,
+     "ci": [
+      -0.0022530313977072777,
+      0.01958916850449259
+     ],
+     "p_two": 0.096,
+     "n_valid": 500
+    }
+   },
+   "12h_6h": {
+    "n_pred_points": 386,
+    "n_pos": 538,
+    "base_rate": 0.00463050625720827,
+    "PR_AUC_model": 0.013121141373984721,
+    "PR_AUC_persistence": 0.009455943315597987,
+    "PR_AUC_persist_x_hod": 0.009375181482255919,
+    "PR_AUC_persist_x_qflag": 0.009798314046876623,
+    "PR_AUC_markov_dst1": 0.00884729802887577,
+    "PR_AUC_pop_climatology": 0.005844730412410219,
+    "PR_AUC_uniform": 0.00463050625720827,
+    "model_minus_persistence": {
+     "diff": 0.0036651980583867344,
+     "ci": [
+      -0.0005501291641395129,
+      0.013506601417918332
+     ],
+     "p_two": 0.096,
+     "n_valid": 500
+    }
+   },
+   "24h_1h": {
+    "n_pred_points": 386,
+    "n_pos": 112,
+    "base_rate": 0.0009639715628388962,
+    "PR_AUC_model": 0.030393850457861075,
+    "PR_AUC_persistence": 0.022089417881499745,
+    "PR_AUC_persist_x_hod": 0.01922897481944941,
+    "PR_AUC_persist_x_qflag": 0.01446085335536643,
+    "PR_AUC_markov_dst1": 0.001977246025736533,
+    "PR_AUC_pop_climatology": 0.0013131540005273177,
+    "PR_AUC_uniform": 0.0009639715628388962,
+    "model_minus_persistence": {
+     "diff": 0.00830443257636133,
+     "ci": [
+      -0.0194253949916489,
+      0.029858903970936757
+     ],
+     "p_two": 0.518,
+     "n_valid": 1000
+    },
+    "model_minus_BLa": {
+     "diff": 0.011164875638411665,
+     "ci": [
+      -0.010898452426488304,
+      0.0344084769220827
+     ],
+     "p_two": 0.396,
+     "n_valid": 1000
+    },
+    "model_minus_BLb": {
+     "diff": 0.015932997102494646,
+     "ci": [
+      -0.0178546167063078,
+      0.03741965035178486
+     ],
+     "p_two": 0.398,
+     "n_valid": 1000
+    },
+    "model_minus_BLc": {
+     "diff": 0.028416604432124543,
+     "ci": [
+      0.0009882680239364288,
+      0.06584419421611747
+     ],
+     "p_two": 0.002,
+     "n_valid": 1000
+    },
+    "skill_ign": {
+     "ISS_all_taus_mean": -1622.733857549517,
+     "ISS_positive_taus_mean": 0.45393647916267504,
+     "frac_positive_taus": 0.08808290155440414,
+     "IGN_model_mean": 0.014001249447351687,
+     "IGN_clim_mean": 0.01885032661729888,
+     "IGN_diff_quantiles_5_25_50_75_95": [
+      -0.06380989677899294,
+      0.00010473322457346016,
+      0.003991607280535177,
+      0.008302279987479717,
+      0.011217469781089789
+     ],
+     "note": "IGN=逐格 log2 proper score 泊松转换; ISS=1−IGN_model/IGN_clim; 差值分位数替代 exp13 病态比值列 SS_vs_pop(−7517)",
+     "ISS_all_taus_mean_pathology": "全 τ 平均的 ISS 与 exp13 SS_vs_pop 同病（无正例 τ 上 IGN_clim≈0 致比值爆炸）——只报 ISS_positive_taus_mean 与 IGN 差值分位数; 病态列保留仅作对照"
+    },
+    "stratified": {
+     "cell_seen": {
+      "n_pos": 75,
+      "PR_AUC_model": 0.012217657682619171,
+      "PR_AUC_persistence": 0.019957498461797944
+     },
+     "cell_unseen": {
+      "n_pos": 37,
+      "PR_AUC_model": 0.06900995697321015,
+      "PR_AUC_persistence": 0.03278784383581308
+     },
+     "tau_first_half": {
+      "n_pos": 72,
+      "PR_AUC_model": 0.03168676839457528,
+      "PR_AUC_persistence": 0.026945606051256916
+     },
+     "tau_second_half": {
+      "n_pos": 40,
+      "PR_AUC_model": 0.028605211915405743,
+      "PR_AUC_persistence": 0.036124963995112565
+     }
+    }
+   },
+   "24h_3h": {
+    "n_pred_points": 386,
+    "n_pos": 306,
+    "base_rate": 0.0026337080198991273,
+    "PR_AUC_model": 0.015409210484302998,
+    "PR_AUC_persistence": 0.00835515165670548,
+    "PR_AUC_persist_x_hod": 0.008218282625096676,
+    "PR_AUC_persist_x_qflag": 0.0073608157846566085,
+    "PR_AUC_markov_dst1": 0.007604763356576536,
+    "PR_AUC_pop_climatology": 0.003298128790148559,
+    "PR_AUC_uniform": 0.0026337080198991273,
+    "model_minus_persistence": {
+     "diff": 0.0070540588275975185,
+     "ci": [
+      -0.0011078959998584788,
+      0.020091172989080284
+     ],
+     "p_two": 0.098,
+     "n_valid": 1000
+    },
+    "model_minus_BLa": {
+     "diff": 0.007190927859206322,
+     "ci": [
+      -0.0020660085171243514,
+      0.02130444908038382
+     ],
+     "p_two": 0.138,
+     "n_valid": 1000
+    },
+    "model_minus_BLb": {
+     "diff": 0.00804839469964639,
+     "ci": [
+      -0.0028101186352420832,
+      0.019976907952997752
+     ],
+     "p_two": 0.14,
+     "n_valid": 1000
+    },
+    "model_minus_BLc": {
+     "diff": 0.007804447127726462,
+     "ci": [
+      -0.0030983349924644213,
+      0.024979835995113282
+     ],
+     "p_two": 0.108,
+     "n_valid": 1000
+    },
+    "skill_ign": {
+     "ISS_all_taus_mean": -4296.9869478643095,
+     "ISS_positive_taus_mean": 0.3972245346040683,
+     "frac_positive_taus": 0.16062176165803108,
+     "IGN_model_mean": 0.03646538101934247,
+     "IGN_clim_mean": 0.05157103738485204,
+     "IGN_diff_quantiles_5_25_50_75_95": [
+      -0.1448425099739953,
+      0.0003139496756796924,
+      0.010035483261856864,
+      0.021946152316799698,
+      0.031025118293287184
+     ],
+     "note": "IGN=逐格 log2 proper score 泊松转换; ISS=1−IGN_model/IGN_clim; 差值分位数替代 exp13 病态比值列 SS_vs_pop(−7517)",
+     "ISS_all_taus_mean_pathology": "全 τ 平均的 ISS 与 exp13 SS_vs_pop 同病（无正例 τ 上 IGN_clim≈0 致比值爆炸）——只报 ISS_positive_taus_mean 与 IGN 差值分位数; 病态列保留仅作对照"
+    },
+    "stratified": {
+     "cell_seen": {
+      "n_pos": 207,
+      "PR_AUC_model": 0.011990813103331353,
+      "PR_AUC_persistence": 0.008169155217291186
+     },
+     "cell_unseen": {
+      "n_pos": 99,
+      "PR_AUC_model": 0.036202953678978037,
+      "PR_AUC_persistence": 0.020876699607866485
+     },
+     "tau_first_half": {
+      "n_pos": 190,
+      "PR_AUC_model": 0.018654399554242015,
+      "PR_AUC_persistence": 0.010944148599277155
+     },
+     "tau_second_half": {
+      "n_pos": 116,
+      "PR_AUC_model": 0.013784594973940748,
+      "PR_AUC_persistence": 0.013068107998941411
+     }
+    }
+   },
+   "24h_6h": {
+    "n_pred_points": 386,
+    "n_pos": 538,
+    "base_rate": 0.00463050625720827,
+    "PR_AUC_model": 0.012659784695344907,
+    "PR_AUC_persistence": 0.009455943315597987,
+    "PR_AUC_persist_x_hod": 0.009375181482255919,
+    "PR_AUC_persist_x_qflag": 0.009798314046876623,
+    "PR_AUC_markov_dst1": 0.00884729802887577,
+    "PR_AUC_pop_climatology": 0.005844730412410219,
+    "PR_AUC_uniform": 0.00463050625720827,
+    "model_minus_persistence": {
+     "diff": 0.0032038413797469203,
+     "ci": [
+      -0.0016544421594199723,
+      0.013540293948597478
+     ],
+     "p_two": 0.112,
+     "n_valid": 1000
+    },
+    "model_minus_BLa": {
+     "diff": 0.003284603213088988,
+     "ci": [
+      -0.002548733246043787,
+      0.013644814941086806
+     ],
+     "p_two": 0.162,
+     "n_valid": 1000
+    },
+    "model_minus_BLb": {
+     "diff": 0.002861470648468284,
+     "ci": [
+      -0.0029550885689898967,
+      0.012842755222656843
+     ],
+     "p_two": 0.148,
+     "n_valid": 1000
+    },
+    "model_minus_BLc": {
+     "diff": 0.003812486666469137,
+     "ci": [
+      -0.001893715970122899,
+      0.013122364337297656
+     ],
+     "p_two": 0.128,
+     "n_valid": 1000
+    },
+    "skill_ign": {
+     "ISS_all_taus_mean": -7580.765621078777,
+     "ISS_positive_taus_mean": 0.33378956360190215,
+     "frac_positive_taus": 0.24093264248704663,
+     "IGN_model_mean": 0.06299570843247684,
+     "IGN_clim_mean": 0.09047307063002258,
+     "IGN_diff_quantiles_5_25_50_75_95": [
+      -0.3304975622853086,
+      0.0007227326868355443,
+      0.02138683829584623,
+      0.037950833855450984,
+      0.052914511675939205
+     ],
+     "note": "IGN=逐格 log2 proper score 泊松转换; ISS=1−IGN_model/IGN_clim; 差值分位数替代 exp13 病态比值列 SS_vs_pop(−7517)",
+     "ISS_all_taus_mean_pathology": "全 τ 平均的 ISS 与 exp13 SS_vs_pop 同病（无正例 τ 上 IGN_clim≈0 致比值爆炸）——只报 ISS_positive_taus_mean 与 IGN 差值分位数; 病态列保留仅作对照"
+    },
+    "stratified": {
+     "cell_seen": {
+      "n_pos": 376,
+      "PR_AUC_model": 0.013580169732239475,
+      "PR_AUC_persistence": 0.010473568432156685
+     },
+     "cell_unseen": {
+      "n_pos": 162,
+      "PR_AUC_model": 0.03392231023063934,
+      "PR_AUC_persistence": 0.020262049752299553
+     },
+     "tau_first_half": {
+      "n_pos": 308,
+      "PR_AUC_model": 0.016274993148587547,
+      "PR_AUC_persistence": 0.012879355424462202
+     },
+     "tau_second_half": {
+      "n_pos": 230,
+      "PR_AUC_model": 0.009349271365715384,
+      "PR_AUC_persistence": 0.01017464961055193
+     }
+    }
+   },
+   "48h_1h": {
+    "n_pred_points": 386,
+    "n_pos": 112,
+    "base_rate": 0.0009639715628388962,
+    "PR_AUC_model": 0.030169164608065034,
+    "PR_AUC_persistence": 0.022089417881499745,
+    "PR_AUC_persist_x_hod": 0.01922897481944941,
+    "PR_AUC_persist_x_qflag": 0.01446085335536643,
+    "PR_AUC_markov_dst1": 0.001977246025736533,
+    "PR_AUC_pop_climatology": 0.0013131540005273177,
+    "PR_AUC_uniform": 0.0009639715628388962,
+    "model_minus_persistence": {
+     "diff": 0.00807974672656529,
+     "ci": [
+      -0.015768750341819727,
+      0.0316123769554258
+     ],
+     "p_two": 0.52,
+     "n_valid": 500
+    }
+   },
+   "48h_3h": {
+    "n_pred_points": 386,
+    "n_pos": 306,
+    "base_rate": 0.0026337080198991273,
+    "PR_AUC_model": 0.015387207466761503,
+    "PR_AUC_persistence": 0.00835515165670548,
+    "PR_AUC_persist_x_hod": 0.008218282625096676,
+    "PR_AUC_persist_x_qflag": 0.0073608157846566085,
+    "PR_AUC_markov_dst1": 0.007604763356576536,
+    "PR_AUC_pop_climatology": 0.003298128790148559,
+    "PR_AUC_uniform": 0.0026337080198991273,
+    "model_minus_persistence": {
+     "diff": 0.007032055810056023,
+     "ci": [
+      -0.0015827888314170647,
+      0.020172927411003447
+     ],
+     "p_two": 0.132,
+     "n_valid": 500
+    }
+   },
+   "48h_6h": {
+    "n_pred_points": 386,
+    "n_pos": 538,
+    "base_rate": 0.00463050625720827,
+    "PR_AUC_model": 0.012675351869659677,
+    "PR_AUC_persistence": 0.009455943315597987,
+    "PR_AUC_persist_x_hod": 0.009375181482255919,
+    "PR_AUC_persist_x_qflag": 0.009798314046876623,
+    "PR_AUC_markov_dst1": 0.00884729802887577,
+    "PR_AUC_pop_climatology": 0.005844730412410219,
+    "PR_AUC_uniform": 0.00463050625720827,
+    "model_minus_persistence": {
+     "diff": 0.0032194085540616906,
+     "ci": [
+      -0.0017997533688778064,
+      0.013038570610950538
+     ],
+     "p_two": 0.152,
+     "n_valid": 500
+    }
+   }
+  },
+  "targets_train": {
+   "12h_1h": {
+    "n_pred_points": 386,
+    "n_pos": 75,
+    "base_rate": 0.0007196315486470927,
+    "PR_AUC_model": 0.01183849656553621,
+    "PR_AUC_persistence": 0.019957498461797944,
+    "PR_AUC_persist_x_hod": 0.016724967561782163,
+    "PR_AUC_persist_x_qflag": 0.017064073078176485,
+    "PR_AUC_markov_dst1": 0.0023777314972148454,
+    "PR_AUC_pop_climatology": 0.0014854173364536058,
+    "PR_AUC_uniform": 0.0007196315486470927,
+    "model_minus_persistence": {
+     "diff": -0.008119001896261734,
+     "ci": [
+      -0.041018381100198655,
+      0.03516099531892035
+     ],
+     "p_two": 0.732,
+     "n_valid": 500
+    }
+   },
+   "12h_3h": {
+    "n_pred_points": 386,
+    "n_pos": 207,
+    "base_rate": 0.0019861830742659756,
+    "PR_AUC_model": 0.011847027891062012,
+    "PR_AUC_persistence": 0.008169155217291186,
+    "PR_AUC_persist_x_hod": 0.008272503656370825,
+    "PR_AUC_persist_x_qflag": 0.008545855118920778,
+    "PR_AUC_markov_dst1": 0.009727044248777308,
+    "PR_AUC_pop_climatology": 0.003615895245485243,
+    "PR_AUC_uniform": 0.0019861830742659756,
+    "model_minus_persistence": {
+     "diff": 0.003677872673770826,
+     "ci": [
+      -0.0063356948001842515,
+      0.017799809237993503
+     ],
+     "p_two": 0.444,
+     "n_valid": 500
+    }
+   },
+   "12h_6h": {
+    "n_pred_points": 386,
+    "n_pos": 376,
+    "base_rate": 0.003607752830550758,
+    "PR_AUC_model": 0.013345921576165938,
+    "PR_AUC_persistence": 0.010473568432156685,
+    "PR_AUC_persist_x_hod": 0.010444647621076934,
+    "PR_AUC_persist_x_qflag": 0.011565302846952192,
+    "PR_AUC_markov_dst1": 0.01042036028635589,
+    "PR_AUC_pop_climatology": 0.006367880181406805,
+    "PR_AUC_uniform": 0.003607752830550758,
+    "model_minus_persistence": {
+     "diff": 0.0028723531440092535,
+     "ci": [
+      -0.0033890836596312673,
+      0.014955752617341729
+     ],
+     "p_two": 0.228,
+     "n_valid": 500
+    }
+   },
+   "24h_1h": {
+    "n_pred_points": 386,
+    "n_pos": 75,
+    "base_rate": 0.0007196315486470927,
+    "PR_AUC_model": 0.012217657682619171,
+    "PR_AUC_persistence": 0.019957498461797944,
+    "PR_AUC_persist_x_hod": 0.016724967561782163,
+    "PR_AUC_persist_x_qflag": 0.017064073078176485,
+    "PR_AUC_markov_dst1": 0.0023777314972148454,
+    "PR_AUC_pop_climatology": 0.0014854173364536058,
+    "PR_AUC_uniform": 0.0007196315486470927,
+    "model_minus_persistence": {
+     "diff": -0.007739840779178773,
+     "ci": [
+      -0.04719571268098459,
+      0.030474523766731276
+     ],
+     "p_two": 0.77,
+     "n_valid": 1000
+    },
+    "model_minus_BLa": {
+     "diff": -0.004507309879162992,
+     "ci": [
+      -0.03647157401655621,
+      0.0415634209274918
+     ],
+     "p_two": 0.916,
+     "n_valid": 1000
+    },
+    "model_minus_BLb": {
+     "diff": -0.004846415395557314,
+     "ci": [
+      -0.035903823528582214,
+      0.023339232335962034
+     ],
+     "p_two": 0.646,
+     "n_valid": 1000
+    },
+    "model_minus_BLc": {
+     "diff": 0.009839926185404326,
+     "ci": [
+      0.00047816351009795794,
+      0.07504997676708985
+     ],
+     "p_two": 0.006,
+     "n_valid": 1000
+    },
+    "skill_ign": {
+     "ISS_all_taus_mean": -1673.5897319166927,
+     "ISS_positive_taus_mean": 0.5588141574351682,
+     "frac_positive_taus": 0.06735751295336788,
+     "IGN_model_mean": 0.010613161536274082,
+     "IGN_clim_mean": 0.013432205115166152,
+     "IGN_diff_quantiles_5_25_50_75_95": [
+      -0.034402821066601495,
+      0.0001297386478656098,
+      0.004451311238991664,
+      0.009255293069740614,
+      0.012493621065743754
+     ],
+     "note": "IGN=逐格 log2 proper score 泊松转换; ISS=1−IGN_model/IGN_clim; 差值分位数替代 exp13 病态比值列 SS_vs_pop(−7517)",
+     "ISS_all_taus_mean_pathology": "全 τ 平均的 ISS 与 exp13 SS_vs_pop 同病（无正例 τ 上 IGN_clim≈0 致比值爆炸）——只报 ISS_positive_taus_mean 与 IGN 差值分位数; 病态列保留仅作对照"
+    },
+    "stratified": {
+     "cell_seen": {
+      "n_pos": 75,
+      "PR_AUC_model": 0.012217657682619171,
+      "PR_AUC_persistence": 0.019957498461797944
+     },
+     "cell_unseen": {
+      "n_pos": 0,
+      "PR_AUC_model": NaN,
+      "PR_AUC_persistence": NaN
+     },
+     "tau_first_half": {
+      "n_pos": 39,
+      "PR_AUC_model": 0.02825567417768312,
+      "PR_AUC_persistence": 0.045894882889575925
+     },
+     "tau_second_half": {
+      "n_pos": 36,
+      "PR_AUC_model": 0.0019027445985088896,
+      "PR_AUC_persistence": 0.0009183845165823059
+     }
+    }
+   },
+   "24h_3h": {
+    "n_pred_points": 386,
+    "n_pos": 207,
+    "base_rate": 0.0019861830742659756,
+    "PR_AUC_model": 0.011990813103331353,
+    "PR_AUC_persistence": 0.008169155217291186,
+    "PR_AUC_persist_x_hod": 0.008272503656370825,
+    "PR_AUC_persist_x_qflag": 0.008545855118920778,
+    "PR_AUC_markov_dst1": 0.009727044248777308,
+    "PR_AUC_pop_climatology": 0.003615895245485243,
+    "PR_AUC_uniform": 0.0019861830742659756,
+    "model_minus_persistence": {
+     "diff": 0.0038216578860401675,
+     "ci": [
+      -0.005166329690299297,
+      0.02030620718179326
+     ],
+     "p_two": 0.428,
+     "n_valid": 1000
+    },
+    "model_minus_BLa": {
+     "diff": 0.003718309446960529,
+     "ci": [
+      -0.006202862487019277,
+      0.023140024804487232
+     ],
+     "p_two": 0.454,
+     "n_valid": 1000
+    },
+    "model_minus_BLb": {
+     "diff": 0.003444957984410576,
+     "ci": [
+      -0.006150580341260458,
+      0.01831951913842483
+     ],
+     "p_two": 0.396,
+     "n_valid": 1000
+    },
+    "model_minus_BLc": {
+     "diff": 0.002263768854554045,
+     "ci": [
+      -0.007757257405443957,
+      0.025079545665629806
+     ],
+     "p_two": 0.264,
+     "n_valid": 1000
+    },
+    "skill_ign": {
+     "ISS_all_taus_mean": -4558.795107471668,
+     "ISS_positive_taus_mean": 0.5073662137025624,
+     "frac_positive_taus": 0.12694300518134716,
+     "IGN_model_mean": 0.028037482247746052,
+     "IGN_clim_mean": 0.03720216046688043,
+     "IGN_diff_quantiles_5_25_50_75_95": [
+      -0.11645920767952095,
+      0.0003983717386288868,
+      0.014623783532947007,
+      0.024475906058756058,
+      0.034569485293483734
+     ],
+     "note": "IGN=逐格 log2 proper score 泊松转换; ISS=1−IGN_model/IGN_clim; 差值分位数替代 exp13 病态比值列 SS_vs_pop(−7517)",
+     "ISS_all_taus_mean_pathology": "全 τ 平均的 ISS 与 exp13 SS_vs_pop 同病（无正例 τ 上 IGN_clim≈0 致比值爆炸）——只报 ISS_positive_taus_mean 与 IGN 差值分位数; 病态列保留仅作对照"
+    },
+    "stratified": {
+     "cell_seen": {
+      "n_pos": 207,
+      "PR_AUC_model": 0.011990813103331353,
+      "PR_AUC_persistence": 0.008169155217291186
+     },
+     "cell_unseen": {
+      "n_pos": 0,
+      "PR_AUC_model": NaN,
+      "PR_AUC_persistence": NaN
+     },
+     "tau_first_half": {
+      "n_pos": 99,
+      "PR_AUC_model": 0.02191661247328593,
+      "PR_AUC_persistence": 0.01798886622232223
+     },
+     "tau_second_half": {
+      "n_pos": 108,
+      "PR_AUC_model": 0.004714777104886962,
+      "PR_AUC_persistence": 0.002712502107128871
+     }
+    }
+   },
+   "24h_6h": {
+    "n_pred_points": 386,
+    "n_pos": 376,
+    "base_rate": 0.003607752830550758,
+    "PR_AUC_model": 0.013580169732239475,
+    "PR_AUC_persistence": 0.010473568432156685,
+    "PR_AUC_persist_x_hod": 0.010444647621076934,
+    "PR_AUC_persist_x_qflag": 0.011565302846952192,
+    "PR_AUC_markov_dst1": 0.01042036028635589,
+    "PR_AUC_pop_climatology": 0.006367880181406805,
+    "PR_AUC_uniform": 0.003607752830550758,
+    "model_minus_persistence": {
+     "diff": 0.0031066013000827907,
+     "ci": [
+      -0.004535117136063843,
+      0.016950817730326605
+     ],
+     "p_two": 0.256,
+     "n_valid": 1000
+    },
+    "model_minus_BLa": {
+     "diff": 0.003135522111162541,
+     "ci": [
+      -0.004574563750493832,
+      0.019449765358588708
+     ],
+     "p_two": 0.308,
+     "n_valid": 1000
+    },
+    "model_minus_BLb": {
+     "diff": 0.0020148668852872833,
+     "ci": [
+      -0.0069471420081263216,
+      0.016046344059639322
+     ],
+     "p_two": 0.282,
+     "n_valid": 1000
+    },
+    "model_minus_BLc": {
+     "diff": 0.003159809445883585,
+     "ci": [
+      -0.004763906849059911,
+      0.01632772558972547
+     ],
+     "p_two": 0.218,
+     "n_valid": 1000
+    },
+    "skill_ign": {
+     "ISS_all_taus_mean": -8213.475945085955,
+     "ISS_positive_taus_mean": 0.4181649203701781,
+     "frac_positive_taus": 0.19689119170984457,
+     "IGN_model_mean": 0.050761480838220234,
+     "IGN_clim_mean": 0.06764768692518505,
+     "IGN_diff_quantiles_5_25_50_75_95": [
+      -0.2687793992722728,
+      0.0010687534336272211,
+      0.025391285180269167,
+      0.04333850638930536,
+      0.06042959919271927
+     ],
+     "note": "IGN=逐格 log2 proper score 泊松转换; ISS=1−IGN_model/IGN_clim; 差值分位数替代 exp13 病态比值列 SS_vs_pop(−7517)",
+     "ISS_all_taus_mean_pathology": "全 τ 平均的 ISS 与 exp13 SS_vs_pop 同病（无正例 τ 上 IGN_clim≈0 致比值爆炸）——只报 ISS_positive_taus_mean 与 IGN 差值分位数; 病态列保留仅作对照"
+    },
+    "stratified": {
+     "cell_seen": {
+      "n_pos": 376,
+      "PR_AUC_model": 0.013580169732239475,
+      "PR_AUC_persistence": 0.010473568432156685
+     },
+     "cell_unseen": {
+      "n_pos": 0,
+      "PR_AUC_model": NaN,
+      "PR_AUC_persistence": NaN
+     },
+     "tau_first_half": {
+      "n_pos": 160,
+      "PR_AUC_model": 0.021893131041198326,
+      "PR_AUC_persistence": 0.020764930786839483
+     },
+     "tau_second_half": {
+      "n_pos": 216,
+      "PR_AUC_model": 0.009008388146683194,
+      "PR_AUC_persistence": 0.005324470983509799
+     }
+    }
+   },
+   "48h_1h": {
+    "n_pred_points": 386,
+    "n_pos": 75,
+    "base_rate": 0.0007196315486470927,
+    "PR_AUC_model": 0.012076648597918958,
+    "PR_AUC_persistence": 0.019957498461797944,
+    "PR_AUC_persist_x_hod": 0.016724967561782163,
+    "PR_AUC_persist_x_qflag": 0.017064073078176485,
+    "PR_AUC_markov_dst1": 0.0023777314972148454,
+    "PR_AUC_pop_climatology": 0.0014854173364536058,
+    "PR_AUC_uniform": 0.0007196315486470927,
+    "model_minus_persistence": {
+     "diff": -0.007880849863878986,
+     "ci": [
+      -0.045397705297629355,
+      0.04015314242977326
+     ],
+     "p_two": 0.704,
+     "n_valid": 500
+    }
+   },
+   "48h_3h": {
+    "n_pred_points": 386,
+    "n_pos": 207,
+    "base_rate": 0.0019861830742659756,
+    "PR_AUC_model": 0.011987659120260648,
+    "PR_AUC_persistence": 0.008169155217291186,
+    "PR_AUC_persist_x_hod": 0.008272503656370825,
+    "PR_AUC_persist_x_qflag": 0.008545855118920778,
+    "PR_AUC_markov_dst1": 0.009727044248777308,
+    "PR_AUC_pop_climatology": 0.003615895245485243,
+    "PR_AUC_uniform": 0.0019861830742659756,
+    "model_minus_persistence": {
+     "diff": 0.0038185039029694622,
+     "ci": [
+      -0.006802521711889029,
+      0.02014110211946439
+     ],
+     "p_two": 0.456,
+     "n_valid": 500
+    }
+   },
+   "48h_6h": {
+    "n_pred_points": 386,
+    "n_pos": 376,
+    "base_rate": 0.003607752830550758,
+    "PR_AUC_model": 0.013635860904501933,
+    "PR_AUC_persistence": 0.010473568432156685,
+    "PR_AUC_persist_x_hod": 0.010444647621076934,
+    "PR_AUC_persist_x_qflag": 0.011565302846952192,
+    "PR_AUC_markov_dst1": 0.01042036028635589,
+    "PR_AUC_pop_climatology": 0.006367880181406805,
+    "PR_AUC_uniform": 0.003607752830550758,
+    "model_minus_persistence": {
+     "diff": 0.0031622924723452486,
+     "ci": [
+      -0.003886334640975733,
+      0.016967560323896833
+     ],
+     "p_two": 0.252,
+     "n_valid": 500
+    }
+   }
+  }
+ },
+ "multiplicity": {
+  "family": "model−persistence 主窗(24h) 6 检验（2 宇宙×3 时距）",
+  "tests": [
+   {
+    "cell": "24h_1h",
+    "p_two_raw": 0.518,
+    "p_bonferroni": 1.0,
+    "p_BH": 0.77
+   },
+   {
+    "cell": "24h_3h",
+    "p_two_raw": 0.098,
+    "p_bonferroni": 0.5880000000000001,
+    "p_BH": 0.77
+   },
+   {
+    "cell": "24h_6h",
+    "p_two_raw": 0.112,
+    "p_bonferroni": 0.672,
+    "p_BH": 0.77
+   },
+   {
+    "cell": "24h_1h",
+    "p_two_raw": 0.77,
+    "p_bonferroni": 1.0,
+    "p_BH": 0.77
+   },
+   {
+    "cell": "24h_3h",
+    "p_two_raw": 0.428,
+    "p_bonferroni": 1.0,
+    "p_BH": 0.77
+   },
+   {
+    "cell": "24h_6h",
+    "p_two_raw": 0.256,
+    "p_bonferroni": 1.0,
+    "p_BH": 0.77
+   }
+  ],
+  "n_survive_bonferroni": 0,
+  "n_survive_BH_05": 0,
+  "note": "对齐 exp13 权威口径先例（hop1 版: 仅 targets_train 6h ×6 存活）"
+ },
+ "R2_correction_20261021": {
+  "skill_ign_invalidated_xH": "各 skill_ign 块的气候学参考 S_pop（exp15_hybrid_causal.py:113 R0=每秒率 × :232 qpopU）未乘窗长 H, 而模型侧为 [τ,τ+H) 窗内积分（:72-73 背景 + :83-89 触发项）——两侧同入 P=1−exp(−S) 泊松转换量纲不可比（1h 差 3600×、6h 差 21600×）。ISS_positive_taus_mean 「健康口径 0.33–0.56」作废; ISS_all_taus_mean_pathology 注记的根因诊断（「无正例 τ 分母≈0」）系误诊——真因=缺 ×H（正确尺度下空 τ 的 IGN_clim 有限）。修正后权威=results/exp18_skill_scale_protocol.json: ISS_positive 反号（targets −0.1270/−0.0905/−0.0082）、ISS_all≈+0.450/+0.427/+0.406（模型平均 IGN 优于正确尺度气候学 ~40–45%, 正例 τ 略差, 与 N-test 过预测自洽）",
+  "incident_log_backfill": "事故补录（「事故必录」纪律缺口, 二连失: 上轮 B-m3 同型）: ①首跑 logs/exp15_full.log 10:48 因 multiplicity 族键 KeyError targets_1h 崩溃（:299 硬编码 key）, 脚本 10:56 修复, 11:16 重跑成功（exp15_full2.log）, 两版数字同 seed 确定性一致; ②本 JSON mtime 11:21:30 晚于 exp15.done 11:16:23——ISS_all_taus_mean_pathology 字段为运行后注记补丁（无脚本留痕）, 其 ×H 误诊根因已由 exp18 修正口径取代",
+  "multiplicity_cell_label": "multiplicity.tests 的 cell 标签两宇宙同名 \"24h_1h\" 等（首跑 KeyError 修复硬编码所致）无法区分宇宙——按 tests 数组顺序=targets 1h/3h/6h、targets_train 1h/3h/6h; 扩族引用见 exp18.expanded_multiplicity（探索性全族 24 检验, 事后定族只作引用警示）",
+  "BLc_family_warning": "model−BLc 的 1h 两格（targets p=0.0020 / targets_train p=0.0060）在预登记 6 检验族外; 并入探索性全族 24 检验后 targets 1h ×24=0.048 边缘、targets_train 1h 不存活——BLc 显著性不得作为独立结论引用（exp18 K6 落盘）",
+  "_written_by": "scripts/exp19_ts_kernel_fulltrain.py (R2 补实验与拔高人, 2026-10-21)"
+ }
+}

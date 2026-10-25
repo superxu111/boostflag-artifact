@@ -1,0 +1,609 @@
+{
+ "exp": "Exp11_constrained_ablation",
+ "a_max": 0.95,
+ "note": "a≤0.95 为平稳性先验约束(非数据推断); 无约束数字复用已核验 exp34_main.json",
+ "P1_unconstrained_diagnostics": [
+  {
+   "cfg": {
+    "kernel": "omori",
+    "gk": "hop1",
+    "bg": "hod24",
+    "qbg": "pop",
+    "W": "86400.0"
+   },
+   "n_par": 4,
+   "train_ll": -7723.5,
+   "AIC": 15454.99,
+   "a_kappaGW": 0.6236,
+   "degenerate_flag": false
+  },
+  {
+   "cfg": {
+    "kernel": "omori",
+    "gk": "hop2",
+    "bg": "hod24",
+    "qbg": "pop",
+    "W": "86400.0"
+   },
+   "n_par": 4,
+   "train_ll": -7656.54,
+   "AIC": 15321.08,
+   "a_kappaGW": 0.9914,
+   "degenerate_flag": true
+  },
+  {
+   "cfg": {
+    "kernel": "omori",
+    "gk": "decay",
+    "bg": "hod24",
+    "qbg": "pop",
+    "W": "86400.0"
+   },
+   "n_par": 6,
+   "train_ll": -6977.37,
+   "AIC": 13966.73,
+   "a_kappaGW": 0.9965,
+   "degenerate_flag": true
+  },
+  {
+   "cfg": {
+    "kernel": "omori",
+    "gk": "exp_hop",
+    "bg": "hod24",
+    "qbg": "pop",
+    "W": "86400.0"
+   },
+   "n_par": 5,
+   "train_ll": -6982.88,
+   "AIC": 13975.76,
+   "a_kappaGW": 0.9962,
+   "degenerate_flag": true
+  },
+  {
+   "cfg": {
+    "kernel": "exp",
+    "gk": "hop1",
+    "bg": "hod24",
+    "qbg": "pop",
+    "W": "86400.0"
+   },
+   "n_par": 3,
+   "train_ll": -7874.28,
+   "AIC": 15754.55,
+   "a_kappaGW": 0.5385,
+   "degenerate_flag": false
+  },
+  {
+   "cfg": {
+    "kernel": "exp",
+    "gk": "hop2",
+    "bg": "hod24",
+    "qbg": "pop",
+    "W": "86400.0"
+   },
+   "n_par": 3,
+   "train_ll": -8921.76,
+   "AIC": 17849.51,
+   "a_kappaGW": 0.0,
+   "degenerate_flag": false
+  },
+  {
+   "cfg": {
+    "kernel": "exp",
+    "gk": "decay",
+    "bg": "hod24",
+    "qbg": "pop",
+    "W": "86400.0"
+   },
+   "n_par": 5,
+   "train_ll": -8921.76,
+   "AIC": 17853.51,
+   "a_kappaGW": 0.0,
+   "degenerate_flag": false
+  },
+  {
+   "cfg": {
+    "kernel": "exp",
+    "gk": "exp_hop",
+    "bg": "hod24",
+    "qbg": "pop",
+    "W": "86400.0"
+   },
+   "n_par": 4,
+   "train_ll": -8921.76,
+   "AIC": 17851.51,
+   "a_kappaGW": 0.0,
+   "degenerate_flag": false
+  },
+  {
+   "cfg": {
+    "kernel": "omori",
+    "gk": "hop1",
+    "bg": "const",
+    "qbg": "pop",
+    "W": "86400.0"
+   },
+   "n_par": 4,
+   "train_ll": -7827.26,
+   "AIC": 15662.53,
+   "a_kappaGW": 0.6466,
+   "degenerate_flag": false
+  },
+  {
+   "cfg": {
+    "kernel": "omori",
+    "gk": "hop1",
+    "bg": "fourier2",
+    "qbg": "pop",
+    "W": "86400.0"
+   },
+   "n_par": 8,
+   "train_ll": -7729.38,
+   "AIC": 15474.77,
+   "a_kappaGW": 0.623,
+   "degenerate_flag": false
+  },
+  {
+   "cfg": {
+    "kernel": "omori",
+    "gk": "hop1",
+    "bg": "hod24",
+    "qbg": "uniform",
+    "W": "86400.0"
+   },
+   "n_par": 4,
+   "train_ll": -8452.8,
+   "AIC": 16913.6,
+   "a_kappaGW": 0.6463,
+   "degenerate_flag": false
+  },
+  {
+   "cfg": {
+    "kernel": "omori",
+    "gk": "hop1",
+    "bg": "hod24",
+    "qbg": "degree",
+    "W": "86400.0"
+   },
+   "n_par": 4,
+   "train_ll": -9471.38,
+   "AIC": 18950.77,
+   "a_kappaGW": 0.3179,
+   "degenerate_flag": true
+  },
+  {
+   "cfg": {
+    "kernel": "omori",
+    "gk": "hop1",
+    "bg": "hod24",
+    "qbg": "pop",
+    "W": "600.0"
+   },
+   "n_par": 4,
+   "train_ll": -8015.12,
+   "AIC": 16038.25,
+   "a_kappaGW": 0.3503,
+   "degenerate_flag": false
+  },
+  {
+   "cfg": {
+    "kernel": "omori",
+    "gk": "hop1",
+    "bg": "hod24",
+    "qbg": "pop",
+    "W": "3600.0"
+   },
+   "n_par": 4,
+   "train_ll": -7819.93,
+   "AIC": 15647.86,
+   "a_kappaGW": 0.496,
+   "degenerate_flag": false
+  }
+ ],
+ "P2_constrained_table": [
+  {
+   "cfg": {
+    "kernel": "omori",
+    "gk": "hop0",
+    "bg": "hod24",
+    "qbg": "pop",
+    "W": "86400.0"
+   },
+   "n_par": 4,
+   "train_ll_constrained": -7674.05,
+   "AIC_constrained": 15356.11,
+   "a_constrained": 0.4599,
+   "params": {
+    "mu0": 0.0003099001463804151,
+    "kappa": 0.280346530887298,
+    "c": 38.44330948610113,
+    "p": 1.2221845880006592
+   }
+  },
+  {
+   "cfg": {
+    "kernel": "omori",
+    "gk": "hop1",
+    "bg": "hod24",
+    "qbg": "pop",
+    "W": "86400.0"
+   },
+   "n_par": 4,
+   "train_ll_constrained": -7723.37,
+   "AIC_constrained": 15454.73,
+   "a_constrained": 0.6238,
+   "params": {
+    "mu0": 0.00021945786901242945,
+    "kappa": 0.43439429423897746,
+    "c": 54.78396482899387,
+    "p": 1.2275856215126089
+   },
+   "train_ll_unconstrained": -7723.5,
+   "AIC_unconstrained": 15454.99,
+   "a_unconstrained": 0.6236
+  },
+  {
+   "cfg": {
+    "kernel": "omori",
+    "gk": "hop2",
+    "bg": "hod24",
+    "qbg": "pop",
+    "W": "86400.0"
+   },
+   "n_par": 4,
+   "train_ll_constrained": -7656.86,
+   "AIC_constrained": 15321.72,
+   "a_constrained": 0.95,
+   "params": {
+    "mu0": 1.2975622637519473e-05,
+    "kappa": 450.16678367990613,
+    "c": 471.28901608305773,
+    "p": 2.0
+   },
+   "train_ll_unconstrained": -7656.54,
+   "AIC_unconstrained": 15321.08,
+   "a_unconstrained": 0.9914
+  },
+  {
+   "cfg": {
+    "kernel": "omori",
+    "gk": "decay",
+    "bg": "hod24",
+    "qbg": "pop",
+    "W": "86400.0"
+   },
+   "n_par": 6,
+   "train_ll_constrained": -6977.79,
+   "AIC_constrained": 13967.58,
+   "a_constrained": 0.95,
+   "params": {
+    "mu0": 9.624065540162915e-06,
+    "kappa": 7.105691026978721,
+    "c": 117.60090734706577,
+    "p": 1.543941322474346,
+    "w1": 0.03571000476847684,
+    "w2": 0.0009334536397041568
+   },
+   "train_ll_unconstrained": -6977.37,
+   "AIC_unconstrained": 13966.73,
+   "a_unconstrained": 0.9965
+  },
+  {
+   "cfg": {
+    "kernel": "omori",
+    "gk": "exp_hop",
+    "bg": "hod24",
+    "qbg": "pop",
+    "W": "86400.0"
+   },
+   "n_par": 5,
+   "train_ll_constrained": -6983.29,
+   "AIC_constrained": 13976.58,
+   "a_constrained": 0.95,
+   "params": {
+    "mu0": 9.855947748578701e-06,
+    "kappa": 6.861519738542012,
+    "c": 116.03701495148154,
+    "p": 1.539654780586944,
+    "gamma": 3.5293542819529495
+   },
+   "train_ll_unconstrained": -6982.88,
+   "AIC_unconstrained": 13975.76,
+   "a_unconstrained": 0.9962
+  },
+  {
+   "cfg": {
+    "kernel": "exp",
+    "gk": "hop1",
+    "bg": "hod24",
+    "qbg": "pop",
+    "W": "86400.0"
+   },
+   "n_par": 3,
+   "train_ll_constrained": -7874.18,
+   "AIC_constrained": 15754.36,
+   "a_constrained": 0.5386,
+   "params": {
+    "mu0": 0.00026515667374293314,
+    "kappa": 0.0004829040334037961,
+    "beta": 0.0008966130870896702
+   },
+   "train_ll_unconstrained": -7874.28,
+   "AIC_unconstrained": 15754.55,
+   "a_unconstrained": 0.5385
+  },
+  {
+   "cfg": {
+    "kernel": "exp",
+    "gk": "hop2",
+    "bg": "hod24",
+    "qbg": "pop",
+    "W": "86400.0"
+   },
+   "n_par": 3,
+   "train_ll_constrained": -7672.9,
+   "AIC_constrained": 15351.8,
+   "a_constrained": 0.95,
+   "params": {
+    "mu0": 1.8651523555903694e-05,
+    "kappa": 0.0008705171693157525,
+    "beta": 0.000916333862437634
+   },
+   "train_ll_unconstrained": -8921.76,
+   "AIC_unconstrained": 17849.51,
+   "a_unconstrained": 0.0
+  },
+  {
+   "cfg": {
+    "kernel": "exp",
+    "gk": "decay",
+    "bg": "hod24",
+    "qbg": "pop",
+    "W": "86400.0"
+   },
+   "n_par": 5,
+   "train_ll_constrained": -7069.11,
+   "AIC_constrained": 14148.23,
+   "a_constrained": 0.95,
+   "params": {
+    "mu0": 2.1281148674466867e-05,
+    "kappa": 0.0015019570492931231,
+    "beta": 0.00158100742030855,
+    "w1": 0.033149336756806536,
+    "w2": 0.0012226688498103437
+   },
+   "train_ll_unconstrained": -8921.76,
+   "AIC_unconstrained": 17853.51,
+   "a_unconstrained": 0.0
+  },
+  {
+   "cfg": {
+    "kernel": "exp",
+    "gk": "exp_hop",
+    "bg": "hod24",
+    "qbg": "pop",
+    "W": "86400.0"
+   },
+   "n_par": 4,
+   "train_ll_constrained": -7076.48,
+   "AIC_constrained": 14160.97,
+   "a_constrained": 0.95,
+   "params": {
+    "mu0": 2.1371933356248852e-05,
+    "kappa": 0.001477606374920914,
+    "beta": 0.0015553751314956983,
+    "gamma": 3.410923452032835
+   },
+   "train_ll_unconstrained": -8921.76,
+   "AIC_unconstrained": 17851.51,
+   "a_unconstrained": 0.0
+  },
+  {
+   "cfg": {
+    "kernel": "omori",
+    "gk": "hop1",
+    "bg": "const",
+    "qbg": "pop",
+    "W": "86400.0"
+   },
+   "n_par": 4,
+   "train_ll_constrained": -7827.14,
+   "AIC_constrained": 15662.28,
+   "a_constrained": 0.6468,
+   "params": {
+    "mu0": 0.00020541899413787634,
+    "kappa": 0.364173725800894,
+    "c": 51.88049148624296,
+    "p": 1.1982313232252444
+   },
+   "train_ll_unconstrained": -7827.26,
+   "AIC_unconstrained": 15662.53,
+   "a_unconstrained": 0.6466
+  },
+  {
+   "cfg": {
+    "kernel": "omori",
+    "gk": "hop1",
+    "bg": "fourier2",
+    "qbg": "pop",
+    "W": "86400.0"
+   },
+   "n_par": 8,
+   "train_ll_constrained": -7729.26,
+   "AIC_constrained": 15474.53,
+   "a_constrained": 0.6232,
+   "params": {
+    "mu0": 9.916227895331875e-05,
+    "kappa": 0.4262327156469698,
+    "c": 54.216983958098595,
+    "p": 1.225338272226493,
+    "a1": -2.8703711626832225,
+    "b1": -3.191405800527675,
+    "a2": 1.1341589874351987,
+    "b2": -2.476064328631489
+   },
+   "train_ll_unconstrained": -7729.38,
+   "AIC_unconstrained": 15474.77,
+   "a_unconstrained": 0.623
+  },
+  {
+   "cfg": {
+    "kernel": "omori",
+    "gk": "hop1",
+    "bg": "hod24",
+    "qbg": "uniform",
+    "W": "86400.0"
+   },
+   "n_par": 4,
+   "train_ll_constrained": -8452.67,
+   "AIC_constrained": 16913.34,
+   "a_constrained": 0.6466,
+   "params": {
+    "mu0": 0.00020748154278007693,
+    "kappa": 0.3055940500076268,
+    "c": 47.70319402696945,
+    "p": 1.1755574058593494
+   },
+   "train_ll_unconstrained": -8452.8,
+   "AIC_unconstrained": 16913.6,
+   "a_unconstrained": 0.6463
+  },
+  {
+   "cfg": {
+    "kernel": "omori",
+    "gk": "hop1",
+    "bg": "hod24",
+    "qbg": "degree",
+    "W": "86400.0"
+   },
+   "n_par": 4,
+   "train_ll_constrained": -9471.27,
+   "AIC_constrained": 18950.54,
+   "a_constrained": 0.3181,
+   "params": {
+    "mu0": 0.00038629899392368444,
+    "kappa": 30.510104806330485,
+    "c": 95.79724690872267,
+    "p": 2.0
+   },
+   "train_ll_unconstrained": -9471.38,
+   "AIC_unconstrained": 18950.77,
+   "a_unconstrained": 0.3179
+  },
+  {
+   "cfg": {
+    "kernel": "omori",
+    "gk": "hop1",
+    "bg": "hod24",
+    "qbg": "pop",
+    "W": "600.0"
+   },
+   "n_par": 4,
+   "train_ll_constrained": -8015.0,
+   "AIC_constrained": 16038.0,
+   "a_constrained": 0.3505,
+   "params": {
+    "mu0": 0.0003676695623807155,
+    "kappa": 1.1369597596536736,
+    "c": 71.01803454267935,
+    "p": 1.3741253306997503
+   },
+   "train_ll_unconstrained": -8015.12,
+   "AIC_unconstrained": 16038.25,
+   "a_unconstrained": 0.3503
+  },
+  {
+   "cfg": {
+    "kernel": "omori",
+    "gk": "hop1",
+    "bg": "hod24",
+    "qbg": "pop",
+    "W": "3600.0"
+   },
+   "n_par": 4,
+   "train_ll_constrained": -7819.8,
+   "AIC_constrained": 15647.59,
+   "a_constrained": 0.4962,
+   "params": {
+    "mu0": 0.00028733097338597276,
+    "kappa": 0.15842256843472718,
+    "c": 33.56761957268419,
+    "p": 1.0694908754439707
+   },
+   "train_ll_unconstrained": -7819.93,
+   "AIC_unconstrained": 15647.86,
+   "a_unconstrained": 0.496
+  }
+ ],
+ "P2_best_constrained": {
+  "kernel": "omori",
+  "gk": "decay",
+  "bg": "hod24",
+  "qbg": "pop",
+  "W": "86400.0"
+ },
+ "P3_constrained_forward_IGPE": [
+  {
+   "cfg": "omori/hop0/hod24/pop/W=86400.0",
+   "AIC_constrained": 15356.11,
+   "a": 0.4599,
+   "IGPE_vs_uniform": 4.973024358580963,
+   "p_uniform": 1.5060127805993706e-19,
+   "IGPE_vs_pop": 3.326079172492348,
+   "p_pop": 3.231426653254048e-11
+  },
+  {
+   "cfg": "omori/hop1/hod24/pop/W=86400.0",
+   "AIC_constrained": 15454.73,
+   "a": 0.6238,
+   "IGPE_vs_uniform": 4.738981592490679,
+   "p_uniform": 2.104653862174765e-23,
+   "IGPE_vs_pop": 3.092036406402063,
+   "p_pop": 3.452401101153727e-14
+  },
+  {
+   "cfg": "omori/hop2/hod24/pop/W=86400.0",
+   "AIC_constrained": 15321.72,
+   "a": 0.95,
+   "IGPE_vs_uniform": 3.147253472809054,
+   "p_uniform": 7.15221070427189e-22,
+   "IGPE_vs_pop": 1.5003082867204387,
+   "p_pop": 5.430089399493742e-10
+  },
+  {
+   "cfg": "omori/decay/hod24/pop/W=86400.0",
+   "AIC_constrained": 13967.58,
+   "a": 0.95,
+   "IGPE_vs_uniform": 5.112070214349667,
+   "p_uniform": 1.4373171613143888e-22,
+   "IGPE_vs_pop": 3.465125028261052,
+   "p_pop": 4.1770463759327335e-14
+  },
+  {
+   "cfg": "omori/exp_hop/hod24/pop/W=86400.0",
+   "AIC_constrained": 13976.58,
+   "a": 0.95,
+   "IGPE_vs_uniform": 5.101914927058819,
+   "p_uniform": 2.444503021462374e-22,
+   "IGPE_vs_pop": 3.4549697409702036,
+   "p_pop": 6.673269010962365e-14
+  }
+ ],
+ "P4_C1_targets_train_only": {
+  "cand_size": 270,
+  "n_scored": 94,
+  "note": "train-only 目标集: 无测试信息泄漏的 C1 敏感性(对照原 301 宇宙含测试段新目标)",
+  "vs_uniform": {
+   "IGPE": 1.917448484126478,
+   "p": 1.0628624242864458e-08
+  },
+  "vs_pop": {
+   "IGPE": 1.6355146734931278,
+   "p": 5.285190640281362e-08
+  }
+ },
+ "R2_correction_20261021": {
+  "P4_degenerate_a0": "exp11 P1 的 degenerate 判据仅覆盖 a≈0.95 贴临界型, 漏检 a≈0 核死亡型: exp34 无约束 exp 核三行(hop2/decay/exp_hop) ll=-8921.8 而 a=0.0000 却 degenerate=False ——已被 exp11 P2 约束重拟合支配(−7672.9/−7069.1/−7076.5), 判据应双侧: degenerate ⇔ a<0.05 或 a>0.949",
+  "P2_row_count": "P1 无约束诊断实为 14 行、P2 约束表实为 15 行(含 hop0 新增行); 此前\"19 配置\"为计数错误"
+ }
+}

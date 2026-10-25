@@ -1,0 +1,2210 @@
+{
+ "exp": "Exp20_hod_true_integral",
+ "motive": "§12.5 清单4: exp18 hod 参考系 τ 起点钟点率×整窗近似（:316）, τ 网格不对齐钟点; 真窗积分=hour_coverage_seconds 覆盖加权（间接标准化 E=Σλ_ref×暴露时间教义）",
+ "preregistered": {
+  "T1": "S_hod_true=R0·H·qpopU·m_h_eff(τ,H), m_h_eff=Σ_h m_h[h]·cov_h/H（分段常数率窗积分）",
+  "T2_Q5_ruling": "BL-a hod 项同步改真积分（两 hod 型参考实现同构、一次收口; 旧版数字保留对照, 定义变化显式标注; 不改则须 §12.1 注明两参考不同构）",
+  "T3_smoke": "AP 对表 <1e-9 + 同 RNG 流 vs_pop_xH 块与 exp18 逐位一致 + 模型侧统计量零漂移",
+  "T4": "全量落盘近似 vs 真积分逐格相对差+diff CI 变化+Q3 ISS 病态列裁定",
+  "T5": "exp18 JSON 脚本化加 R3_correction（原键零改动断言）, 权威指针改指本实验",
+  "reviewer_note": "审稿人 B 自建复算数字（相对差 21.8%/48.3%/60.6%、6h CI）不作权威引用, 只作方向参照"
+ },
+ "correctness_checks": {
+  "targets_1h": {
+   "hybrid_ap_vs_exp15": {
+    "mine": 0.030393850457861075,
+    "exp15": 0.030393850457861075,
+    "pass": true
+   },
+   "persistence_ap_vs_exp15": {
+    "mine": 0.022089417881499745,
+    "exp15": 0.022089417881499745
+   },
+   "hop1_ap_vs_exp13": {
+    "mine": 0.019245781004489492,
+    "exp13": 0.019245781004489492,
+    "pass": true
+   }
+  },
+  "targets_3h": {
+   "hybrid_ap_vs_exp15": {
+    "mine": 0.015409210484302998,
+    "exp15": 0.015409210484302998,
+    "pass": true
+   },
+   "persistence_ap_vs_exp15": {
+    "mine": 0.00835515165670548,
+    "exp15": 0.00835515165670548
+   },
+   "hop1_ap_vs_exp13": {
+    "mine": 0.01801635753139188,
+    "exp13": 0.01801635753139188,
+    "pass": true
+   }
+  },
+  "targets_6h": {
+   "hybrid_ap_vs_exp15": {
+    "mine": 0.012659784695344907,
+    "exp15": 0.012659784695344907,
+    "pass": true
+   },
+   "persistence_ap_vs_exp15": {
+    "mine": 0.009455943315597987,
+    "exp15": 0.009455943315597987
+   },
+   "hop1_ap_vs_exp13": {
+    "mine": 0.019143194262762314,
+    "exp13": 0.019143194262762314,
+    "pass": true
+   }
+  },
+  "targets_train_1h": {
+   "hybrid_ap_vs_exp15": {
+    "mine": 0.012217657682619171,
+    "exp15": 0.012217657682619171,
+    "pass": true
+   },
+   "persistence_ap_vs_exp15": {
+    "mine": 0.019957498461797944,
+    "exp15": 0.019957498461797944
+   },
+   "hop1_ap_vs_exp13": {
+    "mine": 0.024043607311214597,
+    "exp13": 0.024043607311214597,
+    "pass": true
+   }
+  },
+  "targets_train_3h": {
+   "hybrid_ap_vs_exp15": {
+    "mine": 0.011990813103331353,
+    "exp15": 0.011990813103331353,
+    "pass": true
+   },
+   "persistence_ap_vs_exp15": {
+    "mine": 0.008169155217291186,
+    "exp15": 0.008169155217291186
+   },
+   "hop1_ap_vs_exp13": {
+    "mine": 0.02195336459451303,
+    "exp13": 0.02195336459451303,
+    "pass": true
+   }
+  },
+  "targets_train_6h": {
+   "hybrid_ap_vs_exp15": {
+    "mine": 0.013580169732239475,
+    "exp15": 0.013580169732239475,
+    "pass": true
+   },
+   "persistence_ap_vs_exp15": {
+    "mine": 0.010473568432156685,
+    "exp15": 0.010473568432156685
+   },
+   "hop1_ap_vs_exp13": {
+    "mine": 0.022583337962547707,
+    "exp13": 0.022583337962547707,
+    "pass": true
+   }
+  }
+ },
+ "universes": {
+  "targets": {
+   "1h": {
+    "n_tau": 386,
+    "n_pos": 112,
+    "AP": {
+     "model": 0.030393850457861075,
+     "persistence": 0.022089417881499745,
+     "hop1": 0.019245781004489492
+    },
+    "skill_scaled": {
+     "vs_pop_xH": {
+      "IGN_model_mean": 0.014001249447351687,
+      "IGN_ref_mean": 0.017122389489790564,
+      "ISS_all_taus_mean": 0.4497050427204659,
+      "ISS_positive_taus_mean": -0.12701936103243067,
+      "frac_positive_taus": 0.08808290155440414,
+      "IGN_diff_quantiles_5_25_50_75_95": [
+       -0.009567108037201533,
+       -0.009375020393641778,
+       -0.003866624732736232,
+       -0.0008779669844089528,
+       0.0033289320489272444
+      ],
+      "IGN_diff_blockboot": {
+       "mean": -0.0031211400424388785,
+       "ci": [
+        -0.00483676397325975,
+        -0.001966218905001705
+       ],
+       "p_two": 0.0,
+       "B": 1000,
+       "block": 6,
+       "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+      },
+      "stratified": {
+       "cell_seen": {
+        "IGN_diff_mean": -0.004877873185179033,
+        "n_pos": 75,
+        "ISS_positive_taus_mean": 0.07487829759033715,
+        "IGN_diff_blockboot": {
+         "mean": -0.004877873185179033,
+         "ci": [
+          -0.00585222775411902,
+          -0.0040505933086255825
+         ],
+         "p_two": 0.0
+        }
+       },
+       "cell_unseen": {
+        "IGN_diff_mean": 0.012179438942717308,
+        "n_pos": 37,
+        "ISS_positive_taus_mean": 0.041857935275277626,
+        "IGN_diff_blockboot": {
+         "mean": 0.012179438942717308,
+         "ci": [
+          0.00017618676407162097,
+          0.022285245495818697
+         ],
+         "p_two": 0.044
+        }
+       }
+      }
+     },
+     "vs_hod_xH_true": {
+      "IGN_model_mean": 0.014001249447351687,
+      "IGN_ref_mean": 0.016581131145343066,
+      "ISS_all_taus_mean": 0.39980612782343683,
+      "ISS_positive_taus_mean": -0.10502482337478926,
+      "frac_positive_taus": 0.08808290155440414,
+      "IGN_diff_quantiles_5_25_50_75_95": [
+       -0.01072125713664746,
+       -0.00794248212918345,
+       -0.0038205192991009815,
+       -9.766327351190684e-05,
+       0.0020869673929182573
+      ],
+      "IGN_diff_blockboot": {
+       "mean": -0.002579881697991378,
+       "ci": [
+        -0.0042772713047238954,
+        -0.0011932487437296682
+       ],
+       "p_two": 0.008,
+       "B": 1000,
+       "block": 6,
+       "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+      },
+      "stratified": {
+       "cell_seen": {
+        "IGN_diff_mean": -0.004438529694830042,
+        "n_pos": 75,
+        "ISS_positive_taus_mean": 0.13329480538994573,
+        "IGN_diff_blockboot": {
+         "mean": -0.004438529694830042,
+         "ci": [
+          -0.005259910436413277,
+          -0.0035937430723087666
+         ],
+         "p_two": 0.0
+        }
+       },
+       "cell_unseen": {
+        "IGN_diff_mean": 0.013608342790603445,
+        "n_pos": 37,
+        "ISS_positive_taus_mean": 0.06575919971100178,
+        "IGN_diff_blockboot": {
+         "mean": 0.013608342790603445,
+         "ci": [
+          0.00031604372336976205,
+          0.02581467302706844
+         ],
+         "p_two": 0.028
+        }
+       }
+      }
+     },
+     "vs_BLa_true": {
+      "IGN_model_mean": 0.014001249447351687,
+      "IGN_ref_mean": 0.014739612667559968,
+      "ISS_all_taus_mean": -0.07767423913545222,
+      "ISS_positive_taus_mean": -0.06169658919797472,
+      "frac_positive_taus": 0.08808290155440414,
+      "IGN_diff_quantiles_5_25_50_75_95": [
+       -0.006207623881395746,
+       9.05515152873364e-06,
+       0.00013933002323818482,
+       0.0002587721934652152,
+       0.0008539672734649882
+      ],
+      "IGN_diff_blockboot": {
+       "mean": -0.000738363220208279,
+       "ci": [
+        -0.001867612259569917,
+        0.0003287643311309371
+       ],
+       "p_two": 0.168,
+       "B": 1000,
+       "block": 6,
+       "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+      },
+      "stratified": {
+       "cell_seen": {
+        "IGN_diff_mean": -0.0016586136910657335,
+        "n_pos": 75,
+        "ISS_positive_taus_mean": 0.07832435255968248,
+        "IGN_diff_blockboot": {
+         "mean": -0.0016586136910657333,
+         "ci": [
+          -0.0026532639196797246,
+          -0.0002816753057408975
+         ],
+         "p_two": 0.008
+        }
+       },
+       "cell_unseen": {
+        "IGN_diff_mean": 0.007276721525969551,
+        "n_pos": 37,
+        "ISS_positive_taus_mean": 0.21138645011374185,
+        "IGN_diff_blockboot": {
+         "mean": 0.0072767215259695525,
+         "ci": [
+          -0.001066319028807398,
+          0.010944232840707686
+         ],
+         "p_two": 0.16
+        }
+       }
+      }
+     }
+    },
+    "hop1_skill_scaled": {
+     "vs_pop_xH": {
+      "IGN_model_mean": 0.010666795465197311,
+      "IGN_ref_mean": 0.017122389489790564,
+      "ISS_all_taus_mean": 0.8519279156556073,
+      "ISS_positive_taus_mean": -0.15460213323271713,
+      "frac_positive_taus": 0.08808290155440414,
+      "IGN_diff_quantiles_5_25_50_75_95": [
+       -0.009661815379641595,
+       -0.009574778471245994,
+       -0.009206462207972648,
+       -0.008936423677121105,
+       0.004308581946997481
+      ],
+      "IGN_diff_blockboot": {
+       "mean": -0.006455594024593254,
+       "ci": [
+        -0.008414350404926968,
+        -0.004408784883130893
+       ],
+       "p_two": 0.0,
+       "B": 1000,
+       "block": 6,
+       "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+      },
+      "stratified": {
+       "cell_seen": {
+        "IGN_diff_mean": -0.007989160701039643,
+        "n_pos": 75,
+        "ISS_positive_taus_mean": 0.08248312169264745,
+        "IGN_diff_blockboot": {
+         "mean": -0.007989160701039643,
+         "ci": [
+          -0.009520835195277856,
+          -0.006090334546661486
+         ],
+         "p_two": 0.0
+        }
+       },
+       "cell_unseen": {
+        "IGN_diff_mean": 0.006901277028326907,
+        "n_pos": 37,
+        "ISS_positive_taus_mean": 0.17819808631575007,
+        "IGN_diff_blockboot": {
+         "mean": 0.006901277028326907,
+         "ci": [
+          -0.000801550696289713,
+          0.0123504308378981
+         ],
+         "p_two": 0.136
+        }
+       }
+      }
+     },
+     "vs_hod_xH_true": {
+      "IGN_model_mean": 0.010666795465197311,
+      "IGN_ref_mean": 0.016581131145343066,
+      "ISS_all_taus_mean": 0.7302370234139532,
+      "ISS_positive_taus_mean": -0.14025037947422764,
+      "frac_positive_taus": 0.08808290155440414,
+      "IGN_diff_quantiles_5_25_50_75_95": [
+       -0.02111483784262051,
+       -0.015562885533653845,
+       -0.007449811971447886,
+       -0.0001923706159519694,
+       0.0016523629198546396
+      ],
+      "IGN_diff_blockboot": {
+       "mean": -0.005914335680145753,
+       "ci": [
+        -0.008492918554242366,
+        -0.003596611494265918
+       ],
+       "p_two": 0.0,
+       "B": 1000,
+       "block": 6,
+       "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+      },
+      "stratified": {
+       "cell_seen": {
+        "IGN_diff_mean": -0.007549817210690653,
+        "n_pos": 75,
+        "ISS_positive_taus_mean": 0.07216231074214222,
+        "IGN_diff_blockboot": {
+         "mean": -0.007549817210690652,
+         "ci": [
+          -0.009500772888435732,
+          -0.004703482355491433
+         ],
+         "p_two": 0.0
+        }
+       },
+       "cell_unseen": {
+        "IGN_diff_mean": 0.008330180876213043,
+        "n_pos": 37,
+        "ISS_positive_taus_mean": 0.19910383687597027,
+        "IGN_diff_blockboot": {
+         "mean": 0.008330180876213041,
+         "ci": [
+          -0.0005081045971598436,
+          0.016728958943764038
+         ],
+         "p_two": 0.108
+        }
+       }
+      }
+     }
+    },
+    "approx_vs_true": {
+     "hod_xH": {
+      "S_rel_diff_mean": 0.2608498562831426,
+      "S_rel_diff_median": -1.5650930040499572e-16,
+      "S_rel_diff_absmax": 4.344444444444445,
+      "IGN_ref_mean_approx": 0.016679268723205465,
+      "IGN_ref_mean_true": 0.016581131145343066,
+      "IGNdiff_mean_approx": -0.0026780192758537754,
+      "IGNdiff_mean_true": -0.002579881697991378,
+      "diff_CI_shift": [
+       9.813757786239757e-05
+      ],
+      "note": "近似=起点钟点小时率×整窗（exp18:316）; true=hour_coverage_seconds 覆盖加权",
+      "diff_boot_approx": {
+       "mean": -0.0026780192758537754,
+       "ci": [
+        -0.004375330509094027,
+        -0.0013829342446575884
+       ],
+       "p_two": 0.0
+      },
+      "diff_boot_true": {
+       "mean": -0.002579881697991378,
+       "ci": [
+        -0.004181661304504967,
+        -0.0012119195415896762
+       ],
+       "p_two": 0.004
+      }
+     },
+     "BLa": {
+      "S_rel_diff_mean": 0.2608498562831427,
+      "S_rel_diff_median": -1.5786096569115243e-16,
+      "S_rel_diff_absmax": 4.344444444444446,
+      "IGN_ref_mean_approx": 0.014972188594453142,
+      "IGN_ref_mean_true": 0.014739612667559968,
+      "IGNdiff_mean_approx": -0.0009709391471014493,
+      "IGNdiff_mean_true": -0.000738363220208279,
+      "diff_CI_shift": [
+       0.00023257592689317024
+      ],
+      "note": "近似=起点钟点小时率×整窗（exp18:316）; true=hour_coverage_seconds 覆盖加权",
+      "diff_boot_approx": {
+       "mean": -0.0009709391471014493,
+       "ci": [
+        -0.002168281851845702,
+        0.00016011443704060636
+       ],
+       "p_two": 0.116
+      },
+      "diff_boot_true": {
+       "mean": -0.000738363220208279,
+       "ci": [
+        -0.0020470907148198375,
+        0.00030409997420385946
+       ],
+       "p_two": 0.196
+      }
+     }
+    }
+   },
+   "3h": {
+    "n_tau": 386,
+    "n_pos": 306,
+    "AP": {
+     "model": 0.015409210484302998,
+     "persistence": 0.00835515165670548,
+     "hop1": 0.01801635753139188
+    },
+    "skill_scaled": {
+     "vs_pop_xH": {
+      "IGN_model_mean": 0.03646538101934247,
+      "IGN_ref_mean": 0.04524021771749804,
+      "ISS_all_taus_mean": 0.4268901323893111,
+      "ISS_positive_taus_mean": -0.09049406559568662,
+      "frac_positive_taus": 0.16062176165803108,
+      "IGN_diff_quantiles_5_25_50_75_95": [
+       -0.028701324111604944,
+       -0.025893454733686917,
+       -0.010055905661864246,
+       -0.005123683800219734,
+       0.02268822023829055
+      ],
+      "IGN_diff_blockboot": {
+       "mean": -0.008774836698155574,
+       "ci": [
+        -0.013971899903907075,
+        -0.005683213276558067
+       ],
+       "p_two": 0.0,
+       "B": 1000,
+       "block": 6,
+       "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+      },
+      "stratified": {
+       "cell_seen": {
+        "IGN_diff_mean": -0.01420417582956514,
+        "n_pos": 207,
+        "ISS_positive_taus_mean": 0.09661859795841093,
+        "IGN_diff_blockboot": {
+         "mean": -0.014204175829565143,
+         "ci": [
+          -0.016803234269037685,
+          -0.0118811033995545
+         ],
+         "p_two": 0.0
+        }
+       },
+       "cell_unseen": {
+        "IGN_diff_mean": 0.03851295573670197,
+        "n_pos": 99,
+        "ISS_positive_taus_mean": 0.14796227593213787,
+        "IGN_diff_blockboot": {
+         "mean": 0.038512955736701965,
+         "ci": [
+          0.0010935815723015923,
+          0.06708711056193911
+         ],
+         "p_two": 0.036
+        }
+       }
+      }
+     },
+     "vs_hod_xH_true": {
+      "IGN_model_mean": 0.03646538101934247,
+      "IGN_ref_mean": 0.04396652575352579,
+      "ISS_all_taus_mean": 0.38092337864776554,
+      "ISS_positive_taus_mean": -0.01843298135302527,
+      "frac_positive_taus": 0.16062176165803108,
+      "IGN_diff_quantiles_5_25_50_75_95": [
+       -0.02975818984121558,
+       -0.021077313062702368,
+       -0.012603988020461662,
+       -0.00029532586401532905,
+       0.017191151854520456
+      ],
+      "IGN_diff_blockboot": {
+       "mean": -0.0075011447341833196,
+       "ci": [
+        -0.012650013391263783,
+        -0.004350506054273809
+       ],
+       "p_two": 0.002,
+       "B": 1000,
+       "block": 6,
+       "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+      },
+      "stratified": {
+       "cell_seen": {
+        "IGN_diff_mean": -0.01322362985056262,
+        "n_pos": 207,
+        "ISS_positive_taus_mean": 0.19322897757327911,
+        "IGN_diff_blockboot": {
+         "mean": -0.013223629850562624,
+         "ci": [
+          -0.01552512453909184,
+          -0.010864328376372632
+         ],
+         "p_two": 0.0
+        }
+       },
+       "cell_unseen": {
+        "IGN_diff_mean": 0.04233985466653964,
+        "n_pos": 99,
+        "ISS_positive_taus_mean": 0.13249321668614764,
+        "IGN_diff_blockboot": {
+         "mean": 0.04233985466653964,
+         "ci": [
+          0.0020900149080965856,
+          0.06972149594404223
+         ],
+         "p_two": 0.024
+        }
+       }
+      }
+     },
+     "vs_BLa_true": {
+      "IGN_model_mean": 0.03646538101934247,
+      "IGN_ref_mean": 0.033575958555708496,
+      "ISS_all_taus_mean": -1.7509870452608256,
+      "ISS_positive_taus_mean": -0.06505113352298743,
+      "frac_positive_taus": 0.16062176165803108,
+      "IGN_diff_quantiles_5_25_50_75_95": [
+       -0.03793513386381471,
+       0.00033612006266050317,
+       0.00814596595487067,
+       0.014838936857228067,
+       0.023444374370570287
+      ],
+      "IGN_diff_blockboot": {
+       "mean": 0.002889422463633974,
+       "ci": [
+        -0.0021466908208625946,
+        0.007197733750121312
+       ],
+       "p_two": 0.214,
+       "B": 1000,
+       "block": 6,
+       "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+      },
+      "stratified": {
+       "cell_seen": {
+        "IGN_diff_mean": 0.0022583082499835825,
+        "n_pos": 207,
+        "ISS_positive_taus_mean": -0.3372564930368873,
+        "IGN_diff_blockboot": {
+         "mean": 0.002258308249983582,
+         "ci": [
+          -0.003098887008650979,
+          0.007670424798511425
+         ],
+         "p_two": 0.288
+        }
+       },
+       "cell_unseen": {
+        "IGN_diff_mean": 0.00838622367929867,
+        "n_pos": 99,
+        "ISS_positive_taus_mean": 0.3822353299206415,
+        "IGN_diff_blockboot": {
+         "mean": 0.008386223679298668,
+         "ci": [
+          -0.011619498935669843,
+          0.016268175904898756
+         ],
+         "p_two": 0.904
+        }
+       }
+      }
+     }
+    },
+    "hop1_skill_scaled": {
+     "vs_pop_xH": {
+      "IGN_model_mean": 0.02658415646638881,
+      "IGN_ref_mean": 0.04524021771749804,
+      "ISS_all_taus_mean": 0.8037764796654343,
+      "ISS_positive_taus_mean": 0.009988924335291064,
+      "frac_positive_taus": 0.16062176165803108,
+      "IGN_diff_quantiles_5_25_50_75_95": [
+       -0.02898544613892507,
+       -0.028565137516837497,
+       -0.027552902198626703,
+       -0.026715735276092424,
+       0.02882574341602165
+      ],
+      "IGN_diff_blockboot": {
+       "mean": -0.018656061251109243,
+       "ci": [
+        -0.024831295938297363,
+        -0.012547619408375336
+       ],
+       "p_two": 0.0,
+       "B": 1000,
+       "block": 6,
+       "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+      },
+      "stratified": {
+       "cell_seen": {
+        "IGN_diff_mean": -0.023510088197704164,
+        "n_pos": 207,
+        "ISS_positive_taus_mean": 0.20344753586550773,
+        "IGN_diff_blockboot": {
+         "mean": -0.023510088197704164,
+         "ci": [
+          -0.02822328409741523,
+          -0.017701156797012806
+         ],
+         "p_two": 0.0
+        }
+       },
+       "cell_unseen": {
+        "IGN_diff_mean": 0.0236209476385885,
+        "n_pos": 99,
+        "ISS_positive_taus_mean": 0.26222793281348983,
+        "IGN_diff_blockboot": {
+         "mean": 0.0236209476385885,
+         "ci": [
+          -0.0014663160651844302,
+          0.0372458024440423
+         ],
+         "p_two": 0.072
+        }
+       }
+      }
+     },
+     "vs_hod_xH_true": {
+      "IGN_model_mean": 0.02658415646638881,
+      "IGN_ref_mean": 0.04396652575352579,
+      "ISS_all_taus_mean": 0.7148173031121174,
+      "ISS_positive_taus_mean": 0.04489959650094443,
+      "frac_positive_taus": 0.16062176165803108,
+      "IGN_diff_quantiles_5_25_50_75_95": [
+       -0.05858066077333886,
+       -0.041504155695422124,
+       -0.02500040561240873,
+       -0.0005771118478560433,
+       0.021463879279202947
+      ],
+      "IGN_diff_blockboot": {
+       "mean": -0.017382369287136983,
+       "ci": [
+        -0.025468922871873693,
+        -0.011042637385455342
+       ],
+       "p_two": 0.0,
+       "B": 1000,
+       "block": 6,
+       "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+      },
+      "stratified": {
+       "cell_seen": {
+        "IGN_diff_mean": -0.022529542218701643,
+        "n_pos": 207,
+        "ISS_positive_taus_mean": 0.2121054951201373,
+        "IGN_diff_blockboot": {
+         "mean": -0.022529542218701643,
+         "ci": [
+          -0.028755228522726314,
+          -0.015733424469985602
+         ],
+         "p_two": 0.0
+        }
+       },
+       "cell_unseen": {
+        "IGN_diff_mean": 0.02744784656842617,
+        "n_pos": 99,
+        "ISS_positive_taus_mean": 0.24905007109898958,
+        "IGN_diff_blockboot": {
+         "mean": 0.02744784656842617,
+         "ci": [
+          8.930405704630579e-05,
+          0.04211029744923054
+         ],
+         "p_two": 0.052
+        }
+       }
+      }
+     }
+    },
+    "approx_vs_true": {
+     "hod_xH": {
+      "S_rel_diff_mean": 2.2668580167636594,
+      "S_rel_diff_median": -2.0867906720666098e-16,
+      "S_rel_diff_absmax": 31.85185185185186,
+      "IGN_ref_mean_approx": 0.04570444662637531,
+      "IGN_ref_mean_true": 0.04396652575352579,
+      "IGNdiff_mean_approx": -0.00923906560703283,
+      "IGNdiff_mean_true": -0.0075011447341833196,
+      "diff_CI_shift": [
+       0.0017379208728495101
+      ],
+      "note": "近似=起点钟点小时率×整窗（exp18:316）; true=hour_coverage_seconds 覆盖加权",
+      "diff_boot_approx": {
+       "mean": -0.00923906560703283,
+       "ci": [
+        -0.014018937316427992,
+        -0.005920241866427967
+       ],
+       "p_two": 0.0
+      },
+      "diff_boot_true": {
+       "mean": -0.0075011447341833196,
+       "ci": [
+        -0.012549534362301627,
+        -0.0042439964974824
+       ],
+       "p_two": 0.0
+      }
+     },
+     "BLa": {
+      "S_rel_diff_mean": 2.2668580167636594,
+      "S_rel_diff_median": -1.5786096569115243e-16,
+      "S_rel_diff_absmax": 31.85185185185186,
+      "IGN_ref_mean_approx": 0.03570210133057377,
+      "IGN_ref_mean_true": 0.033575958555708496,
+      "IGNdiff_mean_approx": 0.0007632796887686961,
+      "IGNdiff_mean_true": 0.002889422463633974,
+      "diff_CI_shift": [
+       0.002126142774865278
+      ],
+      "note": "近似=起点钟点小时率×整窗（exp18:316）; true=hour_coverage_seconds 覆盖加权",
+      "diff_boot_approx": {
+       "mean": 0.0007632796887686961,
+       "ci": [
+        -0.004271101314595533,
+        0.005772520296262572
+       ],
+       "p_two": 0.628
+      },
+      "diff_boot_true": {
+       "mean": 0.002889422463633974,
+       "ci": [
+        -0.00216084687679977,
+        0.0074949989974573555
+       ],
+       "p_two": 0.214
+      }
+     }
+    }
+   },
+   "6h": {
+    "n_tau": 386,
+    "n_pos": 538,
+    "AP": {
+     "model": 0.012659784695344907,
+     "persistence": 0.009455943315597987,
+     "hop1": 0.019143194262762314
+    },
+    "skill_scaled": {
+     "vs_pop_xH": {
+      "IGN_model_mean": 0.06299570843247684,
+      "IGN_ref_mean": 0.08164413542071958,
+      "ISS_all_taus_mean": 0.4060813737284159,
+      "ISS_positive_taus_mean": -0.00824191869714944,
+      "frac_positive_taus": 0.24093264248704663,
+      "IGN_diff_quantiles_5_25_50_75_95": [
+       -0.05720311378717824,
+       -0.04441301228178693,
+       -0.021014063998791487,
+       -0.010783450536749985,
+       0.034452183419783136
+      ],
+      "IGN_diff_blockboot": {
+       "mean": -0.018648426988242737,
+       "ci": [
+        -0.027028005793038115,
+        -0.012340126503230558
+       ],
+       "p_two": 0.0,
+       "B": 1000,
+       "block": 6,
+       "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+      },
+      "stratified": {
+       "cell_seen": {
+        "IGN_diff_mean": -0.028156352047763934,
+        "n_pos": 376,
+        "ISS_positive_taus_mean": 0.1593427951577642,
+        "IGN_diff_blockboot": {
+         "mean": -0.028156352047763938,
+         "ci": [
+          -0.0324507808118726,
+          -0.02424008540917088
+         ],
+         "p_two": 0.0
+        }
+       },
+       "cell_unseen": {
+        "IGN_diff_mean": 0.06416253320758702,
+        "n_pos": 162,
+        "ISS_positive_taus_mean": 0.17457431977590737,
+        "IGN_diff_blockboot": {
+         "mean": 0.06416253320758702,
+         "ci": [
+          0.007307249172014148,
+          0.10270451905867996
+         ],
+         "p_two": 0.016
+        }
+       }
+      }
+     },
+     "vs_hod_xH_true": {
+      "IGN_model_mean": 0.06299570843247684,
+      "IGN_ref_mean": 0.07982668607041339,
+      "ISS_all_taus_mean": 0.37263226776966274,
+      "ISS_positive_taus_mean": 0.05940577165460217,
+      "frac_positive_taus": 0.24093264248704663,
+      "IGN_diff_quantiles_5_25_50_75_95": [
+       -0.050763199276555704,
+       -0.03735062340534594,
+       -0.028018722208030797,
+       -0.003282571137485757,
+       0.038175913657829685
+      ],
+      "IGN_diff_blockboot": {
+       "mean": -0.016830977637936555,
+       "ci": [
+        -0.024409570335676277,
+        -0.011086632629584354
+       ],
+       "p_two": 0.0,
+       "B": 1000,
+       "block": 6,
+       "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+      },
+      "stratified": {
+       "cell_seen": {
+        "IGN_diff_mean": -0.026681162114540982,
+        "n_pos": 376,
+        "ISS_positive_taus_mean": 0.24372965246355774,
+        "IGN_diff_blockboot": {
+         "mean": -0.026681162114540982,
+         "ci": [
+          -0.03071369905511206,
+          -0.022509888372393826
+         ],
+         "p_two": 0.0
+        }
+       },
+       "cell_unseen": {
+        "IGN_diff_mean": 0.06896095167442456,
+        "n_pos": 162,
+        "ISS_positive_taus_mean": 0.1547860708055774,
+        "IGN_diff_blockboot": {
+         "mean": 0.06896095167442455,
+         "ci": [
+          0.011093964589624028,
+          0.10687304178986899
+         ],
+         "p_two": 0.008
+        }
+       }
+      }
+     },
+     "vs_BLa_true": {
+      "IGN_model_mean": 0.06299570843247684,
+      "IGN_ref_mean": 0.055509814339012135,
+      "ISS_all_taus_mean": -3.459434399863899,
+      "ISS_positive_taus_mean": -0.1963379079436255,
+      "frac_positive_taus": 0.24093264248704663,
+      "IGN_diff_quantiles_5_25_50_75_95": [
+       -0.09991893083999678,
+       0.0009745823916104806,
+       0.019099341590380927,
+       0.03178331187313516,
+       0.045452077161045254
+      ],
+      "IGN_diff_blockboot": {
+       "mean": 0.0074858940934646985,
+       "ci": [
+        -0.0029787827412547205,
+        0.017218344824864427
+       ],
+       "p_two": 0.132,
+       "B": 1000,
+       "block": 6,
+       "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+      },
+      "stratified": {
+       "cell_seen": {
+        "IGN_diff_mean": 0.00814636094281816,
+        "n_pos": 376,
+        "ISS_positive_taus_mean": -0.8243928363269203,
+        "IGN_diff_blockboot": {
+         "mean": 0.008146360942818155,
+         "ci": [
+          -0.000763972307790558,
+          0.018941144272095024
+         ],
+         "p_two": 0.088
+        }
+       },
+       "cell_unseen": {
+        "IGN_diff_mean": 0.0017334408894184583,
+        "n_pos": 162,
+        "ISS_positive_taus_mean": 0.360521540883245,
+        "IGN_diff_blockboot": {
+         "mean": 0.0017334408894184505,
+         "ci": [
+          -0.03339423666239778,
+          0.022594196957574506
+         ],
+         "p_two": 0.692
+        }
+       }
+      }
+     }
+    },
+    "hop1_skill_scaled": {
+     "vs_pop_xH": {
+      "IGN_model_mean": 0.043593653415961955,
+      "IGN_ref_mean": 0.08164413542071958,
+      "ISS_all_taus_mean": 0.7645850022155377,
+      "ISS_positive_taus_mean": 0.15216311153289902,
+      "frac_positive_taus": 0.24093264248704663,
+      "IGN_diff_quantiles_5_25_50_75_95": [
+       -0.05793402111052036,
+       -0.05644598594517117,
+       -0.05526284873736817,
+       -0.05116500561116,
+       0.05916945958588526
+      ],
+      "IGN_diff_blockboot": {
+       "mean": -0.03805048200475763,
+       "ci": [
+        -0.04838715713517864,
+        -0.027518008286653555
+       ],
+       "p_two": 0.0,
+       "B": 1000,
+       "block": 6,
+       "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+      },
+      "stratified": {
+       "cell_seen": {
+        "IGN_diff_mean": -0.047100782312227495,
+        "n_pos": 376,
+        "ISS_positive_taus_mean": 0.31627597864387286,
+        "IGN_diff_blockboot": {
+         "mean": -0.04710078231222749,
+         "ci": [
+          -0.05596724599539165,
+          -0.03731836896503538
+         ],
+         "p_two": 0.0
+        }
+       },
+       "cell_unseen": {
+        "IGN_diff_mean": 0.04077471422159288,
+        "n_pos": 162,
+        "ISS_positive_taus_mean": 0.2745958520268833,
+        "IGN_diff_blockboot": {
+         "mean": 0.04077471422159287,
+         "ci": [
+          0.0017685366343712125,
+          0.070409932747046
+         ],
+         "p_two": 0.036
+        }
+       }
+      }
+     },
+     "vs_hod_xH_true": {
+      "IGN_model_mean": 0.043593653415961955,
+      "IGN_ref_mean": 0.07982668607041339,
+      "ISS_all_taus_mean": 0.7233219203281627,
+      "ISS_positive_taus_mean": 0.17286292515634297,
+      "frac_positive_taus": 0.24093264248704663,
+      "IGN_diff_quantiles_5_25_50_75_95": [
+       -0.09998997126928638,
+       -0.07327250893049496,
+       -0.05523957807556568,
+       -0.006465790147276397,
+       0.055378245928469017
+      ],
+      "IGN_diff_blockboot": {
+       "mean": -0.03623303265445144,
+       "ci": [
+        -0.049005581974362895,
+        -0.02396374697771817
+       ],
+       "p_two": 0.0,
+       "B": 1000,
+       "block": 6,
+       "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+      },
+      "stratified": {
+       "cell_seen": {
+        "IGN_diff_mean": -0.04562559237900454,
+        "n_pos": 376,
+        "ISS_positive_taus_mean": 0.3185421791273079,
+        "IGN_diff_blockboot": {
+         "mean": -0.04562559237900454,
+         "ci": [
+          -0.05667984112271413,
+          -0.033073472689138676
+         ],
+         "p_two": 0.0
+        }
+       },
+       "cell_unseen": {
+        "IGN_diff_mean": 0.04557313268843042,
+        "n_pos": 162,
+        "ISS_positive_taus_mean": 0.26107671076995875,
+        "IGN_diff_blockboot": {
+         "mean": 0.045573132688430405,
+         "ci": [
+          0.0037605896086815712,
+          0.07607253269955583
+         ],
+         "p_two": 0.028
+        }
+       }
+      }
+     }
+    },
+    "approx_vs_true": {
+     "hod_xH": {
+      "S_rel_diff_mean": 8.10847376265836,
+      "S_rel_diff_median": 0.013004577611319058,
+      "S_rel_diff_absmax": 72.25925925925928,
+      "IGN_ref_mean_approx": 0.08541223757085252,
+      "IGN_ref_mean_true": 0.07982668607041339,
+      "IGNdiff_mean_approx": -0.022416529138375687,
+      "IGNdiff_mean_true": -0.016830977637936555,
+      "diff_CI_shift": [
+       0.005585551500439132
+      ],
+      "note": "近似=起点钟点小时率×整窗（exp18:316）; true=hour_coverage_seconds 覆盖加权",
+      "diff_boot_approx": {
+       "mean": -0.022416529138375687,
+       "ci": [
+        -0.03129372947837061,
+        -0.01564307932264752
+       ],
+       "p_two": 0.0
+      },
+      "diff_boot_true": {
+       "mean": -0.016830977637936555,
+       "ci": [
+        -0.024729221657581287,
+        -0.01173709612551545
+       ],
+       "p_two": 0.0
+      }
+     },
+     "BLa": {
+      "S_rel_diff_mean": 8.10847376265836,
+      "S_rel_diff_median": 0.013004577611319066,
+      "S_rel_diff_absmax": 72.25925925925927,
+      "IGN_ref_mean_approx": 0.06456210680010642,
+      "IGN_ref_mean_true": 0.055509814339012135,
+      "IGNdiff_mean_approx": -0.0015663983676295766,
+      "IGNdiff_mean_true": 0.0074858940934646985,
+      "diff_CI_shift": [
+       0.009052292461094276
+      ],
+      "note": "近似=起点钟点小时率×整窗（exp18:316）; true=hour_coverage_seconds 覆盖加权",
+      "diff_boot_approx": {
+       "mean": -0.0015663983676295766,
+       "ci": [
+        -0.013516195116061362,
+        0.010769522662404276
+       ],
+       "p_two": 0.946
+      },
+      "diff_boot_true": {
+       "mean": 0.0074858940934646985,
+       "ci": [
+        -0.0021381021710930297,
+        0.01664966898867456
+       ],
+       "p_two": 0.122
+      }
+     }
+    }
+   }
+  },
+  "targets_train": {
+   "1h": {
+    "n_tau": 386,
+    "n_pos": 75,
+    "AP": {
+     "model": 0.012217657682619171,
+     "persistence": 0.019957498461797944,
+     "hop1": 0.024043607311214597
+    },
+    "skill_scaled": {
+     "vs_pop_xH": {
+      "IGN_model_mean": 0.010613161536274082,
+      "IGN_ref_mean": 0.01570020421586691,
+      "ISS_all_taus_mean": 0.4699007196727711,
+      "ISS_positive_taus_mean": 0.035835531182594284,
+      "frac_positive_taus": 0.06735751295336788,
+      "IGN_diff_quantiles_5_25_50_75_95": [
+       -0.010665612036241466,
+       -0.010535097952764116,
+       -0.004429900449341509,
+       -0.0011906237288840018,
+       0.0022796309913177175
+      ],
+      "IGN_diff_blockboot": {
+       "mean": -0.005087042679592829,
+       "ci": [
+        -0.0060190849102803355,
+        -0.004281217498914685
+       ],
+       "p_two": 0.0,
+       "B": 1000,
+       "block": 6,
+       "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+      },
+      "stratified": {
+       "cell_seen": {
+        "IGN_diff_mean": -0.005087042679592829,
+        "n_pos": 75,
+        "ISS_positive_taus_mean": 0.035835531182596005,
+        "IGN_diff_blockboot": {
+         "mean": -0.005087042679592829,
+         "ci": [
+          -0.005951372039423133,
+          -0.004303742801182715
+         ],
+         "p_two": 0.0
+        }
+       },
+       "cell_unseen": {
+        "IGN_diff_mean": NaN,
+        "n_pos": 0,
+        "structural_empty": true,
+        "note": "层内 0 格（targets_train unseen 层为空宇宙）→ 结构空层, IGN/bootstrap 无定义记 NaN, p_two 记 null",
+        "ISS_positive_taus_mean": null,
+        "IGN_diff_blockboot": {
+         "mean": NaN,
+         "ci": [
+          NaN,
+          NaN
+         ],
+         "p_two": null,
+         "structural_empty": true
+        }
+       }
+      }
+     },
+     "vs_hod_xH_true": {
+      "IGN_model_mean": 0.010613161536274082,
+      "IGN_ref_mean": 0.015261101561826834,
+      "ISS_all_taus_mean": 0.43190484173192545,
+      "ISS_positive_taus_mean": 0.04318285223604893,
+      "frac_positive_taus": 0.06735751295336788,
+      "IGN_diff_quantiles_5_25_50_75_95": [
+       -0.011958612100269569,
+       -0.008894820471404849,
+       -0.004278713944782677,
+       -0.00010893472560973869,
+       9.614191190774699e-07
+      ],
+      "IGN_diff_blockboot": {
+       "mean": -0.00464794002555275,
+       "ci": [
+        -0.005477021042827109,
+        -0.0038094309934916786
+       ],
+       "p_two": 0.0,
+       "B": 1000,
+       "block": 6,
+       "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+      },
+      "stratified": {
+       "cell_seen": {
+        "IGN_diff_mean": -0.004647940025552751,
+        "n_pos": 75,
+        "ISS_positive_taus_mean": 0.0431828522360493,
+        "IGN_diff_blockboot": {
+         "mean": -0.00464794002555275,
+         "ci": [
+          -0.005556786541627977,
+          -0.0038668426760552765
+         ],
+         "p_two": 0.0
+        }
+       },
+       "cell_unseen": {
+        "IGN_diff_mean": NaN,
+        "n_pos": 0,
+        "structural_empty": true,
+        "note": "层内 0 格（targets_train unseen 层为空宇宙）→ 结构空层, IGN/bootstrap 无定义记 NaN, p_two 记 null",
+        "ISS_positive_taus_mean": null,
+        "IGN_diff_blockboot": {
+         "mean": NaN,
+         "ci": [
+          NaN,
+          NaN
+         ],
+         "p_two": null,
+         "structural_empty": true
+        }
+       }
+      }
+     },
+     "vs_BLa_true": {
+      "IGN_model_mean": 0.010613161536274082,
+      "IGN_ref_mean": 0.012365982009717261,
+      "ISS_all_taus_mean": -0.05008395773200846,
+      "ISS_positive_taus_mean": 0.09960438543047935,
+      "frac_positive_taus": 0.06735751295336788,
+      "IGN_diff_quantiles_5_25_50_75_95": [
+       -0.007761579017676096,
+       9.0701575051693e-06,
+       0.00013116843161246894,
+       0.000270033003767232,
+       0.00047529293727736075
+      ],
+      "IGN_diff_blockboot": {
+       "mean": -0.001752820473443178,
+       "ci": [
+        -0.002737412705465687,
+        -0.00037554213902611194
+       ],
+       "p_two": 0.0,
+       "B": 1000,
+       "block": 6,
+       "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+      },
+      "stratified": {
+       "cell_seen": {
+        "IGN_diff_mean": -0.0017528204734431783,
+        "n_pos": 75,
+        "ISS_positive_taus_mean": 0.09960438543047954,
+        "IGN_diff_blockboot": {
+         "mean": -0.001752820473443178,
+         "ci": [
+          -0.0026233179859665116,
+          -0.0003682370727001083
+         ],
+         "p_two": 0.0
+        }
+       },
+       "cell_unseen": {
+        "IGN_diff_mean": NaN,
+        "n_pos": 0,
+        "structural_empty": true,
+        "note": "层内 0 格（targets_train unseen 层为空宇宙）→ 结构空层, IGN/bootstrap 无定义记 NaN, p_two 记 null",
+        "ISS_positive_taus_mean": null,
+        "IGN_diff_blockboot": {
+         "mean": NaN,
+         "ci": [
+          NaN,
+          NaN
+         ],
+         "p_two": null,
+         "structural_empty": true
+        }
+       }
+      }
+     }
+    },
+    "hop1_skill_scaled": {
+     "vs_pop_xH": {
+      "IGN_model_mean": 0.0075018740204134725,
+      "IGN_ref_mean": 0.01570020421586691,
+      "ISS_all_taus_mean": 0.8740176721545325,
+      "ISS_positive_taus_mean": -0.15434195467883743,
+      "frac_positive_taus": 0.06735751295336788,
+      "IGN_diff_quantiles_5_25_50_75_95": [
+       -0.010771302470066427,
+       -0.010677384927308261,
+       -0.0102777787807218,
+       -0.009980022000056592,
+       -0.0045973849588767345
+      ],
+      "IGN_diff_blockboot": {
+       "mean": -0.008198330195453438,
+       "ci": [
+        -0.009701883482456224,
+        -0.005947899920080524
+       ],
+       "p_two": 0.0,
+       "B": 1000,
+       "block": 6,
+       "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+      },
+      "stratified": {
+       "cell_seen": {
+        "IGN_diff_mean": -0.008198330195453438,
+        "n_pos": 75,
+        "ISS_positive_taus_mean": -0.15434195467883577,
+        "IGN_diff_blockboot": {
+         "mean": -0.008198330195453438,
+         "ci": [
+          -0.009674514619458462,
+          -0.006217226673727592
+         ],
+         "p_two": 0.0
+        }
+       },
+       "cell_unseen": {
+        "IGN_diff_mean": NaN,
+        "n_pos": 0,
+        "structural_empty": true,
+        "note": "层内 0 格（targets_train unseen 层为空宇宙）→ 结构空层, IGN/bootstrap 无定义记 NaN, p_two 记 null",
+        "ISS_positive_taus_mean": null,
+        "IGN_diff_blockboot": {
+         "mean": NaN,
+         "ci": [
+          NaN,
+          NaN
+         ],
+         "p_two": null,
+         "structural_empty": true
+        }
+       }
+      }
+     },
+     "vs_hod_xH_true": {
+      "IGN_model_mean": 0.0075018740204134725,
+      "IGN_ref_mean": 0.015261101561826834,
+      "ISS_all_taus_mean": 0.7539548712748592,
+      "ISS_positive_taus_mean": -0.1497857880015915,
+      "frac_positive_taus": 0.06735751295336788,
+      "IGN_diff_quantiles_5_25_50_75_95": [
+       -0.023561073057940703,
+       -0.017429697935205123,
+       -0.008429999317795533,
+       -0.0002146251594346992,
+       0.00038314942274449333
+      ],
+      "IGN_diff_blockboot": {
+       "mean": -0.007759227541413359,
+       "ci": [
+        -0.010078791068060955,
+        -0.005189136406461239
+       ],
+       "p_two": 0.0,
+       "B": 1000,
+       "block": 6,
+       "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+      },
+      "stratified": {
+       "cell_seen": {
+        "IGN_diff_mean": -0.007759227541413359,
+        "n_pos": 75,
+        "ISS_positive_taus_mean": -0.14978578800159167,
+        "IGN_diff_blockboot": {
+         "mean": -0.007759227541413359,
+         "ci": [
+          -0.009842617883190314,
+          -0.005205637155821606
+         ],
+         "p_two": 0.0
+        }
+       },
+       "cell_unseen": {
+        "IGN_diff_mean": NaN,
+        "n_pos": 0,
+        "structural_empty": true,
+        "note": "层内 0 格（targets_train unseen 层为空宇宙）→ 结构空层, IGN/bootstrap 无定义记 NaN, p_two 记 null",
+        "ISS_positive_taus_mean": null,
+        "IGN_diff_blockboot": {
+         "mean": NaN,
+         "ci": [
+          NaN,
+          NaN
+         ],
+         "p_two": null,
+         "structural_empty": true
+        }
+       }
+      }
+     }
+    },
+    "approx_vs_true": {
+     "hod_xH": {
+      "S_rel_diff_mean": 0.2608498562831425,
+      "S_rel_diff_median": -1.5314234113188342e-16,
+      "S_rel_diff_absmax": 4.344444444444445,
+      "IGN_ref_mean_approx": 0.015324445661282503,
+      "IGN_ref_mean_true": 0.015261101561826834,
+      "IGNdiff_mean_approx": -0.004711284125008419,
+      "IGNdiff_mean_true": -0.00464794002555275,
+      "diff_CI_shift": [
+       6.33440994556693e-05
+      ],
+      "note": "近似=起点钟点小时率×整窗（exp18:316）; true=hour_coverage_seconds 覆盖加权",
+      "diff_boot_approx": {
+       "mean": -0.004711284125008419,
+       "ci": [
+        -0.005601113911010836,
+        -0.0038318663406933825
+       ],
+       "p_two": 0.0
+      },
+      "diff_boot_true": {
+       "mean": -0.00464794002555275,
+       "ci": [
+        -0.0054684282835985205,
+        -0.0038066310838033015
+       ],
+       "p_two": 0.0
+      }
+     },
+     "BLa": {
+      "S_rel_diff_mean": 0.2608498562831426,
+      "S_rel_diff_median": -1.544649282612942e-16,
+      "S_rel_diff_absmax": 4.344444444444446,
+      "IGN_ref_mean_approx": 0.012574778194944363,
+      "IGN_ref_mean_true": 0.012365982009717261,
+      "IGNdiff_mean_approx": -0.001961616658670284,
+      "IGNdiff_mean_true": -0.001752820473443178,
+      "diff_CI_shift": [
+       0.00020879618522710581
+      ],
+      "note": "近似=起点钟点小时率×整窗（exp18:316）; true=hour_coverage_seconds 覆盖加权",
+      "diff_boot_approx": {
+       "mean": -0.001961616658670284,
+       "ci": [
+        -0.002973778412111548,
+        -0.00046930228812954616
+       ],
+       "p_two": 0.0
+      },
+      "diff_boot_true": {
+       "mean": -0.001752820473443178,
+       "ci": [
+        -0.002764510157227754,
+        -0.00033437348189007434
+       ],
+       "p_two": 0.004
+      }
+     }
+    }
+   },
+   "3h": {
+    "n_tau": 386,
+    "n_pos": 207,
+    "AP": {
+     "model": 0.011990813103331353,
+     "persistence": 0.008169155217291186,
+     "hop1": 0.02195336459451303
+    },
+    "skill_scaled": {
+     "vs_pop_xH": {
+      "IGN_model_mean": 0.028037482247746052,
+      "IGN_ref_mean": 0.042873921924781164,
+      "ISS_all_taus_mean": 0.4592115942729882,
+      "ISS_positive_taus_mean": 0.06579377657126423,
+      "frac_positive_taus": 0.12694300518134716,
+      "IGN_diff_quantiles_5_25_50_75_95": [
+       -0.03199683610872473,
+       -0.028868190391120027,
+       -0.011279787705028417,
+       -0.006434724029485273,
+       0.003983847631647408
+      ],
+      "IGN_diff_blockboot": {
+       "mean": -0.014836439677035093,
+       "ci": [
+        -0.017702266123241814,
+        -0.0124062145255139
+       ],
+       "p_two": 0.0,
+       "B": 1000,
+       "block": 6,
+       "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+      },
+      "stratified": {
+       "cell_seen": {
+        "IGN_diff_mean": -0.014836439677035095,
+        "n_pos": 207,
+        "ISS_positive_taus_mean": 0.0657937765712646,
+        "IGN_diff_blockboot": {
+         "mean": -0.014836439677035093,
+         "ci": [
+          -0.017616858277606787,
+          -0.012744067557846782
+         ],
+         "p_two": 0.0
+        }
+       },
+       "cell_unseen": {
+        "IGN_diff_mean": NaN,
+        "n_pos": 0,
+        "structural_empty": true,
+        "note": "层内 0 格（targets_train unseen 层为空宇宙）→ 结构空层, IGN/bootstrap 无定义记 NaN, p_two 记 null",
+        "ISS_positive_taus_mean": null,
+        "IGN_diff_blockboot": {
+         "mean": NaN,
+         "ci": [
+          NaN,
+          NaN
+         ],
+         "p_two": null,
+         "structural_empty": true
+        }
+       }
+      }
+     },
+     "vs_hod_xH_true": {
+      "IGN_model_mean": 0.028037482247746052,
+      "IGN_ref_mean": 0.04189453903212326,
+      "ISS_all_taus_mean": 0.42382563658557043,
+      "ISS_positive_taus_mean": 0.12962935924965757,
+      "frac_positive_taus": 0.12694300518134716,
+      "IGN_diff_quantiles_5_25_50_75_95": [
+       -0.03323715230275788,
+       -0.023742661241902527,
+       -0.015626081195797562,
+       -0.0008496914981317781,
+       -0.00013369011305572784
+      ],
+      "IGN_diff_blockboot": {
+       "mean": -0.013857056784377203,
+       "ci": [
+        -0.016391392444739986,
+        -0.011372532829954684
+       ],
+       "p_two": 0.0,
+       "B": 1000,
+       "block": 6,
+       "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+      },
+      "stratified": {
+       "cell_seen": {
+        "IGN_diff_mean": -0.013857056784377205,
+        "n_pos": 207,
+        "ISS_positive_taus_mean": 0.12962935924965718,
+        "IGN_diff_blockboot": {
+         "mean": -0.013857056784377203,
+         "ci": [
+          -0.0164646644300644,
+          -0.011278554309112959
+         ],
+         "p_two": 0.0
+        }
+       },
+       "cell_unseen": {
+        "IGN_diff_mean": NaN,
+        "n_pos": 0,
+        "structural_empty": true,
+        "note": "层内 0 格（targets_train unseen 层为空宇宙）→ 结构空层, IGN/bootstrap 无定义记 NaN, p_two 记 null",
+        "ISS_positive_taus_mean": null,
+        "IGN_diff_blockboot": {
+         "mean": NaN,
+         "ci": [
+          NaN,
+          NaN
+         ],
+         "p_two": null,
+         "structural_empty": true
+        }
+       }
+      }
+     },
+     "vs_BLa_true": {
+      "IGN_model_mean": 0.028037482247746052,
+      "IGN_ref_mean": 0.02583540791758424,
+      "ISS_all_taus_mean": -1.7666795761197314,
+      "ISS_positive_taus_mean": 0.12119372960001615,
+      "frac_positive_taus": 0.12694300518134716,
+      "IGN_diff_quantiles_5_25_50_75_95": [
+       -0.03274090346594834,
+       0.00032139731003314457,
+       0.007550362879025355,
+       0.015845061049893076,
+       0.022822397805488455
+      ],
+      "IGN_diff_blockboot": {
+       "mean": 0.0022020743301618176,
+       "ci": [
+        -0.0018040170853762482,
+        0.0077411598349669914
+       ],
+       "p_two": 0.224,
+       "B": 1000,
+       "block": 6,
+       "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+      },
+      "stratified": {
+       "cell_seen": {
+        "IGN_diff_mean": 0.0022020743301618168,
+        "n_pos": 207,
+        "ISS_positive_taus_mean": 0.12119372960001601,
+        "IGN_diff_blockboot": {
+         "mean": 0.0022020743301618176,
+         "ci": [
+          -0.002592988062097979,
+          0.007346605347694674
+         ],
+         "p_two": 0.3
+        }
+       },
+       "cell_unseen": {
+        "IGN_diff_mean": NaN,
+        "n_pos": 0,
+        "structural_empty": true,
+        "note": "层内 0 格（targets_train unseen 层为空宇宙）→ 结构空层, IGN/bootstrap 无定义记 NaN, p_two 记 null",
+        "ISS_positive_taus_mean": null,
+        "IGN_diff_blockboot": {
+         "mean": NaN,
+         "ci": [
+          NaN,
+          NaN
+         ],
+         "p_two": null,
+         "structural_empty": true
+        }
+       }
+      }
+     }
+    },
+    "hop1_skill_scaled": {
+     "vs_pop_xH": {
+      "IGN_model_mean": 0.01873156987960703,
+      "IGN_ref_mean": 0.042873921924781164,
+      "ISS_all_taus_mean": 0.8362537240472572,
+      "ISS_positive_taus_mean": 0.016689624445905334,
+      "frac_positive_taus": 0.12694300518134716,
+      "IGN_diff_quantiles_5_25_50_75_95": [
+       -0.032313907410199516,
+       -0.031827812609080935,
+       -0.030759023105477935,
+       -0.03001161570559096,
+       0.007762807150264809
+      ],
+      "IGN_diff_blockboot": {
+       "mean": -0.024142352045174117,
+       "ci": [
+        -0.02907083822407267,
+        -0.017804392091578164
+       ],
+       "p_two": 0.0,
+       "B": 1000,
+       "block": 6,
+       "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+      },
+      "stratified": {
+       "cell_seen": {
+        "IGN_diff_mean": -0.024142352045174117,
+        "n_pos": 207,
+        "ISS_positive_taus_mean": 0.016689624445905743,
+        "IGN_diff_blockboot": {
+         "mean": -0.024142352045174117,
+         "ci": [
+          -0.029138586368432924,
+          -0.017857579678406697
+         ],
+         "p_two": 0.0
+        }
+       },
+       "cell_unseen": {
+        "IGN_diff_mean": NaN,
+        "n_pos": 0,
+        "structural_empty": true,
+        "note": "层内 0 格（targets_train unseen 层为空宇宙）→ 结构空层, IGN/bootstrap 无定义记 NaN, p_two 记 null",
+        "ISS_positive_taus_mean": null,
+        "IGN_diff_blockboot": {
+         "mean": NaN,
+         "ci": [
+          NaN,
+          NaN
+         ],
+         "p_two": null,
+         "structural_empty": true
+        }
+       }
+      }
+     },
+     "vs_hod_xH_true": {
+      "IGN_model_mean": 0.01873156987960703,
+      "IGN_ref_mean": 0.04189453903212326,
+      "ISS_all_taus_mean": 0.7460601410436872,
+      "ISS_positive_taus_mean": 0.05407213843382046,
+      "frac_positive_taus": 0.12694300518134716,
+      "IGN_diff_quantiles_5_25_50_75_95": [
+       -0.06548450199028022,
+       -0.04632326357798554,
+       -0.030673369937740162,
+       -0.0010268573240772246,
+       0.009333243168976664
+      ],
+      "IGN_diff_blockboot": {
+       "mean": -0.02316296915251623,
+       "ci": [
+        -0.030030043146967313,
+        -0.01579831029851425
+       ],
+       "p_two": 0.0,
+       "B": 1000,
+       "block": 6,
+       "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+      },
+      "stratified": {
+       "cell_seen": {
+        "IGN_diff_mean": -0.02316296915251623,
+        "n_pos": 207,
+        "ISS_positive_taus_mean": 0.054072138433820145,
+        "IGN_diff_blockboot": {
+         "mean": -0.02316296915251623,
+         "ci": [
+          -0.02950813023220771,
+          -0.015505796108709592
+         ],
+         "p_two": 0.0
+        }
+       },
+       "cell_unseen": {
+        "IGN_diff_mean": NaN,
+        "n_pos": 0,
+        "structural_empty": true,
+        "note": "层内 0 格（targets_train unseen 层为空宇宙）→ 结构空层, IGN/bootstrap 无定义记 NaN, p_two 记 null",
+        "ISS_positive_taus_mean": null,
+        "IGN_diff_blockboot": {
+         "mean": NaN,
+         "ci": [
+          NaN,
+          NaN
+         ],
+         "p_two": null,
+         "structural_empty": true
+        }
+       }
+      }
+     }
+    },
+    "approx_vs_true": {
+     "hod_xH": {
+      "S_rel_diff_mean": 2.2668580167636594,
+      "S_rel_diff_median": -2.0418978817584456e-16,
+      "S_rel_diff_absmax": 31.851851851851855,
+      "IGN_ref_mean_approx": 0.04326419517360647,
+      "IGN_ref_mean_true": 0.04189453903212326,
+      "IGNdiff_mean_approx": -0.015226712925860402,
+      "IGNdiff_mean_true": -0.013857056784377203,
+      "diff_CI_shift": [
+       0.0013696561414831988
+      ],
+      "note": "近似=起点钟点小时率×整窗（exp18:316）; true=hour_coverage_seconds 覆盖加权",
+      "diff_boot_approx": {
+       "mean": -0.015226712925860402,
+       "ci": [
+        -0.01836184608068808,
+        -0.012317940019925111
+       ],
+       "p_two": 0.0
+      },
+      "diff_boot_true": {
+       "mean": -0.013857056784377203,
+       "ci": [
+        -0.016430324678000468,
+        -0.01132898052874248
+       ],
+       "p_two": 0.0
+      }
+     },
+     "BLa": {
+      "S_rel_diff_mean": 2.26685801676366,
+      "S_rel_diff_median": -1.544649282612942e-16,
+      "S_rel_diff_absmax": 31.85185185185186,
+      "IGN_ref_mean_approx": 0.027464441173401723,
+      "IGN_ref_mean_true": 0.02583540791758424,
+      "IGNdiff_mean_approx": 0.000573041074344336,
+      "IGNdiff_mean_true": 0.0022020743301618176,
+      "diff_CI_shift": [
+       0.0016290332558174816
+      ],
+      "note": "近似=起点钟点小时率×整窗（exp18:316）; true=hour_coverage_seconds 覆盖加权",
+      "diff_boot_approx": {
+       "mean": 0.000573041074344336,
+       "ci": [
+        -0.004172711857547031,
+        0.006663780135402772
+       ],
+       "p_two": 0.54
+      },
+      "diff_boot_true": {
+       "mean": 0.0022020743301618176,
+       "ci": [
+        -0.0022367981533900263,
+        0.007541164120880175
+       ],
+       "p_two": 0.222
+      }
+     }
+    }
+   },
+   "6h": {
+    "n_tau": 386,
+    "n_pos": 376,
+    "AP": {
+     "model": 0.013580169732239475,
+     "persistence": 0.010473568432156685,
+     "hop1": 0.022583337962547707
+    },
+    "skill_scaled": {
+     "vs_pop_xH": {
+      "IGN_model_mean": 0.050761480838220234,
+      "IGN_ref_mean": 0.08019205026112376,
+      "ISS_all_taus_mean": 0.4493953785835017,
+      "ISS_positive_taus_mean": 0.13500390088009342,
+      "frac_positive_taus": 0.19689119170984457,
+      "IGN_diff_quantiles_5_25_50_75_95": [
+       -0.06377964011604376,
+       -0.049698391722791654,
+       -0.023724240777094657,
+       -0.013028851835703611,
+       -0.0024270035691589757
+      ],
+      "IGN_diff_blockboot": {
+       "mean": -0.029430569422903546,
+       "ci": [
+        -0.0345352689018063,
+        -0.025234747700543184
+       ],
+       "p_two": 0.0,
+       "B": 1000,
+       "block": 6,
+       "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+      },
+      "stratified": {
+       "cell_seen": {
+        "IGN_diff_mean": -0.029430569422903553,
+        "n_pos": 376,
+        "ISS_positive_taus_mean": 0.1350039008800948,
+        "IGN_diff_blockboot": {
+         "mean": -0.029430569422903546,
+         "ci": [
+          -0.034481371329678205,
+          -0.024835811738897255
+         ],
+         "p_two": 0.0
+        }
+       },
+       "cell_unseen": {
+        "IGN_diff_mean": NaN,
+        "n_pos": 0,
+        "structural_empty": true,
+        "note": "层内 0 格（targets_train unseen 层为空宇宙）→ 结构空层, IGN/bootstrap 无定义记 NaN, p_two 记 null",
+        "ISS_positive_taus_mean": null,
+        "IGN_diff_blockboot": {
+         "mean": NaN,
+         "ci": [
+          NaN,
+          NaN
+         ],
+         "p_two": null,
+         "structural_empty": true
+        }
+       }
+      }
+     },
+     "vs_hod_xH_true": {
+      "IGN_model_mean": 0.050761480838220234,
+      "IGN_ref_mean": 0.07871749184906296,
+      "ISS_all_taus_mean": 0.4229953724949567,
+      "ISS_positive_taus_mean": 0.2055190832792022,
+      "frac_positive_taus": 0.19689119170984457,
+      "IGN_diff_quantiles_5_25_50_75_95": [
+       -0.05782813033366391,
+       -0.042187998456973186,
+       -0.03487931076690856,
+       -0.00808635842051864,
+       -0.000570875771741701
+      ],
+      "IGN_diff_blockboot": {
+       "mean": -0.027956011010842722,
+       "ci": [
+        -0.032096485230541504,
+        -0.023620517887512026
+       ],
+       "p_two": 0.0,
+       "B": 1000,
+       "block": 6,
+       "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+      },
+      "stratified": {
+       "cell_seen": {
+        "IGN_diff_mean": -0.027956011010842722,
+        "n_pos": 376,
+        "ISS_positive_taus_mean": 0.20551908327920201,
+        "IGN_diff_blockboot": {
+         "mean": -0.027956011010842722,
+         "ci": [
+          -0.032302186845841054,
+          -0.02354289402699755
+         ],
+         "p_two": 0.0
+        }
+       },
+       "cell_unseen": {
+        "IGN_diff_mean": NaN,
+        "n_pos": 0,
+        "structural_empty": true,
+        "note": "层内 0 格（targets_train unseen 层为空宇宙）→ 结构空层, IGN/bootstrap 无定义记 NaN, p_two 记 null",
+        "ISS_positive_taus_mean": null,
+        "IGN_diff_blockboot": {
+         "mean": NaN,
+         "ci": [
+          NaN,
+          NaN
+         ],
+         "p_two": null,
+         "structural_empty": true
+        }
+       }
+      }
+     },
+     "vs_BLa_true": {
+      "IGN_model_mean": 0.050761480838220234,
+      "IGN_ref_mean": 0.042622297524065836,
+      "ISS_all_taus_mean": -3.658172633167098,
+      "ISS_positive_taus_mean": -0.05575557648004952,
+      "frac_positive_taus": 0.19689119170984457,
+      "IGN_diff_quantiles_5_25_50_75_95": [
+       -0.07137287904026726,
+       0.0009196202498843471,
+       0.021279171923168545,
+       0.035410778661435396,
+       0.049352486988885697
+      ],
+      "IGN_diff_blockboot": {
+       "mean": 0.00813918331415439,
+       "ci": [
+        -0.0013057583675794356,
+        0.018240271723068392
+       ],
+       "p_two": 0.09,
+       "B": 1000,
+       "block": 6,
+       "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+      },
+      "stratified": {
+       "cell_seen": {
+        "IGN_diff_mean": 0.008139183314154391,
+        "n_pos": 376,
+        "ISS_positive_taus_mean": -0.05575557648004999,
+        "IGN_diff_blockboot": {
+         "mean": 0.00813918331415439,
+         "ci": [
+          -0.0016373766302359206,
+          0.01904141911590254
+         ],
+         "p_two": 0.108
+        }
+       },
+       "cell_unseen": {
+        "IGN_diff_mean": NaN,
+        "n_pos": 0,
+        "structural_empty": true,
+        "note": "层内 0 格（targets_train unseen 层为空宇宙）→ 结构空层, IGN/bootstrap 无定义记 NaN, p_two 记 null",
+        "ISS_positive_taus_mean": null,
+        "IGN_diff_blockboot": {
+         "mean": NaN,
+         "ci": [
+          NaN,
+          NaN
+         ],
+         "p_two": null,
+         "structural_empty": true
+        }
+       }
+      }
+     }
+    },
+    "hop1_skill_scaled": {
+     "vs_pop_xH": {
+      "IGN_model_mean": 0.03181705057375668,
+      "IGN_ref_mean": 0.08019205026112376,
+      "ISS_all_taus_mean": 0.8059295026035008,
+      "ISS_positive_taus_mean": 0.1827492761111036,
+      "frac_positive_taus": 0.19689119170984457,
+      "IGN_diff_quantiles_5_25_50_75_95": [
+       -0.0645875945717896,
+       -0.06296566012523652,
+       -0.06168072902492633,
+       -0.05961822476856886,
+       0.023338956626629
+      ],
+      "IGN_diff_blockboot": {
+       "mean": -0.0483749996873671,
+       "ci": [
+        -0.05726130831688769,
+        -0.036701538545717116
+       ],
+       "p_two": 0.0,
+       "B": 1000,
+       "block": 6,
+       "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+      },
+      "stratified": {
+       "cell_seen": {
+        "IGN_diff_mean": -0.0483749996873671,
+        "n_pos": 376,
+        "ISS_positive_taus_mean": 0.18274927611110528,
+        "IGN_diff_blockboot": {
+         "mean": -0.0483749996873671,
+         "ci": [
+          -0.0573982946977558,
+          -0.03746228015945809
+         ],
+         "p_two": 0.0
+        }
+       },
+       "cell_unseen": {
+        "IGN_diff_mean": NaN,
+        "n_pos": 0,
+        "structural_empty": true,
+        "note": "层内 0 格（targets_train unseen 层为空宇宙）→ 结构空层, IGN/bootstrap 无定义记 NaN, p_two 记 null",
+        "ISS_positive_taus_mean": null,
+        "IGN_diff_blockboot": {
+         "mean": NaN,
+         "ci": [
+          NaN,
+          NaN
+         ],
+         "p_two": null,
+         "structural_empty": true
+        }
+       }
+      }
+     },
+     "vs_hod_xH_true": {
+      "IGN_model_mean": 0.03181705057375668,
+      "IGN_ref_mean": 0.07871749184906296,
+      "ISS_all_taus_mean": 0.7617343796391137,
+      "ISS_positive_taus_mean": 0.2141707422006273,
+      "frac_positive_taus": 0.19689119170984457,
+      "IGN_diff_quantiles_5_25_50_75_95": [
+       -0.11433094815205001,
+       -0.08209412348376578,
+       -0.061692809717502475,
+       -0.008686846015473303,
+       0.013053478192375366
+      ],
+      "IGN_diff_blockboot": {
+       "mean": -0.04690044127530629,
+       "ci": [
+        -0.058657870877669244,
+        -0.03414631467435289
+       ],
+       "p_two": 0.0,
+       "B": 1000,
+       "block": 6,
+       "note": "逐格 IGN 差(model−ref) τ 块 bootstrap; 负=模型更优"
+      },
+      "stratified": {
+       "cell_seen": {
+        "IGN_diff_mean": -0.04690044127530627,
+        "n_pos": 376,
+        "ISS_positive_taus_mean": 0.21417074220062723,
+        "IGN_diff_blockboot": {
+         "mean": -0.04690044127530629,
+         "ci": [
+          -0.057578267053391786,
+          -0.03397792976318109
+         ],
+         "p_two": 0.0
+        }
+       },
+       "cell_unseen": {
+        "IGN_diff_mean": NaN,
+        "n_pos": 0,
+        "structural_empty": true,
+        "note": "层内 0 格（targets_train unseen 层为空宇宙）→ 结构空层, IGN/bootstrap 无定义记 NaN, p_two 记 null",
+        "ISS_positive_taus_mean": null,
+        "IGN_diff_blockboot": {
+         "mean": NaN,
+         "ci": [
+          NaN,
+          NaN
+         ],
+         "p_two": null,
+         "structural_empty": true
+        }
+       }
+      }
+     }
+    },
+    "approx_vs_true": {
+     "hod_xH": {
+      "S_rel_diff_mean": 8.108473762658361,
+      "S_rel_diff_median": 0.013004577611319096,
+      "S_rel_diff_absmax": 72.25925925925927,
+      "IGN_ref_mean_approx": 0.08282279818501202,
+      "IGN_ref_mean_true": 0.07871749184906296,
+      "IGNdiff_mean_approx": -0.03206131734679178,
+      "IGNdiff_mean_true": -0.027956011010842722,
+      "diff_CI_shift": [
+       0.00410530633594906
+      ],
+      "note": "近似=起点钟点小时率×整窗（exp18:316）; true=hour_coverage_seconds 覆盖加权",
+      "diff_boot_approx": {
+       "mean": -0.03206131734679178,
+       "ci": [
+        -0.03971735444984848,
+        -0.024158782985142326
+       ],
+       "p_two": 0.0
+      },
+      "diff_boot_true": {
+       "mean": -0.027956011010842722,
+       "ci": [
+        -0.032133404286767864,
+        -0.023457584229491728
+       ],
+       "p_two": 0.0
+      }
+     },
+     "BLa": {
+      "S_rel_diff_mean": 8.108473762658361,
+      "S_rel_diff_median": 0.013004577611319115,
+      "S_rel_diff_absmax": 72.25925925925927,
+      "IGN_ref_mean_approx": 0.049435137671008614,
+      "IGN_ref_mean_true": 0.042622297524065836,
+      "IGNdiff_mean_approx": 0.0013263431672116135,
+      "IGNdiff_mean_true": 0.00813918331415439,
+      "diff_CI_shift": [
+       0.006812840146942776
+      ],
+      "note": "近似=起点钟点小时率×整窗（exp18:316）; true=hour_coverage_seconds 覆盖加权",
+      "diff_boot_approx": {
+       "mean": 0.0013263431672116135,
+       "ci": [
+        -0.009801405183872678,
+        0.013723805753899537
+       ],
+       "p_two": 0.63
+      },
+      "diff_boot_true": {
+       "mean": 0.00813918331415439,
+       "ci": [
+        -0.0016453775331815683,
+        0.018761455304059014
+       ],
+       "p_two": 0.092
+      }
+     }
+    }
+   }
+  }
+ },
+ "regression_vs_exp18": {
+  "ap_and_deterministic_bitwise_identical": true,
+  "drifted_ap": [],
+  "drifted_deterministic": [],
+  "pop_xH_boot_first_cell_identical": true,
+  "drifted_boot": [],
+  "note": "层1=确定性输出（AP/IGN/ISS/分位数）全 cell 逐位; 层2=pop_xH bootstrap 仅全量模式首 cell （exp18 每 cell 末尾 molchan bootstrap 消耗 RNG 致跨 cell 流不可对齐; smoke B=100 不可比）——结构差异非漂移"
+ },
+ "Q3_ISS_ratio_ruling": {
+  "iss_all_true": {
+   "targets/1h": 0.39980612782343683,
+   "targets/3h": 0.38092337864776554,
+   "targets/6h": 0.37263226776966274,
+   "targets_train/1h": 0.43190484173192545,
+   "targets_train/3h": 0.42382563658557043,
+   "targets_train/6h": 0.4229953724949567
+  },
+  "pathological_cells": [],
+  "ruling": "恢复可读, ISS 列可引用",
+  "note": "病态根因=比值口径（ISS=1−IGN_m/IGN_r 的分母在空闲 τ 上→小）, 非 hod 近似所致"
+ }
+}

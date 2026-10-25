@@ -1,0 +1,537 @@
+{
+ "exp": "Exp16_frailty_upgrade",
+ "preregistered": {
+  "G1": "IGPE(hybrid_frailty − M_hybrid_W24_c) 块bootstrap(block=10,B=5000) CI 下界>0→显著升级; 含0→不显著回退; 上界<0→有害。三轨 AR(1)/HAC 复核",
+  "G2": "方向性预言: share_boost_fr<0.72 且 boost 边际<+2.318 → 支持异质性伪成分假说; 双向成文",
+  "G3": "margin 形态 vs exp12 版(median −0.657/正45负98/p=0.8347/top-10 51.5%/85 钉地板)",
+  "validation": "train 内 80/20 时间再切分; 验证判据=IGPE vs uniform 均值; 平手取简约; 测试集只碰一次",
+  "power_limitation": "n_train=570<1000 判别可决性起点; 结论限「模型比较口径」"
+ },
+ "A_MAX": 0.95,
+ "TAU1_s": 300.0,
+ "TAU2_grid": {
+  "ts24h": 86400.0,
+  "ts72h": 259200.0,
+  "ts7d": 604800.0
+ },
+ "validation": {
+  "cut_v": 328,
+  "t_v": 964657.0,
+  "n_val": 242,
+  "results": {
+   "omori+mom": {
+    "IGPE_bits": 6.341863639428162,
+    "p": 6.306236570983134e-31,
+    "n": 242,
+    "train_ll": -4196.45,
+    "branch_a": 0.2943,
+    "W": 86400.0,
+    "tau_stage": null
+   },
+   "omori+mle": {
+    "IGPE_bits": 6.339277682292728,
+    "p": 6.854932017317231e-31,
+    "n": 242,
+    "train_ll": -4195.67,
+    "branch_a": 0.2942,
+    "W": 86400.0,
+    "tau_stage": null
+   },
+   "omori+mle_deg": {
+    "IGPE_bits": 6.384085414649861,
+    "p": 1.758468249644147e-30,
+    "n": 242,
+    "train_ll": -4408.57,
+    "branch_a": 0.3446,
+    "W": 86400.0,
+    "tau_stage": null
+   },
+   "ts24h+mom": {
+    "IGPE_bits": 5.602628949525238,
+    "p": 6.414291570686692e-25,
+    "n": 242,
+    "train_ll": -4206.06,
+    "branch_a": 0.253,
+    "W": 86400.0,
+    "tau_stage": [
+     300.0,
+     86400.0
+    ]
+   },
+   "ts24h+mle": {
+    "IGPE_bits": 5.600554633844885,
+    "p": 6.871506382457261e-25,
+    "n": 242,
+    "train_ll": -4205.23,
+    "branch_a": 0.253,
+    "W": 86400.0,
+    "tau_stage": [
+     300.0,
+     86400.0
+    ]
+   },
+   "ts24h+mle_deg": {
+    "IGPE_bits": 5.3967172744742244,
+    "p": 3.874104211637176e-23,
+    "n": 242,
+    "train_ll": -4447.56,
+    "branch_a": 0.2698,
+    "W": 86400.0,
+    "tau_stage": [
+     300.0,
+     86400.0
+    ]
+   },
+   "ts72h+mom": {
+    "IGPE_bits": 5.602628949525238,
+    "p": 6.414291570686692e-25,
+    "n": 242,
+    "train_ll": -4206.06,
+    "branch_a": 0.253,
+    "W": 259200.0,
+    "tau_stage": [
+     300.0,
+     259200.0
+    ]
+   },
+   "ts72h+mle": {
+    "IGPE_bits": 5.600554633844885,
+    "p": 6.871506382457261e-25,
+    "n": 242,
+    "train_ll": -4205.23,
+    "branch_a": 0.253,
+    "W": 259200.0,
+    "tau_stage": [
+     300.0,
+     259200.0
+    ]
+   },
+   "ts72h+mle_deg": {
+    "IGPE_bits": 5.396716126804303,
+    "p": 3.874158810549463e-23,
+    "n": 242,
+    "train_ll": -4447.56,
+    "branch_a": 0.2698,
+    "W": 259200.0,
+    "tau_stage": [
+     300.0,
+     259200.0
+    ]
+   },
+   "ts7d+mom": {
+    "IGPE_bits": 5.602628949525238,
+    "p": 6.414291570686692e-25,
+    "n": 242,
+    "train_ll": -4206.06,
+    "branch_a": 0.253,
+    "W": 604800.0,
+    "tau_stage": [
+     300.0,
+     604800.0
+    ]
+   },
+   "ts7d+mle": {
+    "IGPE_bits": 5.600554633844885,
+    "p": 6.871506382457261e-25,
+    "n": 242,
+    "train_ll": -4205.23,
+    "branch_a": 0.253,
+    "W": 604800.0,
+    "tau_stage": [
+     300.0,
+     604800.0
+    ]
+   },
+   "ts7d+mle_deg": {
+    "IGPE_bits": 5.396717243744377,
+    "p": 3.8741059066710423e-23,
+    "n": 242,
+    "train_ll": -4447.56,
+    "branch_a": 0.2698,
+    "W": 604800.0,
+    "tau_stage": [
+     300.0,
+     604800.0
+    ]
+   }
+  }
+ },
+ "selected": {
+  "key": "omori+mom",
+  "val_IGPE": 6.341863639428162,
+  "val_best_raw": "omori+mle_deg",
+  "val_best_raw_IGPE": 6.384085414649861,
+  "gap_to_best_raw": 0.0422217752216989,
+  "tie_rule": "|Δ|≤0.05 bits 取更简约（核 omori 优先、flag mom 优先）",
+  "note": "若 gap>0: 点值最高配置被简约规则压过, 差额远小于 MDE 1.10 bits 时不构成选模翻转"
+ },
+ "model_family_full": {
+  "hybrid_fr": {
+   "ll": -6960.356626404788,
+   "a": 0.37512663539071034,
+   "k": 5,
+   "BIC": 13952.44,
+   "n_par": 5,
+   "W": 86400.0,
+   "tau_stage": null,
+   "degenerate": false
+  },
+  "hybrid_mle_omori": {
+   "ll": -6989.375268560414,
+   "a": 0.38025678215627223,
+   "k": 5,
+   "BIC": 14010.48,
+   "n_par": 5,
+   "W": 86400.0,
+   "tau_stage": null,
+   "degenerate": false
+  },
+  "hybrid_mom_ts": {
+   "ll": -6960.356626404788,
+   "a": 0.37512663539071034,
+   "k": 5,
+   "BIC": 13952.44,
+   "n_par": 5,
+   "W": 86400.0,
+   "tau_stage": null,
+   "degenerate": false
+  },
+  "boost_fr": {
+   "ll": -7674.163705955165,
+   "a": 0.45973801295236477,
+   "k": 4,
+   "BIC": 15373.71,
+   "n_par": 4,
+   "W": 86400.0,
+   "tau_stage": null,
+   "degenerate": false
+  },
+  "hybrid_fr_unconstrained": {
+   "ll": -6960.356626404899,
+   "branch_a": 0.3751264015944369,
+   "mu0": 0.00035531202872611804,
+   "kappa": 2.044240741024204,
+   "mu0_constrained": 0.0003553120641401979,
+   "kappa_constrained": 2.044241819404329,
+   "bias_note": "癫痫 2605.22038 预言: 遗漏随机效应→低估背景(μ0↓)高估激发(κ↑); 此处比较约束(含 frailty flag)vs 无约束同构拟合"
+  }
+ },
+ "flag_frailty": {
+  "full_train": {
+   "mom_alpha": 0.009496664504852856,
+   "mle_alpha": 0.013657288353867814,
+   "mle_beta": 0.3585397611316108,
+   "mle_deg_alpha": 0.02523390153737632,
+   "mle_deg_beta": 7.715175033787704
+  },
+  "alpha_mle_profile_ci": {
+   "alpha_profile_mle": 0.013572686948604112,
+   "ci": [
+    0.011549899965213488,
+    0.016321721285632758
+   ],
+   "ci_hi_truncated": false,
+   "var_minus_mean": 0.15278587883842903,
+   "note": "profile 95% CI (800 点 log 网格); var≤mean(→α→∞ 零异质性)时后验=先验(ASTIN 警告); ci_hi_truncated=True 表示上界顶到网格端点(区间更宽)"
+  },
+  "alpha_mle_deg_profile_ci": {
+   "alpha_profile_mle": 0.02588309881357662,
+   "ci": [
+    0.020553752086752666,
+    0.031125504216181547
+   ],
+   "ci_hi_truncated": false,
+   "var_minus_mean": 0.15278587883842903,
+   "note": "profile 95% CI (800 点 log 网格); var≤mean(→α→∞ 零异质性)时后验=先验(ASTIN 警告); ci_hi_truncated=True 表示上界顶到网格端点(区间更宽)"
+  },
+  "q_shift": {
+   "max_abs_log2_ratio": 0.4032558033696286,
+   "mean_abs_log2_ratio": 0.39808219288387653,
+   "unseen_max_log2_ratio": 1.992566464223883,
+   "note": "mle/mom 与 mle_deg/mom 的 q 位移; unseen 层=零计数主机的最大位移(V1 检验)"
+  }
+ },
+ "test_log2lam": {
+  "hybrid_fr": -18.797102507374294,
+  "hybrid_mle_omori": -18.76232005795665,
+  "hybrid_mom_ts": -18.797102507374294,
+  "boost_fr": -19.697781748410204,
+  "flag_fr": -21.11499653182852,
+  "M_hybrid_W24_c": -18.79688308113845,
+  "M_flag": -21.11499653182852,
+  "M_boost_W24_c": -19.69755899372987
+ },
+ "test_IGPE": {
+  "hybrid_fr": {
+   "vs_uniform": 5.873480844936541,
+   "p": 2.0369930110047618e-23
+  },
+  "hybrid_mle_omori": {
+   "vs_uniform": 5.908263294354187,
+   "p": 2.7844074348519432e-24
+  },
+  "hybrid_mom_ts": {
+   "vs_uniform": 5.873480844936541,
+   "p": 2.0369930110047618e-23
+  },
+  "boost_fr": {
+   "vs_uniform": 4.972801603900632,
+   "p": 1.505416342291805e-19
+  },
+  "flag_fr": {
+   "vs_uniform": 3.5555868204823184,
+   "p": 6.453050298581483e-19
+  },
+  "M_hybrid_W24_c": {
+   "vs_uniform": 5.873700271172389,
+   "p": 2.037823777824964e-23
+  },
+  "M_flag": {
+   "vs_uniform": 3.5555868204823184,
+   "p": 6.453050298581483e-19
+  },
+  "M_boost_W24_c": {
+   "vs_uniform": 4.973024358580963,
+   "p": 1.5060127805993706e-19
+  }
+ },
+ "margins": {
+  "hybrid_fr_gt_M_hybrid_W24_c": {
+   "IGPE_bits": -0.0002194262358467198,
+   "boot_ci": [
+    -0.0002787550624288522,
+    -0.00015256651334708357
+   ],
+   "p_boot": 0.0,
+   "t_ar1": -6.985290814963758,
+   "p_ar1": 1.0477670009448571e-10,
+   "p_hac": 1.8180781999818956e-13,
+   "median": -4.257893325958476e-05,
+   "n_pos": 0,
+   "n_neg": 143,
+   "p_wilcoxon": 2.6118410418323122e-25,
+   "n_floor": 85,
+   "top10_share": null,
+   "n": 143
+  },
+  "hybrid_fr_gt_flag_fr": {
+   "IGPE_bits": 2.317894024454224,
+   "boot_ci": [
+    1.0615253078549942,
+    3.2491290009415974
+   ],
+   "p_boot": 0.0,
+   "t_ar1": 4.421115583180432,
+   "p_ar1": 2.3695361267264306e-05,
+   "p_hac": 2.0085962897153743e-05,
+   "median": -0.6572818060147332,
+   "n_pos": 45,
+   "n_neg": 98,
+   "p_wilcoxon": 0.833447976935147,
+   "n_floor": 85,
+   "top10_share": 0.5150739828999923,
+   "n": 143
+  },
+  "hybrid_fr_gt_boost_fr": {
+   "IGPE_bits": 0.9006792410359089,
+   "boot_ci": [
+    0.3106671644959228,
+    1.65015597655614
+   ],
+   "p_boot": 0.0024,
+   "t_ar1": 3.254897555815329,
+   "p_ar1": 0.0018512994181133552,
+   "p_hac": 0.0010486431754601312,
+   "median": 0.1351221694469715,
+   "n_pos": 89,
+   "n_neg": 54,
+   "p_wilcoxon": 3.159343678017799e-06,
+   "n_floor": 1,
+   "top10_share": 0.27927815845791587,
+   "n": 143
+  },
+  "hybrid_fr_gt_M_flag": {
+   "IGPE_bits": 2.317894024454224,
+   "boot_ci": [
+    1.0615253078549942,
+    3.2491290009415974
+   ],
+   "p_boot": 0.0,
+   "t_ar1": 4.421115583180432,
+   "p_ar1": 2.3695361267264306e-05,
+   "p_hac": 2.0085962897153743e-05,
+   "median": -0.6572818060147332,
+   "n_pos": 45,
+   "n_neg": 98,
+   "p_wilcoxon": 0.833447976935147,
+   "n_floor": 85,
+   "top10_share": 0.5150739828999923,
+   "n": 143
+  },
+  "hybrid_mle_omori_gt_M_hybrid_W24_c": {
+   "IGPE_bits": 0.03456302318179858,
+   "boot_ci": [
+    -0.022836960543325964,
+    0.08581848366674431
+   ],
+   "p_boot": 0.262,
+   "t_ar1": 1.5182820444723963,
+   "p_ar1": 0.132953248358876,
+   "p_hac": 0.13330773124611633,
+   "median": -0.008193136212507817,
+   "n_pos": 56,
+   "n_neg": 87,
+   "p_wilcoxon": 0.5710263374681934,
+   "n_floor": 1,
+   "top10_share": 0.7929336528741616,
+   "n": 143
+  },
+  "hybrid_mom_ts_gt_M_hybrid_W24_c": {
+   "IGPE_bits": -0.0002194262358467198,
+   "boot_ci": [
+    -0.0002787550624288522,
+    -0.00015256651334708357
+   ],
+   "p_boot": 0.0,
+   "t_ar1": -6.985290814963758,
+   "p_ar1": 1.0477670009448571e-10,
+   "p_hac": 1.8180781999818956e-13,
+   "median": -4.257893325958476e-05,
+   "n_pos": 0,
+   "n_neg": 143,
+   "p_wilcoxon": 2.6118410418323122e-25,
+   "n_floor": 85,
+   "top10_share": null,
+   "n": 143
+  }
+ },
+ "verdict_G1": "选定配置与现版 M-hybrid 同构（验证集未选出更优变体）→ frailty 升级在此数据上无实质变化, 回退 hybrid（如实的阴性升级）",
+ "G2_directional": {
+  "share_boost_fr": 0.7201619578795727,
+  "share_boost_exp12": 0.7201817792534264,
+  "boost_margin_fr": 2.317894024454224,
+  "boost_margin_exp12": 2.3181,
+  "supported": null,
+  "note": "支持=boost 份额缩小且边际缩小（异质性伪成分被 frailty 吸收）; 双向成文; 同构配置时无意义置 None"
+ },
+ "G3_margin_shape": {
+  "exp12": {
+   "median": -0.6572392270814735,
+   "n_pos": 45,
+   "n_neg": 98,
+   "n_floor": 85,
+   "top10_share": 0.5150576989966745
+  },
+  "frailty": {
+   "median": -0.6572818060147332,
+   "n_pos": 45,
+   "n_neg": 98,
+   "n_floor": 85,
+   "top10_share": 0.5150739828999923
+  },
+  "note": "形态对比: 若均值由少数事件驱动的结构被 frailty 吸收 → median/正负占比应向正侧移动"
+ },
+ "share_boost_fr": 0.7201619578795727,
+ "D_stratified": {
+  "hybrid_fr": {
+   "seen": {
+    "n": 94,
+    "vs_uniform": 7.465384307959189,
+    "p": 1.4736054330984917e-36
+   },
+   "unseen": {
+    "n": 49,
+    "vs_uniform": 2.8196252219951368,
+    "p": 0.01615808305767758
+   }
+  },
+  "M_hybrid_W24_c": {
+   "seen": {
+    "n": 94,
+    "vs_uniform": 7.465565524101605,
+    "p": 1.4791156460356571e-36
+   },
+   "unseen": {
+    "n": 49,
+    "vs_uniform": 2.8199179492265443,
+    "p": 0.016152407296088175
+   }
+  },
+  "flag_fr": {
+   "seen": {
+    "n": 94,
+    "vs_uniform": 6.38621307943613,
+    "p": 8.621934280664785e-66
+   },
+   "unseen": {
+    "n": 49,
+    "vs_uniform": -1.8745941660821386,
+    "p": 2.1818254987816557e-16
+   }
+  },
+  "M_flag": {
+   "seen": {
+    "n": 94,
+    "vs_uniform": 6.38621307943613,
+    "p": 8.621934280664785e-66
+   },
+   "unseen": {
+    "n": 49,
+    "vs_uniform": -1.8745941660821386,
+    "p": 2.1818254987816557e-16
+   }
+  },
+  "boost_fr": {
+   "seen": {
+    "n": 94,
+    "vs_uniform": 5.3660781700354585,
+    "p": 2.694448054677146e-18
+   },
+   "unseen": {
+    "n": 49,
+    "vs_uniform": 4.218352681111375,
+    "p": 0.00010960604657569062
+   }
+  }
+ },
+ "ts_full_train_supplement": {
+  "results": {
+   "ts24h": {
+    "train_ll": -6996.73,
+    "BIC": 14025.19,
+    "branch_a": 0.3359,
+    "twostage_w_short": 0.9995,
+    "twostage_mass_long": 0.0005
+   },
+   "ts72h": {
+    "train_ll": -7007.91,
+    "BIC": 14047.56,
+    "branch_a": 0.3437,
+    "twostage_w_short": 0.9997,
+    "twostage_mass_long": 0.0003
+   },
+   "ts7d": {
+    "train_ll": -7019.54,
+    "BIC": 14070.8,
+    "branch_a": 0.3868,
+    "twostage_w_short": 0.9997,
+    "twostage_mass_long": 0.0003
+   }
+  },
+  "note": "选定核=omori 时全 train 重拟合族无 twostage 行, 此补丁补齐双时间尺度核的全 train 证据; 三档 τ2 的 ll/w 几乎不随 τ2 变化=第二分量权重趋向 0 的直接证据（长尾由 flag 静态项承担, 与设计一致）; 对照 omori 全 train ll=-6960.36",
+  "provenance_exp19": "本块原系运行后手工补丁（JSON mtime 晚于日志/done, 补丁程序未归档）——已由 exp19 以归档脚本全 train 重拟合复现（Δll≤0.004, omori 参考管线自证逐位）, 权威=results/exp19_ts_kernel_fulltrain.json; 本指针由 patch_r3_corrections.py 写入块内（R3 清单8: 原「未溯源」标注只在顶层 R2_correction, 块内无指针, 落点不实之修复）"
+ },
+ "R2_correction_20261021": {
+  "G1_prereg_deviation": "预登记三分支字面判定: 选定配置边际 hybrid_fr−M_hybrid_W24_c CI=[-0.000279,-0.000153] 上界<0 → 应读「有害」分支; 脚本 exp16_frailty_upgrade.py:403-406 增设了预登记外 same_as_current & |ΔIGPE|<0.01 首分支判「无实质变化」（字面偏离）。实质动作两分支一致（均回退 hybrid）; 幅度 −0.0002 bits 系同一模型两次拟合之差的常数级小差（正0/负143、p_wilcoxon=2.6e-25、p_boot=0——单独引用会被误读为 frailty 显著有害）。处置: 等价阈值 |Δ|<0.01 bits 作为预登记修订显式落盘于本字段与 RESEARCH_LOG §10（2026-10-21 R2 补实验轮）; G1 实质结论=同构回退不变",
+  "G1_basis_sentence_correction": "RESEARCH_LOG:228 曾引未选定配置 hybrid_mle_omori 边际（+0.0346 CI[-0.023,+0.086] p=0.26）作 G1 依据——更正为选定配置边际（-0.000219 CI[-0.000279,-0.000153], 见 margins.hybrid_fr_gt_M_hybrid_W24_c）。「EB 升级无显著增量」限定为等暴露 MLE 版（验证集口径）; 暴露加权 mle_deg 版未上测试段（验证集 gap=0.0422<0.05 bits 被简约规则压过, ≪MDE 1.10; 0.05 阈值非功效推导——验证段 n=242 的 MDE 量级≈0.8 bits, 阈值取 0 则 mle_deg 入选——选模结局对该阈值敏感, 成文须披露）",
+  "ts_full_train_supplement_provenance": "本 JSON 的 ts_full_train_supplement 块系运行后手工补丁（exp16_full.log 与 exp16.done 止于 10:55:37, JSON mtime 10:58:03; 字段名与数字不在任何归档脚本/日志中, 补丁代码未归档）——溯源链破口。已由 scripts/exp19_ts_kernel_fulltrain.py 以归档代码全 train 重拟合重算（权威=results/exp19_ts_kernel_fulltrain.json）; 本块数字标注「未溯源、由 exp19 取代」, 科学结论（双时间尺度核被数据拒绝）以 exp19 复算为准",
+  "hybrid_fr_unconstrained_label": "该块两端均含 frailty flag（同一 q_sel）——只能证「a≤0.95 约束未 binding」（a=0.375 远离边界, μ0/κ 与约束版逐位近同）; 测不了原 bias_note 所称「遗漏随机效应→低估背景高估激发」的偏倚方向（需无 frailty 同构对照, 未做, 列入下轮清单）。bias_note 表述作废",
+  "prereg_validation_tie_threshold": "preregistered.validation 原文只写「平手取简约」——0.05 bits 阈值原只在脚本头 docstring 与 selected.tie_rule; 补记: 验证判据=验证段逐事件 IGPE vs uniform 均值, 平手阈值 |Δ|≤0.05 bits 取更简约（核 omori 优先、flag mom 优先）",
+  "validation_grid_effective_dof": "验证网格 ts24h/ts72h/ts7d 三档数字逐位相同（w_short≈0.9995–0.9997, 第二分量质量<0.05%）——12 配置有效自由度≈6, 选模网格按 6 独立档申报",
+  "_written_by": "scripts/exp19_ts_kernel_fulltrain.py (R2 补实验与拔高人, 2026-10-21)"
+ },
+ "R3_correction_20261021": {
+  "mle_deg_testface": "暴露加权 mle_deg 变体测试面一次性评估完成=results/exp21_mle_deg_testface.json（预登记三分支判定=有害分支: mle_deg−M_hybrid_W24_c=−1.0512 bits CI[−1.6263,−0.5099] p_boot=0.0004 上界<0）——「维持现版 hybrid」判定强化, 本 JSON 验证集 gap=0.0422 被简约规则压过的选模结论获得测试面佐证",
+  "no_frailty_contrast": "无 frailty 同构对照完成=results/exp22_nofrailty_contrast.json（真实 train 内 M_boost vs M_hybrid 参数方向+合成已知 frailty 三档直接测偏倚）——本 JSON hybrid_fr_unconstrained 块「两端均含 frailty 只证约束未 binding」的缺口已收口"
+ }
+}
